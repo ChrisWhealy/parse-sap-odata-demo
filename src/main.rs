@@ -2,7 +2,7 @@ pub mod auth;
 pub mod err_handlers;
 
 use crate::{auth::fetch_auth, err_handlers::error_handlers};
-use parse_sap_atom_feed::{atom::feed::Feed, xml::sanitise_xml};
+use parse_sap_atom_feed::{atom::feed::Feed, odata_error::ODataError, xml::sanitise_xml};
 
 use actix_web::{
     error, get,
@@ -38,6 +38,13 @@ async fn doc_root(
     Ok(HttpResponse::build(StatusCode::OK)
         .content_type("text/html; charset=utf-8")
         .body(body))
+}
+
+fn parse_odata_error(raw_xml: &str) -> String {
+    match ODataError::from_str(&raw_xml) {
+        Ok(odata_error) => format!("{:#?}", odata_error),
+        Err(e) => format!("{:#?}", e),
+    }
 }
 
 fn parse_raw_xml(es_name: &str, raw_xml: &str) -> String {
@@ -120,7 +127,7 @@ async fn entity_set(path: web::Path<String>) -> Result<HttpResponse, Error> {
 
     println!("GET: /{}", entity_set_name);
 
-    let http_responce = match fetch_auth() {
+    let http_response = match fetch_auth() {
         Ok(auth_chars) => {
             match client
                 .get(format!(
@@ -136,12 +143,18 @@ async fn entity_set(path: web::Path<String>) -> Result<HttpResponse, Error> {
                 .text()
                 .await
             {
-                Ok(res) => {
-                    let clean_xml = sanitise_xml(String::from(res));
+                Ok(raw_xml) => {
+                  // Not the best way to handle errors, but it works
+                  let response = if raw_xml.contains("<error ") {
+                    parse_odata_error(&raw_xml)
+                  } else {
+                    let clean_xml = sanitise_xml(String::from(raw_xml));
+                    parse_raw_xml(&entity_set_name, &clean_xml)
+                  };
 
-                    HttpResponse::Ok()
-                        .content_type(ContentType::plaintext())
-                        .body(parse_raw_xml(&entity_set_name, &clean_xml))
+                  HttpResponse::Ok()
+                      .content_type(ContentType::plaintext())
+                      .body(response)
                 },
                 Err(err) => HttpResponse::BadRequest().body(format!("{:#?}", err)),
             }
@@ -149,7 +162,7 @@ async fn entity_set(path: web::Path<String>) -> Result<HttpResponse, Error> {
         Err(err) => HttpResponse::BadRequest().body(format!("{:#?}", err)),
     };
 
-    Ok(http_responce)
+    Ok(http_response)
 }
 
 // ---------------------------------------------------------------------------------------------------------------------
