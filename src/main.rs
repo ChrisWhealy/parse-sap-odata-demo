@@ -40,73 +40,73 @@ async fn doc_root(
         .body(body))
 }
 
-fn fetch_entity_set(es_name: &str, xml_str: &str) -> String {
+fn parse_raw_xml(es_name: &str, raw_xml: &str) -> String {
     match es_name {
-        "BusinessPartnerSet" => match Feed::<BusinessPartner>::from_str(&xml_str) {
-            Ok(bp) => format!("{bp:#?}"),
+        "BusinessPartnerSet" => match Feed::<BusinessPartner>::from_str(&raw_xml) {
+            Ok(parsed_feed) => format!("{parsed_feed:#?}"),
             Err(e) => format!("Error: {e:?}"),
         },
-        "ProductSet" => match Feed::<Product>::from_str(&xml_str) {
-            Ok(bp) => format!("{bp:#?}"),
+        "ProductSet" => match Feed::<Product>::from_str(&raw_xml) {
+            Ok(parsed_feed) => format!("{parsed_feed:#?}"),
             Err(e) => format!("Error: {e:?}"),
         },
-        "SalesOrderSet" => match Feed::<SalesOrder>::from_str(&xml_str) {
-            Ok(bp) => format!("{bp:#?}"),
+        "SalesOrderSet" => match Feed::<SalesOrder>::from_str(&raw_xml) {
+            Ok(parsed_feed) => format!("{parsed_feed:#?}"),
             Err(e) => format!("Error: {e:?}"),
         },
-        "SalesOrderLineItemSet" => match Feed::<SalesOrderLineItem>::from_str(&xml_str) {
-            Ok(bp) => format!("{bp:#?}"),
+        "SalesOrderLineItemSet" => match Feed::<SalesOrderLineItem>::from_str(&raw_xml) {
+            Ok(parsed_feed) => format!("{parsed_feed:#?}"),
             Err(e) => format!("Error: {e:?}"),
         },
-        "ContactSet" => match Feed::<Contact>::from_str(&xml_str) {
-            Ok(bp) => format!("{bp:#?}"),
+        "ContactSet" => match Feed::<Contact>::from_str(&raw_xml) {
+            Ok(parsed_feed) => format!("{parsed_feed:#?}"),
             Err(e) => format!("Error: {e:?}"),
         },
-        "VH_SexSet" => match Feed::<VhSex>::from_str(&xml_str) {
-            Ok(bp) => format!("{bp:#?}"),
+        "VH_SexSet" => match Feed::<VhSex>::from_str(&raw_xml) {
+            Ok(parsed_feed) => format!("{parsed_feed:#?}"),
             Err(e) => format!("Error: {e:?}"),
         },
-        "VH_CountrySet" => match Feed::<VhCountry>::from_str(&xml_str) {
-            Ok(bp) => format!("{bp:#?}"),
+        "VH_CountrySet" => match Feed::<VhCountry>::from_str(&raw_xml) {
+            Ok(parsed_feed) => format!("{parsed_feed:#?}"),
             Err(e) => format!("Error: {e:?}"),
         },
-        "VH_AddressTypeSet" => match Feed::<VhAddressType>::from_str(&xml_str) {
-            Ok(bp) => format!("{bp:#?}"),
+        "VH_AddressTypeSet" => match Feed::<VhAddressType>::from_str(&raw_xml) {
+            Ok(parsed_feed) => format!("{parsed_feed:#?}"),
             Err(e) => format!("Error: {e:?}"),
         },
-        "VH_CategorySet" => match Feed::<VhCategory>::from_str(&xml_str) {
-            Ok(bp) => format!("{bp:#?}"),
+        "VH_CategorySet" => match Feed::<VhCategory>::from_str(&raw_xml) {
+            Ok(parsed_feed) => format!("{parsed_feed:#?}"),
             Err(e) => format!("Error: {e:?}"),
         },
-        "VH_CurrencySet" => match Feed::<VhCurrency>::from_str(&xml_str) {
-            Ok(bp) => format!("{bp:#?}"),
+        "VH_CurrencySet" => match Feed::<VhCurrency>::from_str(&raw_xml) {
+            Ok(parsed_feed) => format!("{parsed_feed:#?}"),
             Err(e) => format!("Error: {e:?}"),
         },
-        "VH_UnitQuantitySet" => match Feed::<VhUnitQuantity>::from_str(&xml_str) {
-            Ok(bp) => format!("{bp:#?}"),
+        "VH_UnitQuantitySet" => match Feed::<VhUnitQuantity>::from_str(&raw_xml) {
+            Ok(parsed_feed) => format!("{parsed_feed:#?}"),
             Err(e) => format!("Error: {e:?}"),
         },
-        "VH_UnitWeightSet" => match Feed::<VhUnitWeight>::from_str(&xml_str) {
-            Ok(bp) => format!("{bp:#?}"),
+        "VH_UnitWeightSet" => match Feed::<VhUnitWeight>::from_str(&raw_xml) {
+            Ok(parsed_feed) => format!("{parsed_feed:#?}"),
             Err(e) => format!("Error: {e:?}"),
         },
-        "VH_UnitLengthSet" => match Feed::<VhUnitLength>::from_str(&xml_str) {
-            Ok(bp) => format!("{bp:#?}"),
+        "VH_UnitLengthSet" => match Feed::<VhUnitLength>::from_str(&raw_xml) {
+            Ok(parsed_feed) => format!("{parsed_feed:#?}"),
             Err(e) => format!("Error: {e:?}"),
         },
-        "VH_ProductTypeCodeSet" => match Feed::<VhProductTypeCode>::from_str(&xml_str) {
-            Ok(bp) => format!("{bp:#?}"),
+        "VH_ProductTypeCodeSet" => match Feed::<VhProductTypeCode>::from_str(&raw_xml) {
+            Ok(parsed_feed) => format!("{parsed_feed:#?}"),
             Err(e) => format!("Error: {e:?}"),
         },
-        "VH_BPRoleSet" => match Feed::<VhBpRole>::from_str(&xml_str) {
-            Ok(bp) => format!("{bp:#?}"),
+        "VH_BPRoleSet" => match Feed::<VhBpRole>::from_str(&raw_xml) {
+            Ok(parsed_feed) => format!("{parsed_feed:#?}"),
             Err(e) => format!("Error: {e:?}"),
         },
-        "VH_LanguageSet" => match Feed::<VhLanguage>::from_str(&xml_str) {
-            Ok(bp) => format!("{bp:#?}"),
+        "VH_LanguageSet" => match Feed::<VhLanguage>::from_str(&raw_xml) {
+            Ok(parsed_feed) => format!("{parsed_feed:#?}"),
             Err(e) => format!("Error: {e:?}"),
         },
-        _ => format!("Error: invalid entity set name {}", es_name),
+        _ => format!("Error: invalid entity set name '{}'", es_name),
     }
 }
 
@@ -141,11 +141,11 @@ async fn entity_set(path: web::Path<String>) -> Result<HttpResponse, Error> {
 
                     HttpResponse::Ok()
                         .content_type(ContentType::plaintext())
-                        .body(fetch_entity_set(&entity_set_name, &clean_xml))
+                        .body(parse_raw_xml(&entity_set_name, &clean_xml))
                 },
                 Err(err) => HttpResponse::BadRequest().body(format!("{:#?}", err)),
             }
-        },
+        }
         Err(err) => HttpResponse::BadRequest().body(format!("{:#?}", err)),
     };
 

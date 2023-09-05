@@ -1,7 +1,7 @@
 [package]
 name = "parse-sap-odata-demo"
 edition = "2021"
-version = "0.1.0"
+version = "0.1.2"
 authors = ["Chris Whealy <chris@lighthouse.no>"]
 description = "Minimal demo app that consumes the SAP OData service GWSAMPLE_BASIC"
 keywords = ["odata", "sap", "parser", "opendata", "gwsample_basic"]
@@ -10,6 +10,7 @@ license = "MIT"
 
 [build-dependencies]
 parse-sap-odata = "1.1"
+# parse-sap-odata = { path = "../parse-sap-odata" }
 
 [dependencies]
 actix-web = "4.3"

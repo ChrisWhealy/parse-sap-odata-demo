@@ -1,6 +1,6 @@
-# Build Test App
+# Demo App for Reading SAP OData Service `GWSAMPLE_BASIC`
 
-This is a minimal demo app that starts an Actix webserver to request data from each of the entity sets in SAP's demo OData service `GWSAMPLE_BASIC`.
+This is a minimal demo app that starts an Actix webserver to request data from the selected entity set in SAP's demo OData service `GWSAMPLE_BASIC`.
 
 It does this in two stages:
 
