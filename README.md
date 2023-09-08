@@ -46,10 +46,10 @@ The raw XML will contain `m:etag` attributes with values like this:
 <entry m:etag="W/"datetime'2023-08-31T01%3A00%3A06.0000000'"">
 ```
 
-The extra `"W/` characters at the start and the extra `"` character at the end are invalid XML and may cause an XML parser to throws its toys out of the pram.
+The extra `"W/` characters at the start and the extra `"` character at the end are invalid XML and may cause an XML parser to throw its toys out of the pram.
 So, before parsing the raw string containing this XML, such invalid values are checked for and removed.
 
-In this case, the `m:etag` value is sanitised to:
+In this case, the above `m:etag` value is sanitised to:
 
 ```xml
 <entry m:etag="datetime'2023-08-31T01%3A00%3A06.0000000'">
@@ -65,7 +65,7 @@ For example:
 <d:Landx>St Kitts&Nevis</d:Landx>
 ```
 
-In order to stop the XML parser from barfing, these characters must be replaced with their character encoding:
+In order to stop the XML parser from barfing, this character must be replaced with its character encoding:
 
 ```xml
 <d:Category>PDAs &amp; Organizers</d:Category>
