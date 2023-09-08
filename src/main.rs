@@ -10,10 +10,15 @@ use actix_web::{
     middleware, web, App, Error, HttpResponse, HttpServer, Result,
 };
 use serde_json::json;
-use std::{collections::HashMap, str};
+use std::{
+    collections::HashMap,
+    str::{self, FromStr},
+};
 use tinytemplate::TinyTemplate;
 
 include!(concat!(env!("OUT_DIR"), "/gwsample_basic.rs"));
+
+use gwsample_basic::*;
 
 static INDEX: &str = include_str!("../html/index.html");
 static HOST_PATH: &[u8] = "https://sapes5.sapdevcenter.com/sap/opu/odata/iwbep".as_bytes();

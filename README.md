@@ -2,20 +2,21 @@
 
 This is a minimal demo app that starts an Actix webserver to request data from the selected entity set in SAP's demo OData service `GWSAMPLE_BASIC`.
 
-It does this in two stages:
+It does this in the following stages:
 
 1. Runs a build script that consumes the XML metadata description of `GWSAMPLE_BASIC` (see the functionality in crate [`parse-sap-odata`](https://crates.io/crates/parse-sap-odata))
-2. Using the `struct`s and `enum`s generated in the first step, the data from each of the entity sets in this OData service can then be consumed.
+1. Generates a file called `gwsample_basic.rs` containing the module `gwsample_basic`
+2. Using the generated `struct`s and `enum`s, the `atom:Feed` information exposed as entity sets in this OData service can then be consumed.
 
-In this minimal demo scenario, the entity set data is simply returned to the browser as plain text.
+In this minimal demo scenario, the parsed entity set data is simply returned to the browser as plain text.
 
 ## Prerequisites
 
 You must already have a userid and password for the SAP Dev Center server `sapes5.sapdevcenter.com`
 
 1. Clone this repo
-1. `cd parse_sap_odata/build_test_app`
-1. Create a `.env` file containing your SAP DevCenter userid and password in the following format
+2. `cd parse_sap_odata_demo`
+3. Create a `.env` file containing your SAP DevCenter userid and password in the following format
 
    ```
    SAP_USER=<your userid>
