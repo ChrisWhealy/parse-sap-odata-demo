@@ -2,16 +2,20 @@ use std::{
     fs::File,
     io::{BufReader, Read},
     path::Path,
+    str::FromStr,
     string::FromUtf8Error,
 };
 
 use parse_sap_atom_feed::{atom::feed::Feed, xml::sanitise_xml};
 
-static FEED_XML_BASE: &str = "https://SAPES5.SAPDEVCENTER.COM:443/sap/opu/odata/iwbep/GWSAMPLE_BASIC/";
+static FEED_XML_BASE: &str =
+    "https://SAPES5.SAPDEVCENTER.COM:443/sap/opu/odata/iwbep/GWSAMPLE_BASIC/";
 
 static ATOM_XML_NAMESPACE: &str = "http://www.w3.org/2005/Atom";
 
 include!(concat!(env!("OUT_DIR"), "/gwsample_basic.rs"));
+
+use gwsample_basic::*;
 
 fn fetch_xml_as_string(filename: &str) -> Result<String, FromUtf8Error> {
     let mut xml_buffer: Vec<u8> = Vec::new();
@@ -42,22 +46,31 @@ pub fn should_parse_business_partner_set() {
 
             if let Some(entries) = feed.entries {
                 assert_eq!(entries.len(), 5);
-                assert_eq!(entries[0].id, format!("{}('0100000000')", base_service_name));
+                assert_eq!(
+                    entries[0].id,
+                    format!("{}('0100000000')", base_service_name)
+                );
 
                 let etag = String::from(entries[0].etag.as_ref().unwrap());
                 assert!(etag.starts_with("datetime"));
 
-                assert_eq!(entries[0].content.properties.address.city, Some(String::from("Walldorf")));
+                assert_eq!(
+                    entries[0].content.properties.address.city,
+                    Some(String::from("Walldorf"))
+                );
                 assert_eq!(entries[0].content.properties.company_name, "SAP");
                 assert_eq!(entries[0].content.properties.currency_code, "EUR");
             } else {
                 assert!(
                     1 == 2,
                     "{}",
-                    format!("Entity set {} should not be empty!", String::from(ENTITY_SET_NAME))
+                    format!(
+                        "Entity set {} should not be empty!",
+                        String::from(ENTITY_SET_NAME)
+                    )
                 )
             }
-        },
+        }
         Err(err) => println!("XML test data was not in UTF8 format: {}", err),
     };
 }
@@ -88,15 +101,21 @@ pub fn should_parse_contact_set() {
                     Some(String::from("Robert-Koch-Straße"))
                 );
                 assert_eq!(entries[0].content.properties.first_name, "Karl");
-                assert_eq!(entries[0].content.properties.last_name, Some(String::from("Müller")));
+                assert_eq!(
+                    entries[0].content.properties.last_name,
+                    Some(String::from("Müller"))
+                );
             } else {
                 assert!(
                     1 == 2,
                     "{}",
-                    format!("Entity set {} should not be empty!", String::from(ENTITY_SET_NAME))
+                    format!(
+                        "Entity set {} should not be empty!",
+                        String::from(ENTITY_SET_NAME)
+                    )
                 )
             }
-        },
+        }
         Err(err) => println!("XML test data was not in UTF8 format: {}", err),
     };
 }
@@ -134,10 +153,13 @@ pub fn should_parse_product_set() {
                 assert!(
                     1 == 2,
                     "{}",
-                    format!("Entity set {} should not be empty!", String::from(ENTITY_SET_NAME))
+                    format!(
+                        "Entity set {} should not be empty!",
+                        String::from(ENTITY_SET_NAME)
+                    )
                 )
             }
-        },
+        }
         Err(err) => println!("XML test data was not in UTF8 format: {}", err),
     };
 }
@@ -166,16 +188,25 @@ pub fn should_parse_sales_order_line_item_set() {
 
                 assert_eq!(entries[0].etag.as_ref(), None);
                 assert_eq!(entries[0].content.properties.product_id, "HT-1000");
-                assert_eq!(entries[0].content.properties.currency_code, Some(String::from("USD")));
-                assert_eq!(entries[0].content.properties.delivery_date, "2018-01-07T23:00:00.0000000");
+                assert_eq!(
+                    entries[0].content.properties.currency_code,
+                    Some(String::from("USD"))
+                );
+                assert_eq!(
+                    entries[0].content.properties.delivery_date,
+                    "2018-01-07T23:00:00.0000000"
+                );
             } else {
                 assert!(
                     1 == 2,
                     "{}",
-                    format!("Entity set {} should not be empty!", String::from(ENTITY_SET_NAME))
+                    format!(
+                        "Entity set {} should not be empty!",
+                        String::from(ENTITY_SET_NAME)
+                    )
                 )
             }
-        },
+        }
         Err(err) => println!("XML test data was not in UTF8 format: {}", err),
     };
 }
@@ -204,7 +235,10 @@ pub fn should_parse_sales_order_set() {
 
                 assert_eq!(entries[0].etag.as_ref(), None);
                 assert_eq!(entries[0].content.properties.sales_order_id, "0500000000");
-                assert_eq!(entries[0].content.properties.currency_code, Some(String::from("USD")));
+                assert_eq!(
+                    entries[0].content.properties.currency_code,
+                    Some(String::from("USD"))
+                );
                 assert_eq!(entries[0].content.properties.gross_amount, 14385.85);
                 assert_eq!(
                     entries[0].content.properties.delivery_status_description,
@@ -214,10 +248,13 @@ pub fn should_parse_sales_order_set() {
                 assert!(
                     1 == 2,
                     "{}",
-                    format!("Entity set {} should not be empty!", String::from(ENTITY_SET_NAME))
+                    format!(
+                        "Entity set {} should not be empty!",
+                        String::from(ENTITY_SET_NAME)
+                    )
                 )
             }
-        },
+        }
         Err(err) => println!("XML test data was not in UTF8 format: {}", err),
     };
 }
@@ -251,10 +288,13 @@ pub fn should_parse_vh_address_type_set() {
                 assert!(
                     1 == 2,
                     "{}",
-                    format!("Entity set {} should not be empty!", String::from(ENTITY_SET_NAME))
+                    format!(
+                        "Entity set {} should not be empty!",
+                        String::from(ENTITY_SET_NAME)
+                    )
                 )
             }
-        },
+        }
         Err(err) => println!("XML test data was not in UTF8 format: {}", err),
     };
 }
@@ -288,10 +328,13 @@ pub fn should_parse_vh_bp_role_set() {
                 assert!(
                     1 == 2,
                     "{}",
-                    format!("Entity set {} should not be empty!", String::from(ENTITY_SET_NAME))
+                    format!(
+                        "Entity set {} should not be empty!",
+                        String::from(ENTITY_SET_NAME)
+                    )
                 )
             }
-        },
+        }
         Err(err) => println!("XML test data was not in UTF8 format: {}", err),
     };
 }
@@ -324,10 +367,13 @@ pub fn should_parse_vh_category_set() {
                 assert!(
                     1 == 2,
                     "{}",
-                    format!("Entity set {} should not be empty!", String::from(ENTITY_SET_NAME))
+                    format!(
+                        "Entity set {} should not be empty!",
+                        String::from(ENTITY_SET_NAME)
+                    )
                 )
             }
-        },
+        }
         Err(err) => println!("XML test data was not in UTF8 format: {}", err),
     };
 }
@@ -361,10 +407,13 @@ pub fn should_parse_vh_country_set() {
                 assert!(
                     1 == 2,
                     "{}",
-                    format!("Entity set {} should not be empty!", String::from(ENTITY_SET_NAME))
+                    format!(
+                        "Entity set {} should not be empty!",
+                        String::from(ENTITY_SET_NAME)
+                    )
                 )
             }
-        },
+        }
         Err(err) => println!("XML test data was not in UTF8 format: {}", err),
     };
 }
@@ -393,15 +442,21 @@ pub fn should_parse_vh_currency_set() {
 
                 assert_eq!(entries[0].etag.as_ref(), None);
                 assert_eq!(entries[0].content.properties.waers, "ADP");
-                assert_eq!(entries[0].content.properties.ltext, "Andorran Peseta --> (Old --> EUR)");
+                assert_eq!(
+                    entries[0].content.properties.ltext,
+                    "Andorran Peseta --> (Old --> EUR)"
+                );
             } else {
                 assert!(
                     1 == 2,
                     "{}",
-                    format!("Entity set {} should not be empty!", String::from(ENTITY_SET_NAME))
+                    format!(
+                        "Entity set {} should not be empty!",
+                        String::from(ENTITY_SET_NAME)
+                    )
                 )
             }
-        },
+        }
         Err(err) => println!("XML test data was not in UTF8 format: {}", err),
     };
 }
@@ -435,10 +490,13 @@ pub fn should_parse_vh_language_set() {
                 assert!(
                     1 == 2,
                     "{}",
-                    format!("Entity set {} should not be empty!", String::from(ENTITY_SET_NAME))
+                    format!(
+                        "Entity set {} should not be empty!",
+                        String::from(ENTITY_SET_NAME)
+                    )
                 )
             }
-        },
+        }
         Err(err) => println!("XML test data was not in UTF8 format: {}", err),
     };
 }
@@ -472,10 +530,13 @@ pub fn should_parse_vh_product_type_code_set() {
                 assert!(
                     1 == 2,
                     "{}",
-                    format!("Entity set {} should not be empty!", String::from(ENTITY_SET_NAME))
+                    format!(
+                        "Entity set {} should not be empty!",
+                        String::from(ENTITY_SET_NAME)
+                    )
                 )
             }
-        },
+        }
         Err(err) => println!("XML test data was not in UTF8 format: {}", err),
     };
 }
@@ -509,10 +570,13 @@ pub fn should_parse_vh_sex_set() {
                 assert!(
                     1 == 2,
                     "{}",
-                    format!("Entity set {} should not be empty!", String::from(ENTITY_SET_NAME))
+                    format!(
+                        "Entity set {} should not be empty!",
+                        String::from(ENTITY_SET_NAME)
+                    )
                 )
             }
-        },
+        }
         Err(err) => println!("XML test data was not in UTF8 format: {}", err),
     };
 }
@@ -546,10 +610,13 @@ pub fn should_parse_vh_unit_length_set() {
                 assert!(
                     1 == 2,
                     "{}",
-                    format!("Entity set {} should not be empty!", String::from(ENTITY_SET_NAME))
+                    format!(
+                        "Entity set {} should not be empty!",
+                        String::from(ENTITY_SET_NAME)
+                    )
                 )
             }
-        },
+        }
         Err(err) => println!("XML test data was not in UTF8 format: {}", err),
     };
 }
@@ -583,10 +650,13 @@ pub fn should_parse_vh_unit_quantity_set() {
                 assert!(
                     1 == 2,
                     "{}",
-                    format!("Entity set {} should not be empty!", String::from(ENTITY_SET_NAME))
+                    format!(
+                        "Entity set {} should not be empty!",
+                        String::from(ENTITY_SET_NAME)
+                    )
                 )
             }
-        },
+        }
         Err(err) => println!("XML test data was not in UTF8 format: {}", err),
     };
 }
@@ -620,10 +690,13 @@ pub fn should_parse_vh_unit_weight_set() {
                 assert!(
                     1 == 2,
                     "{}",
-                    format!("Entity set {} should not be empty!", String::from(ENTITY_SET_NAME))
+                    format!(
+                        "Entity set {} should not be empty!",
+                        String::from(ENTITY_SET_NAME)
+                    )
                 )
             }
-        },
+        }
         Err(err) => println!("XML test data was not in UTF8 format: {}", err),
     };
 }
