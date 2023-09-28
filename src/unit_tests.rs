@@ -1,3 +1,5 @@
+use parse_sap_atom_feed::{atom::feed::Feed, xml::sanitise_xml};
+use rust_decimal::Decimal;
 use std::{
     fs::File,
     io::{BufReader, Read},
@@ -5,8 +7,6 @@ use std::{
     str::FromStr,
     string::FromUtf8Error,
 };
-
-use parse_sap_atom_feed::{atom::feed::Feed, xml::sanitise_xml};
 
 static FEED_XML_BASE: &str =
     "https://SAPES5.SAPDEVCENTER.COM:443/sap/opu/odata/iwbep/GWSAMPLE_BASIC/";
@@ -151,8 +151,14 @@ pub fn should_parse_product_set() {
 
                 assert_eq!(entries[0].content.properties.product_id, "2GOYBEBFLB");
                 assert_eq!(entries[0].content.properties.category, "Notebooks");
-                // assert_eq!(entries[0].content.properties.weight_measure, Decimal::new(4200000, 3));
-                assert_eq!(entries[0].content.properties.weight_measure, 4200.0);
+                assert_eq!(
+                    entries[0].content.properties.weight_measure,
+                    Some(Decimal::new(4200000, 3))
+                );
+                assert_eq!(
+                    entries[0].content.properties.weight_measure,
+                    Some(Decimal::from_str("4200.0").unwrap())
+                );
                 assert_eq!(
                     entries[0].content.properties.created_at,
                     Some(chrono::NaiveDateTime::from_str(expected_date).unwrap())
@@ -248,7 +254,10 @@ pub fn should_parse_sales_order_set() {
                     entries[0].content.properties.currency_code,
                     Some(String::from("USD"))
                 );
-                assert_eq!(entries[0].content.properties.gross_amount, 14385.85);
+                assert_eq!(
+                    entries[0].content.properties.gross_amount,
+                    Some(Decimal::from_str("14385.85").unwrap())
+                );
                 assert_eq!(
                     entries[0].content.properties.delivery_status_description,
                     Some(String::from("Delivered"))
