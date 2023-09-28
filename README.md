@@ -6,9 +6,9 @@ It does this in the following stages:
 
 1. Runs a build script that consumes the XML metadata description of `GWSAMPLE_BASIC` (see the functionality in crate [`parse-sap-odata`](https://crates.io/crates/parse-sap-odata))
 1. Generates a file called `gwsample_basic.rs` containing the module `gwsample_basic`
-2. Using the generated `struct`s and `enum`s, the `atom:Feed` information exposed as entity sets in this OData service can then be consumed.
+2. Using the generated `struct`s and `enum`s, the `atom:Feed` information exposed as entitysets in this OData service can then be consumed.
 
-In this minimal demo scenario, the parsed entity set data is simply returned to the browser as plain text.
+In this minimal demo scenario, the parsed entity set data is simply returned to the browser as formatted, plain text.
 
 ## Prerequisites
 
@@ -72,27 +72,9 @@ In order to stop the XML parser from barfing, this character must be replaced wi
 <d:Landx>St Kitts&amp;Nevis</d:Landx>
 ```
 
-### Empty `DateOfBirth` Field
-
-Some entity sets have `<entry>` tags that contain `edm:DateTime` properties that can be null.
-For `DateOfBirth` fields, instead of specifying an empty `DateOfBirth` field as:
-
-```xml
-<d:DateOfBirth/>
-```
-
-It is provided as:
-
-```xml
-<d:DateOfBirth m:null="true"/>
-```
-
-When attempting to parse such values as `Option<chrono::NaiveDateTime>`, the `quick_xml` parser aborts with the error `Premature end of input`.
-At the moment therefore, such fields are interpreted simply as `String`s.
-
-TODO: A dedicated parser function is needed here.
-
 ### Parsing `Edm.Decimal` Fields
 
 At the moment, there is no dedicated parser function for fields of type `Edm.Decimal`; they are currently stored as `f64` values.
-This means at the moment that the value of the `Precision` attribute is not retained.
+This means that at the moment, the `Scale` and `Precision` values are not retained.
+
+TODO: Implement a custom deserializer for `Edm.Decimal`

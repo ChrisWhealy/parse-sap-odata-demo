@@ -83,38 +83,41 @@ pub fn should_parse_contact_set() {
 
     match fetch_xml_as_string(&format!("{}.xml", ENTITY_SET_NAME)) {
         Ok(xml) => {
-            let clean_xml = sanitise_xml(xml);
-            let feed = Feed::<Contact>::from_str(&clean_xml).unwrap();
+            match Feed::<Contact>::from_str(&xml) {
+                Ok(feed) => {
+                    assert_eq!(feed.namespace, Some(String::from(ATOM_XML_NAMESPACE)));
+                    assert_eq!(feed.xml_base, Some(String::from(FEED_XML_BASE)));
+                    assert_eq!(feed.id, base_service_name);
+                    assert_eq!(feed.title, ENTITY_SET_NAME);
 
-            assert_eq!(feed.namespace, Some(String::from(ATOM_XML_NAMESPACE)));
-            assert_eq!(feed.xml_base, Some(String::from(FEED_XML_BASE)));
-            assert_eq!(feed.id, base_service_name);
-            assert_eq!(feed.title, ENTITY_SET_NAME);
+                    assert_eq!(feed.links.len(), 1);
+                    assert_eq!(feed.links[0].href, ENTITY_SET_NAME);
 
-            assert_eq!(feed.links.len(), 1);
-            assert_eq!(feed.links[0].href, ENTITY_SET_NAME);
-
-            if let Some(entries) = feed.entries {
-                assert_eq!(entries.len(), 5);
-                assert_eq!(
-                    entries[0].content.properties.address.street,
-                    Some(String::from("Robert-Koch-Straße"))
-                );
-                assert_eq!(entries[0].content.properties.first_name, "Karl");
-                assert_eq!(
-                    entries[0].content.properties.last_name,
-                    Some(String::from("Müller"))
-                );
-            } else {
-                assert!(
-                    1 == 2,
-                    "{}",
-                    format!(
-                        "Entity set {} should not be empty!",
-                        String::from(ENTITY_SET_NAME)
-                    )
-                )
-            }
+                    if let Some(entries) = feed.entries {
+                        assert_eq!(entries.len(), 5);
+                        assert_eq!(
+                            entries[0].content.properties.address.street,
+                            Some(String::from("Robert-Koch-Straße"))
+                        );
+                        assert_eq!(entries[0].content.properties.first_name, "Karl");
+                        assert_eq!(
+                            entries[0].content.properties.last_name,
+                            Some(String::from("Müller"))
+                        );
+                        assert_eq!(entries[0].content.properties.date_of_birth, None);
+                    } else {
+                        assert!(
+                            1 == 2,
+                            "{}",
+                            format!(
+                                "Entity set {} should not be empty!",
+                                String::from(ENTITY_SET_NAME)
+                            )
+                        )
+                    }
+                }
+                Err(err_msg) => assert!(1 == 2, "{:?}", err_msg),
+            };
         }
         Err(err) => println!("XML test data was not in UTF8 format: {}", err),
     };
@@ -128,6 +131,7 @@ pub fn should_parse_product_set() {
 
     match fetch_xml_as_string(&format!("{}.xml", ENTITY_SET_NAME)) {
         Ok(xml) => {
+            let expected_date = "2023-08-31T01:48:52.9972620";
             let clean_xml = sanitise_xml(xml);
             let feed = Feed::<Product>::from_str(&clean_xml).unwrap();
 
@@ -149,6 +153,10 @@ pub fn should_parse_product_set() {
                 assert_eq!(entries[0].content.properties.category, "Notebooks");
                 // assert_eq!(entries[0].content.properties.weight_measure, Decimal::new(4200000, 3));
                 assert_eq!(entries[0].content.properties.weight_measure, 4200.0);
+                assert_eq!(
+                    entries[0].content.properties.created_at,
+                    Some(chrono::NaiveDateTime::from_str(expected_date).unwrap())
+                );
             } else {
                 assert!(
                     1 == 2,
@@ -172,6 +180,7 @@ pub fn should_parse_sales_order_line_item_set() {
 
     match fetch_xml_as_string(&format!("{}.xml", ENTITY_SET_NAME)) {
         Ok(xml) => {
+            let expected_date = "2018-01-07T23:00:00.0000000";
             let clean_xml = sanitise_xml(xml);
             let feed = Feed::<SalesOrderLineItem>::from_str(&clean_xml).unwrap();
 
@@ -194,7 +203,7 @@ pub fn should_parse_sales_order_line_item_set() {
                 );
                 assert_eq!(
                     entries[0].content.properties.delivery_date,
-                    "2018-01-07T23:00:00.0000000"
+                    chrono::NaiveDateTime::from_str(expected_date).unwrap()
                 );
             } else {
                 assert!(
