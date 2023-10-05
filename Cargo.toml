@@ -9,8 +9,8 @@ repository = "https://github.com/lighthouse-no/parse-sap-odata-demo"
 license = "MIT"
 
 [build-dependencies]
-# parse-sap-odata = { version = "1.2", features = ["parser"]}
-parse-sap-odata = { path = "../parse-sap-odata", features = ["parser"]}
+parse-sap-odata = { version = "1.2", features = ["parser"]}
+# parse-sap-odata = { path = "../parse-sap-odata", features = ["parser"]}
 
 [dependencies]
 actix-web = "4.3"
@@ -22,8 +22,8 @@ log = "0.4"
 quick-xml = { version = "0.30", features = ["serialize"] }
 regex = "1.9"
 reqwest = { version = "0.11", features = ["json"]}
-# parse-sap-atom-feed = "0.2"
-parse-sap-atom-feed = { path = "../parse-sap-atom-feed" }
+parse-sap-atom-feed = "0.2"
+# parse-sap-atom-feed = { path = "../parse-sap-atom-feed" }
 rust_decimal = { version = "1.30", features = ["serde-with-str"]}
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
