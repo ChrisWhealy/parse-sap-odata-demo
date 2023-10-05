@@ -20,6 +20,266 @@ include!(concat!(env!("OUT_DIR"), "/gwsample_basic.rs"));
 
 use gwsample_basic::*;
 
+pub mod gwsample_basic_metadata {
+    pub enum SAPSemanticsProperty {
+        TelephoneNumber,
+        WorkCellphoneNumber,
+        FaxNumber,
+        EmailAddress,
+        PreferredEmailAddress,
+        URL,
+        Fullname,
+        FirstOrGivenName,
+        MiddleName,
+        LastName,
+        Nickname,
+        Title,
+        NameSuffix,
+        VCardNotes,
+        PhotoURL,
+        City,
+        Street,
+        Country,
+        Region,
+        PostalCode,
+        PostOfficeBox,
+        OrganizationName,
+        OrganizationalUnit,
+        OrganizationalRole,
+        JobTitle,
+        DateOfBirth,
+        CalendarComponentSummary,
+        CalendarComponentDescription,
+        CalendarComponentCategories,
+        CalendarComponentStartDateTime,
+        CalendarComponentEndDateTime,
+        CalendarComponentDuration,
+        ToDoDueDateTime,
+        ToDoCompletedDateTime,
+        CalendarComponentPriority,
+        CalendarComponentAccessClassification,
+        CalendarComponentStatus,
+        ToDoPercentComplete,
+        CalendarComponentContact,
+        CalendarComponentVenue,
+        TransparentEvent,
+        CalendarComponentFreeBusyTime,
+        CalendarComponentOccupiesWholeDay,
+        CalendarComponentYear,
+        CalendarComponentYearMonth,
+        CalendarComponentYearMonthDay,
+        EmailFrom,
+        EmailSender,
+        EmailToList,
+        EmailCCList,
+        EmailBCCList,
+        EmailSubject,
+        EmailBody,
+        EmailKeywordList,
+        EmailDateTimeReceived,
+        GeolocationLongitude,
+        GeolocationLatitude,
+        CurrencyCode,
+        UnitOfMeasure,
+        Count,
+    }
+
+    pub enum SAPFieldControlProperty {
+        Hidden,
+        ReadOnly,
+        Optional,
+        Mandatory,
+    }
+
+    pub enum SAPDisplayFormatProperty {
+        Date,
+        NonNegative,
+        UpperCase,
+    }
+
+    pub enum SAPFilterRestrictionProperty {
+        SingleValue,
+        MultiValue,
+        Interval,
+    }
+
+    pub enum SAPAggregationRoleProperty {
+        Dimension,
+        Measure,
+        TotalPropertiesList,
+    }
+
+    pub enum SAPParameterProperty {
+        Mandatory,
+        Optional,
+    }
+
+    pub struct SAPAnnotationsProperty {
+        pub label: Option<String>,
+        pub heading: Option<String>,
+        pub quick_info: Option<String>,
+        pub is_unicode: bool,
+        pub semantics: Option<SAPSemanticsProperty>,
+        pub is_creatable: bool,
+        pub is_updatable: bool,
+        pub is_sortable: bool,
+        pub is_filterable: bool,
+        pub is_addressable: bool,
+        pub is_required_in_filter: bool,
+        pub filter_restriction: Option<SAPFilterRestrictionProperty>,
+        pub filter_for: Option<String>,
+        pub text: Option<String>,
+        pub text_for: Option<String>,
+        pub unit: Option<String>,
+        pub precision: Option<String>,
+        pub is_visible: bool,
+        pub field_control: Option<SAPFieldControlProperty>,
+        pub validation_regexp: Option<String>,
+        pub display_format: Option<SAPDisplayFormatProperty>,
+        pub value_list: Option<String>,
+        pub lower_boundary: Option<String>,
+        pub upper_boundary: Option<String>,
+        pub aggregation_role: Option<SAPAggregationRoleProperty>,
+        pub super_ordinate: Option<String>,
+        pub attribute_for: Option<String>,
+        pub hierarchy_node_for: Option<String>,
+        pub hierarchy_node_external_key_for: Option<String>,
+        pub hierarchy_level_for: Option<String>,
+        pub hierarchy_parent_node_for: Option<String>,
+        pub hierarchy_parent_navigation_for: Option<String>,
+        pub hierarchy_drill_state_for: Option<String>,
+        pub hierarchy_node_descendant_count_for: Option<String>,
+        pub hierarchy_preorder_rank_for: Option<String>,
+        pub hierarchy_sibling_rank_for: Option<String>,
+        pub parameter: Option<SAPParameterProperty>,
+        pub is_annotation: bool,
+        pub updatable_path: Option<String>,
+        pub preserve_flag_for: Option<String>,
+        pub has_variable_scale: bool,
+    }
+
+    pub struct SAPAnnotationsNavigationProperty {
+        pub is_creatable: bool,
+        pub creatable_path: Option<String>,
+        pub is_filterable: bool,
+    }
+
+    pub struct SAPAnnotationsSchema {
+        pub schema_version: String,
+    }
+
+    pub struct PropertyRef {
+        pub name: String,
+    }
+
+    pub struct Key {
+        pub property_refs: Vec<PropertyRef>,
+    }
+
+    pub struct NavigationProperty {
+        pub name: String,
+        pub relationship: String,
+        pub to_role: String,
+        pub from_role: String,
+        pub sap_annotations: SAPAnnotationsNavigationProperty,
+    }
+
+    pub enum EntityTypeSAPSemantics {
+        VCard,
+        VEvent,
+        VToDo,
+        Paramaters,
+        Aggregate,
+        Variant,
+    }
+
+    pub struct Property {
+        pub odata_name: String,
+        pub edm_type: String,
+        pub nullable: bool,
+        pub max_length: Option<u16>,
+        pub precision: Option<u16>,
+        pub scale: Option<u16>,
+        pub concurrency_mode: Option<String>,
+        pub fc_keep_in_content: bool,
+        pub fc_target_path: Option<String>,
+        pub sap_annotations: Option<SAPAnnotationsProperty>,
+        pub deserializer_fn: &'static str,
+    }
+
+    pub struct EntityType {
+        pub name: String,
+        pub sap_label: Option<String>,
+        pub sap_semantics: Option<EntityTypeSAPSemantics>,
+        pub sap_content_version: String,
+        pub has_stream: bool,
+        pub key: Key,
+        pub properties: Vec<Property>,
+        pub navigations: Vec<NavigationProperty>,
+    }
+
+    pub fn get_entity_type_metadata(entity_type_name: &str) -> EntityType {
+        match entity_type_name {
+            _ => {
+                let key = Key {
+                    property_refs: vec![PropertyRef {
+                        name: String::from("BusinessPartnerID"),
+                    }],
+                };
+
+                let prop001 = Property {
+                    odata_name: String::from("Address"),
+                    edm_type: String::from("CT_Address"),
+                    nullable: false,
+                    max_length: None,
+                    precision: None,
+                    scale: None,
+                    concurrency_mode: None,
+                    fc_keep_in_content: true,
+                    fc_target_path: None,
+                    sap_annotations: None,
+                    deserializer_fn: "",
+                };
+
+                let nav001 = NavigationProperty {
+                    name: String::from("ToContacts"),
+                    relationship: String::from("GWSAMPLE_BASIC.Assoc_BusinessPartner_Contacts"),
+                    from_role: String::from("ToRole_Assoc_BusinessPartner_Contacts"),
+                    to_role: String::from("FromRole_Assoc_BusinessPartner_Contacts"),
+                    sap_annotations: SAPAnnotationsNavigationProperty {
+                        is_creatable: false,
+                        creatable_path: None,
+                        is_filterable: true,
+                    },
+                };
+
+                let nav002 = NavigationProperty {
+                    name: String::from("ToProducts"),
+                    relationship: String::from("GWSAMPLE_BASIC.Assoc_BusinessPartner_Products"),
+                    from_role: String::from("ToRole_Assoc_BusinessPartner_Products"),
+                    to_role: String::from("FromRole_Assoc_BusinessPartner_Products"),
+                    sap_annotations: SAPAnnotationsNavigationProperty {
+                        is_creatable: false,
+                        creatable_path: None,
+                        is_filterable: true,
+                    },
+                };
+
+                EntityType {
+                    name: String::from(entity_type_name),
+                    sap_label: None,
+                    sap_semantics: None,
+                    sap_content_version: String::from("1"),
+                    has_stream: true,
+                    key,
+                    properties: vec![prop001],
+                    navigations: vec![nav001, nav002],
+                }
+            }
+        }
+    }
+}
+
 static INDEX: &str = include_str!("../html/index.html");
 static HOST_PATH: &[u8] = "https://sapes5.sapdevcenter.com/sap/opu/odata/iwbep".as_bytes();
 static SERVICE_NAME: &[u8] = "GWSAMPLE_BASIC".as_bytes();
@@ -52,69 +312,69 @@ fn parse_odata_error(raw_xml: &str) -> String {
     }
 }
 
-fn parse_raw_xml(es_name: &str, raw_xml: &str) -> String {
+fn parse_xml(es_name: &str, xml: &str) -> String {
     match es_name {
-        "BusinessPartnerSet" => match Feed::<BusinessPartner>::from_str(&raw_xml) {
+        "BusinessPartnerSet" => match Feed::<BusinessPartner>::from_str(&xml) {
             Ok(parsed_feed) => format!("{parsed_feed:#?}"),
             Err(e) => format!("Error: {e:?}"),
         },
-        "ProductSet" => match Feed::<Product>::from_str(&raw_xml) {
+        "ProductSet" => match Feed::<Product>::from_str(&xml) {
             Ok(parsed_feed) => format!("{parsed_feed:#?}"),
             Err(e) => format!("Error: {e:?}"),
         },
-        "SalesOrderSet" => match Feed::<SalesOrder>::from_str(&raw_xml) {
+        "SalesOrderSet" => match Feed::<SalesOrder>::from_str(&xml) {
             Ok(parsed_feed) => format!("{parsed_feed:#?}"),
             Err(e) => format!("Error: {e:?}"),
         },
-        "SalesOrderLineItemSet" => match Feed::<SalesOrderLineItem>::from_str(&raw_xml) {
+        "SalesOrderLineItemSet" => match Feed::<SalesOrderLineItem>::from_str(&xml) {
             Ok(parsed_feed) => format!("{parsed_feed:#?}"),
             Err(e) => format!("Error: {e:?}"),
         },
-        "ContactSet" => match Feed::<Contact>::from_str(&raw_xml) {
+        "ContactSet" => match Feed::<Contact>::from_str(&xml) {
             Ok(parsed_feed) => format!("{parsed_feed:#?}"),
             Err(e) => format!("Error: {e:?}"),
         },
-        "VH_SexSet" => match Feed::<VhSex>::from_str(&raw_xml) {
+        "VH_SexSet" => match Feed::<VhSex>::from_str(&xml) {
             Ok(parsed_feed) => format!("{parsed_feed:#?}"),
             Err(e) => format!("Error: {e:?}"),
         },
-        "VH_CountrySet" => match Feed::<VhCountry>::from_str(&raw_xml) {
+        "VH_CountrySet" => match Feed::<VhCountry>::from_str(&xml) {
             Ok(parsed_feed) => format!("{parsed_feed:#?}"),
             Err(e) => format!("Error: {e:?}"),
         },
-        "VH_AddressTypeSet" => match Feed::<VhAddressType>::from_str(&raw_xml) {
+        "VH_AddressTypeSet" => match Feed::<VhAddressType>::from_str(&xml) {
             Ok(parsed_feed) => format!("{parsed_feed:#?}"),
             Err(e) => format!("Error: {e:?}"),
         },
-        "VH_CategorySet" => match Feed::<VhCategory>::from_str(&raw_xml) {
+        "VH_CategorySet" => match Feed::<VhCategory>::from_str(&xml) {
             Ok(parsed_feed) => format!("{parsed_feed:#?}"),
             Err(e) => format!("Error: {e:?}"),
         },
-        "VH_CurrencySet" => match Feed::<VhCurrency>::from_str(&raw_xml) {
+        "VH_CurrencySet" => match Feed::<VhCurrency>::from_str(&xml) {
             Ok(parsed_feed) => format!("{parsed_feed:#?}"),
             Err(e) => format!("Error: {e:?}"),
         },
-        "VH_UnitQuantitySet" => match Feed::<VhUnitQuantity>::from_str(&raw_xml) {
+        "VH_UnitQuantitySet" => match Feed::<VhUnitQuantity>::from_str(&xml) {
             Ok(parsed_feed) => format!("{parsed_feed:#?}"),
             Err(e) => format!("Error: {e:?}"),
         },
-        "VH_UnitWeightSet" => match Feed::<VhUnitWeight>::from_str(&raw_xml) {
+        "VH_UnitWeightSet" => match Feed::<VhUnitWeight>::from_str(&xml) {
             Ok(parsed_feed) => format!("{parsed_feed:#?}"),
             Err(e) => format!("Error: {e:?}"),
         },
-        "VH_UnitLengthSet" => match Feed::<VhUnitLength>::from_str(&raw_xml) {
+        "VH_UnitLengthSet" => match Feed::<VhUnitLength>::from_str(&xml) {
             Ok(parsed_feed) => format!("{parsed_feed:#?}"),
             Err(e) => format!("Error: {e:?}"),
         },
-        "VH_ProductTypeCodeSet" => match Feed::<VhProductTypeCode>::from_str(&raw_xml) {
+        "VH_ProductTypeCodeSet" => match Feed::<VhProductTypeCode>::from_str(&xml) {
             Ok(parsed_feed) => format!("{parsed_feed:#?}"),
             Err(e) => format!("Error: {e:?}"),
         },
-        "VH_BPRoleSet" => match Feed::<VhBpRole>::from_str(&raw_xml) {
+        "VH_BPRoleSet" => match Feed::<VhBpRole>::from_str(&xml) {
             Ok(parsed_feed) => format!("{parsed_feed:#?}"),
             Err(e) => format!("Error: {e:?}"),
         },
-        "VH_LanguageSet" => match Feed::<VhLanguage>::from_str(&raw_xml) {
+        "VH_LanguageSet" => match Feed::<VhLanguage>::from_str(&xml) {
             Ok(parsed_feed) => format!("{parsed_feed:#?}"),
             Err(e) => format!("Error: {e:?}"),
         },
@@ -132,35 +392,44 @@ async fn entity_set(path: web::Path<String>) -> Result<HttpResponse, Error> {
 
     println!("GET: /{}", entity_set_name);
 
+    if !gwsample_basic::GwsampleBasicEntities::as_list().contains(&&entity_set_name[..]) {
+        return Ok(HttpResponse::NotFound().finish());
+    }
+
     let http_response = match fetch_auth() {
         Ok(auth_chars) => {
+            let url = format!(
+                "{}/{}/{}?$top=100",
+                str::from_utf8(HOST_PATH).unwrap(),
+                str::from_utf8(SERVICE_NAME).unwrap(),
+                entity_set_name
+            );
+            log::info!("Fetching URL {}", url);
+
             match client
-                .get(format!(
-                    "{}/{}/{}?$top=100",
-                    str::from_utf8(HOST_PATH).unwrap(),
-                    str::from_utf8(SERVICE_NAME).unwrap(),
-                    entity_set_name
-                ))
+                .get(url)
                 .header("Authorization", format!("Basic {}", auth_chars))
                 .send()
                 .await
-                .expect("Here's an SAP-style error message: Ein Fehler ist aufgetreten. Viel Glück 🤣🤣🤣")
-                .text()
-                .await
             {
-                Ok(raw_xml) => {
-                  // Not the best way to handle errors, but it works
-                  let response = if raw_xml.contains("<error ") {
-                    parse_odata_error(&raw_xml)
-                  } else {
-                    let clean_xml = sanitise_xml(String::from(raw_xml));
-                    parse_raw_xml(&entity_set_name, &clean_xml)
-                  };
+                Ok(response) => {
+                    let http_status_code = response.status();
+                    log::info!("HTTP Status code = {}", http_status_code);
 
-                  HttpResponse::Ok()
-                      .content_type(ContentType::plaintext())
-                      .body(response)
-                },
+                    let raw_xml = response.text().await.unwrap();
+                    log::info!("Raw XML response\n{}", raw_xml);
+
+                    let response_body = match http_status_code {
+                        StatusCode::OK => {
+                            parse_xml(&entity_set_name, &sanitise_xml(String::from(raw_xml)))
+                        }
+                        _ => parse_odata_error(&raw_xml),
+                    };
+
+                    HttpResponse::Ok()
+                        .content_type(ContentType::plaintext())
+                        .body(response_body)
+                }
                 Err(err) => HttpResponse::BadRequest().body(format!("{:#?}", err)),
             }
         }
