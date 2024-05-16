@@ -24,6 +24,23 @@ static INDEX: &str = include_str!("../html/index.html");
 static HOST_PATH: &[u8] = "https://sapes5.sapdevcenter.com/sap/opu/odata/iwbep".as_bytes();
 static SERVICE_NAME: &[u8] = "GWSAMPLE_BASIC".as_bytes();
 
+// macro_rules! gen_es_match_cond {
+//     ($es_name:literal) => {
+//         ::paste::paste! {
+//             [<$es_name Set>]
+//         }
+//     };
+// }
+
+// macro_rules! gen_es_match_action {
+//     ($es_name:ty, $xml:expr) => {
+//         match Feed::<$es_name>::from_str($xml) {
+//             Ok(parsed_feed) => format!("{parsed_feed:#?}"),
+//             Err(e) => format!("Error: {e:?}"),
+//         }
+//     };
+// }
+
 // ---------------------------------------------------------------------------------------------------------------------
 // Serve document root
 // ---------------------------------------------------------------------------------------------------------------------
@@ -118,6 +135,22 @@ fn parse_xml(es_name: &str, xml: &str) -> String {
             Ok(parsed_feed) => format!("{parsed_feed:#?}"),
             Err(e) => format!("Error: {e:?}"),
         },
+        // gen_es_match_cond!("BusinessPartner") => gen_es_match_action!(BusinessPartner, &xml),
+        // gen_es_match_cond!("Product") => gen_es_match_action!(Product, &xml),
+        // gen_es_match_cond!("SalesOrder") => gen_es_match_action!(SalesOrder, &xml),
+        // gen_es_match_cond!("SalesOrderLineItem") => gen_es_match_action!(SalesOrderLineItem, &xml),
+        // gen_es_match_cond!("Contact") => gen_es_match_action!(Contact, &xml),
+        // gen_es_match_cond!("VH_Sex") => gen_es_match_action!(VhSex, &xml),
+        // gen_es_match_cond!("VH_Country") => gen_es_match_action!(VhCountry, &xml),
+        // gen_es_match_cond!("VH_AddressType") => gen_es_match_action!(VhAddressType, &xml),
+        // gen_es_match_cond!("VH_Category") => gen_es_match_action!(VhCategory, &xml),
+        // gen_es_match_cond!("VH_Currency") => gen_es_match_action!(VhCurrency, &xml),
+        // gen_es_match_cond!("VH_UnitQuantity") => gen_es_match_action!(VhUnitQuantity, &xml),
+        // gen_es_match_cond!("VH_UnitWeight") => gen_es_match_action!(VhUnitWeight, &xml),
+        // gen_es_match_cond!("VH_UnitLength") => gen_es_match_action!(VhUnitLength, &xml),
+        // gen_es_match_cond!("VH_ProductTypeCode") => gen_es_match_action!(VhProductTypeCode, &xml),
+        // gen_es_match_cond!("VH_BPRole") => gen_es_match_action!(VhBpRole, &xml),
+        // gen_es_match_cond!("VH_Language") => gen_es_match_action!(VhLanguage, &xml),
         _ => format!("Error: invalid entity set name '{}'", es_name),
     }
 }
@@ -160,7 +193,7 @@ async fn entity_set(path: web::Path<String>) -> Result<HttpResponse, Error> {
                     log::info!("Raw XML response\n{}", raw_xml);
 
                     let response_body = match http_status_code {
-                        StatusCode::OK => {
+                        reqwest::StatusCode::OK => {
                             parse_xml(&entity_set_name, &sanitise_xml(String::from(raw_xml)))
                         }
                         _ => parse_odata_error(&raw_xml),
