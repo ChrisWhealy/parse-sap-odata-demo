@@ -27,6 +27,28 @@ fn fetch_xml_as_string(filename: &str) -> Result<String, FromUtf8Error> {
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #[test]
+pub fn should_get_entity_type_key_names() {
+    assert_eq!("business_partner_id", BusinessPartner::get_key()[0]);
+    assert_eq!("product_id", Product::get_key()[0]);
+    assert_eq!("sales_order_id", SalesOrder::get_key()[0]);
+    assert_eq!("sales_order_id", SalesOrderLineItem::get_key()[0]);
+    assert_eq!("item_position", SalesOrderLineItem::get_key()[1]);
+    assert_eq!("contact_guid", Contact::get_key()[0]);
+    assert_eq!("sex", VhSex::get_key()[0]);
+    assert_eq!("land_1", VhCountry::get_key()[0]);
+    assert_eq!("address_type", VhAddressType::get_key()[0]);
+    assert_eq!("category", VhCategory::get_key()[0]);
+    assert_eq!("waers", VhCurrency::get_key()[0]);
+    assert_eq!("msehi", VhUnitQuantity::get_key()[0]);
+    assert_eq!("msehi", VhUnitWeight::get_key()[0]);
+    assert_eq!("msehi", VhUnitLength::get_key()[0]);
+    assert_eq!("type_code", VhProductTypeCode::get_key()[0]);
+    assert_eq!("bp_role", VhBpRole::get_key()[0]);
+    assert_eq!("spras", VhLanguage::get_key()[0]);
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#[test]
 pub fn should_parse_business_partner_set() {
     static ENTITY_SET_NAME: &str = "BusinessPartnerSet";
     let base_service_name = format!("{}{}", FEED_XML_BASE, ENTITY_SET_NAME);
@@ -44,6 +66,7 @@ pub fn should_parse_business_partner_set() {
             assert_eq!(feed.links.len(), 1);
             assert_eq!(feed.links[0].href, ENTITY_SET_NAME);
 
+            // Check contents of entity set
             if let Some(entries) = feed.entries {
                 assert_eq!(entries.len(), 5);
                 assert_eq!(
@@ -93,6 +116,7 @@ pub fn should_parse_contact_set() {
                     assert_eq!(feed.links.len(), 1);
                     assert_eq!(feed.links[0].href, ENTITY_SET_NAME);
 
+                    // Check contents of entity set
                     if let Some(entries) = feed.entries {
                         assert_eq!(entries.len(), 5);
                         assert_eq!(
@@ -143,6 +167,7 @@ pub fn should_parse_product_set() {
             assert_eq!(feed.links.len(), 1);
             assert_eq!(feed.links[0].href, ENTITY_SET_NAME);
 
+            // Check contents of entity set
             if let Some(entries) = feed.entries {
                 assert_eq!(entries.len(), 5);
 
@@ -198,6 +223,7 @@ pub fn should_parse_sales_order_line_item_set() {
             assert_eq!(feed.links.len(), 1);
             assert_eq!(feed.links[0].href, ENTITY_SET_NAME);
 
+            // Check contents of entity set
             if let Some(entries) = feed.entries {
                 assert_eq!(entries.len(), 9);
 
@@ -245,6 +271,7 @@ pub fn should_parse_sales_order_set() {
             assert_eq!(feed.links.len(), 1);
             assert_eq!(feed.links[0].href, ENTITY_SET_NAME);
 
+            // Check contents of entity set
             if let Some(entries) = feed.entries {
                 assert_eq!(entries.len(), 5);
 
@@ -296,6 +323,7 @@ pub fn should_parse_vh_address_type_set() {
             assert_eq!(feed.links.len(), 1);
             assert_eq!(feed.links[0].href, ENTITY_SET_NAME);
 
+            // Check contents of entity set
             if let Some(entries) = feed.entries {
                 assert_eq!(entries.len(), 2);
 
@@ -336,6 +364,7 @@ pub fn should_parse_vh_bp_role_set() {
             assert_eq!(feed.links.len(), 1);
             assert_eq!(feed.links[0].href, ENTITY_SET_NAME);
 
+            // Check contents of entity set
             if let Some(entries) = feed.entries {
                 assert_eq!(entries.len(), 2);
 
@@ -376,6 +405,7 @@ pub fn should_parse_vh_category_set() {
             assert_eq!(feed.links.len(), 1);
             assert_eq!(feed.links[0].href, ENTITY_SET_NAME);
 
+            // Check contents of entity set
             if let Some(entries) = feed.entries {
                 assert_eq!(entries.len(), 26);
 
@@ -415,6 +445,7 @@ pub fn should_parse_vh_country_set() {
             assert_eq!(feed.links.len(), 1);
             assert_eq!(feed.links[0].href, ENTITY_SET_NAME);
 
+            // Check contents of entity set
             if let Some(entries) = feed.entries {
                 assert_eq!(entries.len(), 250);
 
@@ -455,6 +486,7 @@ pub fn should_parse_vh_currency_set() {
             assert_eq!(feed.links.len(), 1);
             assert_eq!(feed.links[0].href, ENTITY_SET_NAME);
 
+            // Check contents of entity set
             if let Some(entries) = feed.entries {
                 assert_eq!(entries.len(), 209);
 
@@ -498,6 +530,7 @@ pub fn should_parse_vh_language_set() {
             assert_eq!(feed.links.len(), 1);
             assert_eq!(feed.links[0].href, ENTITY_SET_NAME);
 
+            // Check contents of entity set
             if let Some(entries) = feed.entries {
                 assert_eq!(entries.len(), 44);
 
@@ -538,6 +571,7 @@ pub fn should_parse_vh_product_type_code_set() {
             assert_eq!(feed.links.len(), 1);
             assert_eq!(feed.links[0].href, ENTITY_SET_NAME);
 
+            // Check contents of entity set
             if let Some(entries) = feed.entries {
                 assert_eq!(entries.len(), 2);
 
@@ -578,6 +612,7 @@ pub fn should_parse_vh_sex_set() {
             assert_eq!(feed.links.len(), 1);
             assert_eq!(feed.links[0].href, ENTITY_SET_NAME);
 
+            // Check contents of entity set
             if let Some(entries) = feed.entries {
                 assert_eq!(entries.len(), 2);
 
@@ -618,6 +653,7 @@ pub fn should_parse_vh_unit_length_set() {
             assert_eq!(feed.links.len(), 1);
             assert_eq!(feed.links[0].href, ENTITY_SET_NAME);
 
+            // Check contents of entity set
             if let Some(entries) = feed.entries {
                 assert_eq!(entries.len(), 11);
 
@@ -658,6 +694,7 @@ pub fn should_parse_vh_unit_quantity_set() {
             assert_eq!(feed.links.len(), 1);
             assert_eq!(feed.links[0].href, ENTITY_SET_NAME);
 
+            // Check contents of entity set
             if let Some(entries) = feed.entries {
                 assert_eq!(entries.len(), 28);
 
@@ -698,6 +735,7 @@ pub fn should_parse_vh_unit_weight_set() {
             assert_eq!(feed.links.len(), 1);
             assert_eq!(feed.links[0].href, ENTITY_SET_NAME);
 
+            // Check contents of entity set
             if let Some(entries) = feed.entries {
                 assert_eq!(entries.len(), 8);
 
