@@ -9,7 +9,7 @@ repository = "https://github.com/ChrisWhealy/parse-sap-odata-demo"
 license = "MIT"
 
 [build-dependencies]
-parse-sap-odata = { version = "1.2", features = ["parser"]}
+parse-sap-odata = { version = "1.2.4", features = ["parser"]}
 # parse-sap-odata = { path = "../parse-sap-odata", features = ["parser"]}
 
 [dependencies]
@@ -22,7 +22,7 @@ log = "0.4"
 quick-xml = { version = "0.31", features = ["serialize"] }
 regex = "1.9"
 reqwest = { version = "0.12", features = ["json"]}
-parse-sap-atom-feed = "0.2"
+parse-sap-atom-feed = "0.2.3"
 # parse-sap-atom-feed = { path = "../parse-sap-atom-feed" }
 paste = "1.0"
 rust_decimal = { version = "1.30", features = ["serde-with-str"]}

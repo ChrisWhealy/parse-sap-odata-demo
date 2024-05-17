@@ -1289,26 +1289,26 @@ dependencies = [
 
 [[package]]
 name = "parse-sap-atom-feed"
-version = "0.2.2"
+version = "0.2.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "cb2830a0b8dd7dc2be31ba84b943c3f74be65ac13f88edd1c35997d2dd861b2b"
+checksum = "3f230e40ec25ab8b122df0358e7df71f8173d847c09091acd38a22ec47eed358"
 dependencies = [
  "chrono",
- "quick-xml 0.30.0",
+ "quick-xml",
  "regex",
  "serde",
 ]
 
 [[package]]
 name = "parse-sap-odata"
-version = "1.2.3"
+version = "1.2.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bbaeca7be650639eecc8460c67c1a1923a410e6eabc7f6f9c3dafaca90fded9e"
+checksum = "eb1b844b5809004c7f635c4de67acc51796f3f45f8c3cc34fd3f5ff2814f5b5f"
 dependencies = [
  "anyhow",
  "check_keyword",
  "convert_case 0.6.0",
- "quick-xml 0.30.0",
+ "quick-xml",
  "regex",
  "serde",
  "which",
@@ -1327,7 +1327,7 @@ dependencies = [
  "parse-sap-atom-feed",
  "parse-sap-odata",
  "paste",
- "quick-xml 0.31.0",
+ "quick-xml",
  "regex",
  "reqwest",
  "rust_decimal",
@@ -1430,16 +1430,6 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn 1.0.109",
-]
-
-[[package]]
-name = "quick-xml"
-version = "0.30.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "eff6510e86862b57b210fd8cbe8ed3f0d7d600b9c2863cd4549a2e033c66e956"
-dependencies = [
- "memchr",
- "serde",
 ]
 
 [[package]]
@@ -2214,14 +2204,14 @@ dependencies = [
 
 [[package]]
 name = "which"
-version = "4.4.2"
+version = "6.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "87ba24419a2078cd2b0f2ede2691b6c66d8e47836da3b6db8265ebad47afbfc7"
+checksum = "8211e4f58a2b2805adfbefbc07bab82958fc91e3836339b1ab7ae32465dce0d7"
 dependencies = [
  "either",
  "home",
- "once_cell",
  "rustix",
+ "winsafe",
 ]
 
 [[package]]
@@ -2381,6 +2371,12 @@ dependencies = [
  "cfg-if",
  "windows-sys 0.48.0",
 ]
+
+[[package]]
+name = "winsafe"
+version = "0.0.19"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d135d17ab770252ad95e9a872d365cf3090e3be864a34ab46f48555993efc904"
 
 [[package]]
 name = "wyz"
