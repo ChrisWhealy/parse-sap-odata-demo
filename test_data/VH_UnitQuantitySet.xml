@@ -1,6 +1,5 @@
-<feed xmlns="http://www.w3.org/2005/Atom"
-  xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-  xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xml:base="https://SAPES5.SAPDEVCENTER.COM:443/sap/opu/odata/iwbep/GWSAMPLE_BASIC/">
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xml:base="https://SAPES5.SAPDEVCENTER.COM:443/sap/opu/odata/iwbep/GWSAMPLE_BASIC/">
   <id>https://SAPES5.SAPDEVCENTER.COM:443/sap/opu/odata/iwbep/GWSAMPLE_BASIC/VH_UnitQuantitySet</id>
   <title type="text">VH_UnitQuantitySet</title>
   <updated>2023-08-31T10:52:22Z</updated>
@@ -15,8 +14,7 @@
     <category term="GWSAMPLE_BASIC.VH_UnitQuantity" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_UnitQuantitySet('AU')" rel="self" title="VH_UnitQuantity"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Msehi>AU</d:Msehi>
         <d:Msehl>Activity unit</d:Msehl>
       </m:properties>
@@ -29,8 +27,7 @@
     <category term="GWSAMPLE_BASIC.VH_UnitQuantity" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_UnitQuantitySet('BAG')" rel="self" title="VH_UnitQuantity"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Msehi>BAG</d:Msehi>
         <d:Msehl>Bag</d:Msehl>
       </m:properties>
@@ -43,8 +40,7 @@
     <category term="GWSAMPLE_BASIC.VH_UnitQuantity" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_UnitQuantitySet('BT')" rel="self" title="VH_UnitQuantity"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Msehi>BT</d:Msehi>
         <d:Msehl>Bottle</d:Msehl>
       </m:properties>
@@ -57,8 +53,7 @@
     <category term="GWSAMPLE_BASIC.VH_UnitQuantity" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_UnitQuantitySet('CAN')" rel="self" title="VH_UnitQuantity"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Msehi>CAN</d:Msehi>
         <d:Msehl>Canister</d:Msehl>
       </m:properties>
@@ -71,8 +66,7 @@
     <category term="GWSAMPLE_BASIC.VH_UnitQuantity" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_UnitQuantitySet('CAR')" rel="self" title="VH_UnitQuantity"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Msehi>CAR</d:Msehi>
         <d:Msehl>Carton</d:Msehl>
       </m:properties>
@@ -85,8 +79,7 @@
     <category term="GWSAMPLE_BASIC.VH_UnitQuantity" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_UnitQuantitySet('CRT')" rel="self" title="VH_UnitQuantity"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Msehi>CRT</d:Msehi>
         <d:Msehl>Crate</d:Msehl>
       </m:properties>
@@ -99,8 +92,7 @@
     <category term="GWSAMPLE_BASIC.VH_UnitQuantity" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_UnitQuantitySet('CV')" rel="self" title="VH_UnitQuantity"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Msehi>CV</d:Msehi>
         <d:Msehl>Case</d:Msehl>
       </m:properties>
@@ -113,8 +105,7 @@
     <category term="GWSAMPLE_BASIC.VH_UnitQuantity" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_UnitQuantitySet('DEG')" rel="self" title="VH_UnitQuantity"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Msehi>DEG</d:Msehi>
         <d:Msehl>Degree</d:Msehl>
       </m:properties>
@@ -127,8 +118,7 @@
     <category term="GWSAMPLE_BASIC.VH_UnitQuantity" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_UnitQuantitySet('DR')" rel="self" title="VH_UnitQuantity"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Msehi>DR</d:Msehi>
         <d:Msehl>Drum</d:Msehl>
       </m:properties>
@@ -141,8 +131,7 @@
     <category term="GWSAMPLE_BASIC.VH_UnitQuantity" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_UnitQuantitySet('DZ')" rel="self" title="VH_UnitQuantity"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Msehi>DZ</d:Msehi>
         <d:Msehl>Dozen</d:Msehl>
       </m:properties>
@@ -155,8 +144,7 @@
     <category term="GWSAMPLE_BASIC.VH_UnitQuantity" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_UnitQuantitySet('EA')" rel="self" title="VH_UnitQuantity"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Msehi>EA</d:Msehi>
         <d:Msehl>each</d:Msehl>
       </m:properties>
@@ -169,8 +157,7 @@
     <category term="GWSAMPLE_BASIC.VH_UnitQuantity" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_UnitQuantitySet('EML')" rel="self" title="VH_UnitQuantity"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Msehi>EML</d:Msehi>
         <d:Msehl>Enzyme Units/Milliliter</d:Msehl>
       </m:properties>
@@ -183,8 +170,7 @@
     <category term="GWSAMPLE_BASIC.VH_UnitQuantity" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_UnitQuantitySet('EU')" rel="self" title="VH_UnitQuantity"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Msehi>EU</d:Msehi>
         <d:Msehl>Enzyme Units</d:Msehl>
       </m:properties>
@@ -197,8 +183,7 @@
     <category term="GWSAMPLE_BASIC.VH_UnitQuantity" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_UnitQuantitySet('G%2FL')" rel="self" title="VH_UnitQuantity"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Msehi>G/L</d:Msehi>
         <d:Msehl>Gram Active Ingredient/Liter</d:Msehl>
       </m:properties>
@@ -211,8 +196,7 @@
     <category term="GWSAMPLE_BASIC.VH_UnitQuantity" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_UnitQuantitySet('GAI')" rel="self" title="VH_UnitQuantity"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Msehi>GAI</d:Msehi>
         <d:Msehl>Gram Active Ingredient</d:Msehl>
       </m:properties>
@@ -225,8 +209,7 @@
     <category term="GWSAMPLE_BASIC.VH_UnitQuantity" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_UnitQuantitySet('GAU')" rel="self" title="VH_UnitQuantity"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Msehi>GAU</d:Msehi>
         <d:Msehl>Gram Gold</d:Msehl>
       </m:properties>
@@ -239,8 +222,7 @@
     <category term="GWSAMPLE_BASIC.VH_UnitQuantity" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_UnitQuantitySet('GRO')" rel="self" title="VH_UnitQuantity"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Msehi>GRO</d:Msehi>
         <d:Msehl>Gross</d:Msehl>
       </m:properties>
@@ -253,8 +235,7 @@
     <category term="GWSAMPLE_BASIC.VH_UnitQuantity" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_UnitQuantitySet('KAI')" rel="self" title="VH_UnitQuantity"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Msehi>KAI</d:Msehi>
         <d:Msehl>Kilogram Active Ingredient</d:Msehl>
       </m:properties>
@@ -267,8 +248,7 @@
     <category term="GWSAMPLE_BASIC.VH_UnitQuantity" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_UnitQuantitySet('KIK')" rel="self" title="VH_UnitQuantity"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Msehi>KIK</d:Msehi>
         <d:Msehl>kg Active Ingredient/kg</d:Msehl>
       </m:properties>
@@ -281,8 +261,7 @@
     <category term="GWSAMPLE_BASIC.VH_UnitQuantity" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_UnitQuantitySet('MLI')" rel="self" title="VH_UnitQuantity"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Msehi>MLI</d:Msehi>
         <d:Msehl>Milliliter Active Ingredient</d:Msehl>
       </m:properties>
@@ -295,8 +274,7 @@
     <category term="GWSAMPLE_BASIC.VH_UnitQuantity" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_UnitQuantitySet('PAA')" rel="self" title="VH_UnitQuantity"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Msehi>PAA</d:Msehi>
         <d:Msehl>Pair</d:Msehl>
       </m:properties>
@@ -309,8 +287,7 @@
     <category term="GWSAMPLE_BASIC.VH_UnitQuantity" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_UnitQuantitySet('PAC')" rel="self" title="VH_UnitQuantity"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Msehi>PAC</d:Msehi>
         <d:Msehl>Pack</d:Msehl>
       </m:properties>
@@ -323,8 +300,7 @@
     <category term="GWSAMPLE_BASIC.VH_UnitQuantity" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_UnitQuantitySet('PAL')" rel="self" title="VH_UnitQuantity"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Msehi>PAL</d:Msehi>
         <d:Msehl>Pallet</d:Msehl>
       </m:properties>
@@ -337,8 +313,7 @@
     <category term="GWSAMPLE_BASIC.VH_UnitQuantity" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_UnitQuantitySet('PC')" rel="self" title="VH_UnitQuantity"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Msehi>PC</d:Msehi>
         <d:Msehl>Piece</d:Msehl>
       </m:properties>
@@ -351,8 +326,7 @@
     <category term="GWSAMPLE_BASIC.VH_UnitQuantity" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_UnitQuantitySet('PRS')" rel="self" title="VH_UnitQuantity"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Msehi>PRS</d:Msehi>
         <d:Msehl>Number of Persons</d:Msehl>
       </m:properties>
@@ -365,8 +339,7 @@
     <category term="GWSAMPLE_BASIC.VH_UnitQuantity" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_UnitQuantitySet('ROL')" rel="self" title="VH_UnitQuantity"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Msehi>ROL</d:Msehi>
         <d:Msehl>Role</d:Msehl>
       </m:properties>
@@ -379,8 +352,7 @@
     <category term="GWSAMPLE_BASIC.VH_UnitQuantity" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_UnitQuantitySet('TS')" rel="self" title="VH_UnitQuantity"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Msehi>TS</d:Msehi>
         <d:Msehl>Thousands</d:Msehl>
       </m:properties>
@@ -393,8 +365,7 @@
     <category term="GWSAMPLE_BASIC.VH_UnitQuantity" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_UnitQuantitySet('VAL')" rel="self" title="VH_UnitQuantity"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Msehi>VAL</d:Msehi>
         <d:Msehl>Value-Only Material</d:Msehl>
       </m:properties>

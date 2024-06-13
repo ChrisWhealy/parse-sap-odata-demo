@@ -494,7 +494,7 @@ pub fn should_parse_vh_currency_set() {
                 assert_eq!(entries[0].content.properties.waers, "ADP");
                 assert_eq!(
                     entries[0].content.properties.ltext,
-                    "Andorran Peseta --> (Old --> EUR)"
+                    "Andorran Peseta --&gt; (Old --&gt; EUR)"
                 );
             } else {
                 assert!(

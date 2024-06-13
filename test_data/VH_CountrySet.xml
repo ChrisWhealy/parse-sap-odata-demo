@@ -1,6 +1,5 @@
-<feed xmlns="http://www.w3.org/2005/Atom"
-  xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-  xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xml:base="https://SAPES5.SAPDEVCENTER.COM:443/sap/opu/odata/iwbep/GWSAMPLE_BASIC/">
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xml:base="https://SAPES5.SAPDEVCENTER.COM:443/sap/opu/odata/iwbep/GWSAMPLE_BASIC/">
   <id>https://SAPES5.SAPDEVCENTER.COM:443/sap/opu/odata/iwbep/GWSAMPLE_BASIC/VH_CountrySet</id>
   <title type="text">VH_CountrySet</title>
   <updated>2023-08-31T10:45:52Z</updated>
@@ -15,8 +14,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('AD')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>AD</d:Land1>
         <d:Landx>Andorra</d:Landx>
         <d:Natio>Andorran</d:Natio>
@@ -30,8 +28,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('AE')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>AE</d:Land1>
         <d:Landx>Utd.Arab Emir.</d:Landx>
         <d:Natio>Unit.Arab Emir.</d:Natio>
@@ -45,8 +42,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('AF')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>AF</d:Land1>
         <d:Landx>Afghanistan</d:Landx>
         <d:Natio>Afghan</d:Natio>
@@ -60,8 +56,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('AG')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>AG</d:Land1>
         <d:Landx>Antigua/Barbuda</d:Landx>
         <d:Natio>Antiguan</d:Natio>
@@ -75,8 +70,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('AI')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>AI</d:Land1>
         <d:Landx>Anguilla</d:Landx>
         <d:Natio>Anguilla</d:Natio>
@@ -90,8 +84,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('AL')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>AL</d:Land1>
         <d:Landx>Albania</d:Landx>
         <d:Natio>Albanian</d:Natio>
@@ -105,8 +98,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('AM')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>AM</d:Land1>
         <d:Landx>Armenia</d:Landx>
         <d:Natio>Armenian</d:Natio>
@@ -120,8 +112,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('AO')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>AO</d:Land1>
         <d:Landx>Angola</d:Landx>
         <d:Natio>Angolan</d:Natio>
@@ -135,8 +126,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('AQ')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>AQ</d:Land1>
         <d:Landx>Antarctica</d:Landx>
         <d:Natio>Antarctica</d:Natio>
@@ -150,8 +140,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('AR')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>AR</d:Land1>
         <d:Landx>Argentina</d:Landx>
         <d:Natio>Argentinian</d:Natio>
@@ -165,8 +154,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('AS')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>AS</d:Land1>
         <d:Landx>Samoa, America</d:Landx>
         <d:Natio>Samoan</d:Natio>
@@ -180,8 +168,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('AT')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>AT</d:Land1>
         <d:Landx>Austria</d:Landx>
         <d:Natio>Austrian</d:Natio>
@@ -195,8 +182,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('AU')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>AU</d:Land1>
         <d:Landx>Australia</d:Landx>
         <d:Natio>Australian</d:Natio>
@@ -210,8 +196,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('AW')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>AW</d:Land1>
         <d:Landx>Aruba</d:Landx>
         <d:Natio>Aruban</d:Natio>
@@ -225,8 +210,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('AX')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>AX</d:Land1>
         <d:Landx/>
         <d:Natio/>
@@ -240,8 +224,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('AZ')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>AZ</d:Land1>
         <d:Landx>Azerbaijan</d:Landx>
         <d:Natio>Azerbaijani</d:Natio>
@@ -255,8 +238,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('BA')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>BA</d:Land1>
         <d:Landx>Bosnia-Herz.</d:Landx>
         <d:Natio>Bosnian</d:Natio>
@@ -270,8 +252,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('BB')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>BB</d:Land1>
         <d:Landx>Barbados</d:Landx>
         <d:Natio>Barbadian</d:Natio>
@@ -285,8 +266,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('BD')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>BD</d:Land1>
         <d:Landx>Bangladesh</d:Landx>
         <d:Natio>Bangladeshi</d:Natio>
@@ -300,8 +280,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('BE')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>BE</d:Land1>
         <d:Landx>Belgium</d:Landx>
         <d:Natio>Belgian</d:Natio>
@@ -315,8 +294,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('BF')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>BF</d:Land1>
         <d:Landx>Burkina Faso</d:Landx>
         <d:Natio>Burkinabe</d:Natio>
@@ -330,8 +308,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('BG')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>BG</d:Land1>
         <d:Landx>Bulgaria</d:Landx>
         <d:Natio>Bulgarian</d:Natio>
@@ -345,8 +322,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('BH')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>BH</d:Land1>
         <d:Landx>Bahrain</d:Landx>
         <d:Natio>Bahraini</d:Natio>
@@ -360,8 +336,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('BI')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>BI</d:Land1>
         <d:Landx>Burundi</d:Landx>
         <d:Natio>Burundian</d:Natio>
@@ -375,8 +350,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('BJ')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>BJ</d:Land1>
         <d:Landx>Benin</d:Landx>
         <d:Natio>Beninese</d:Natio>
@@ -390,8 +364,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('BM')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>BM</d:Land1>
         <d:Landx>Bermuda</d:Landx>
         <d:Natio>Bermudan</d:Natio>
@@ -405,8 +378,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('BN')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>BN</d:Land1>
         <d:Landx>Brunei Daruss.</d:Landx>
         <d:Natio>Bruneian</d:Natio>
@@ -420,8 +392,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('BO')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>BO</d:Land1>
         <d:Landx>Bolivia</d:Landx>
         <d:Natio>Bolivian</d:Natio>
@@ -435,8 +406,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('BQ')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>BQ</d:Land1>
         <d:Landx>Bonaire, Saba</d:Landx>
         <d:Natio>Dutch</d:Natio>
@@ -450,8 +420,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('BR')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>BR</d:Land1>
         <d:Landx>Brazil</d:Landx>
         <d:Natio>Brazilian</d:Natio>
@@ -465,8 +434,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('BS')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>BS</d:Land1>
         <d:Landx>Bahamas</d:Landx>
         <d:Natio>Bahaman</d:Natio>
@@ -480,8 +448,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('BT')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>BT</d:Land1>
         <d:Landx>Bhutan</d:Landx>
         <d:Natio>Bhutanese</d:Natio>
@@ -495,8 +462,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('BV')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>BV</d:Land1>
         <d:Landx>Bouvet Islands</d:Landx>
         <d:Natio>Bouvet Islands</d:Natio>
@@ -510,8 +476,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('BW')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>BW</d:Land1>
         <d:Landx>Botswana</d:Landx>
         <d:Natio>Botswanan</d:Natio>
@@ -525,8 +490,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('BY')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>BY</d:Land1>
         <d:Landx>Belarus</d:Landx>
         <d:Natio>Belarusian</d:Natio>
@@ -540,8 +504,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('BZ')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>BZ</d:Land1>
         <d:Landx>Belize</d:Landx>
         <d:Natio>Belizean</d:Natio>
@@ -555,8 +518,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('CA')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>CA</d:Land1>
         <d:Landx>Canada</d:Landx>
         <d:Natio>Canadian</d:Natio>
@@ -570,8 +532,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('CC')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>CC</d:Land1>
         <d:Landx>Keeling Islands</d:Landx>
         <d:Natio>Australian</d:Natio>
@@ -585,8 +546,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('CD')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>CD</d:Land1>
         <d:Landx>Dem. Rep. Congo</d:Landx>
         <d:Natio>Congolese</d:Natio>
@@ -600,8 +560,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('CF')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>CF</d:Land1>
         <d:Landx>CAR</d:Landx>
         <d:Natio>Central African</d:Natio>
@@ -615,8 +574,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('CG')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>CG</d:Land1>
         <d:Landx>Rep.of Congo</d:Landx>
         <d:Natio>Congolese</d:Natio>
@@ -630,8 +588,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('CH')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>CH</d:Land1>
         <d:Landx>Switzerland</d:Landx>
         <d:Natio>Swiss</d:Natio>
@@ -645,8 +602,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('CI')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>CI</d:Land1>
         <d:Landx>Cote d'Ivoire</d:Landx>
         <d:Natio>Ivoirian</d:Natio>
@@ -660,8 +616,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('CK')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>CK</d:Land1>
         <d:Landx>Cook Islands</d:Landx>
         <d:Natio>Cook Islands</d:Natio>
@@ -675,8 +630,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('CL')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>CL</d:Land1>
         <d:Landx>Chile</d:Landx>
         <d:Natio>Chilean</d:Natio>
@@ -690,8 +644,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('CM')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>CM</d:Land1>
         <d:Landx>Cameroon</d:Landx>
         <d:Natio>Cameroonian</d:Natio>
@@ -705,8 +658,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('CN')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>CN</d:Land1>
         <d:Landx>China</d:Landx>
         <d:Natio>Chinese</d:Natio>
@@ -720,8 +672,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('CO')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>CO</d:Land1>
         <d:Landx>Colombia</d:Landx>
         <d:Natio>Colombian</d:Natio>
@@ -735,8 +686,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('CR')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>CR</d:Land1>
         <d:Landx>Costa Rica</d:Landx>
         <d:Natio>Costa Rican</d:Natio>
@@ -750,8 +700,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('CS')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>CS</d:Land1>
         <d:Landx>Serbia/Monten.</d:Landx>
         <d:Natio>Serbian/Monten.</d:Natio>
@@ -765,8 +714,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('CU')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>CU</d:Land1>
         <d:Landx>Cuba</d:Landx>
         <d:Natio>Cuban</d:Natio>
@@ -780,8 +728,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('CV')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>CV</d:Land1>
         <d:Landx>Cape Verde</d:Landx>
         <d:Natio>Cape Verdean</d:Natio>
@@ -795,8 +742,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('CW')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>CW</d:Land1>
         <d:Landx>Curacao</d:Landx>
         <d:Natio>Curacaoan</d:Natio>
@@ -810,8 +756,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('CX')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>CX</d:Land1>
         <d:Landx>Christmas Islnd</d:Landx>
         <d:Natio>Australian</d:Natio>
@@ -825,8 +770,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('CY')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>CY</d:Land1>
         <d:Landx>Cyprus</d:Landx>
         <d:Natio>Cypriot</d:Natio>
@@ -840,8 +784,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('CZ')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>CZ</d:Land1>
         <d:Landx>Czech Republic</d:Landx>
         <d:Natio>Czech</d:Natio>
@@ -855,8 +798,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('DE')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>DE</d:Land1>
         <d:Landx>Germany</d:Landx>
         <d:Natio>German</d:Natio>
@@ -870,8 +812,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('DJ')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>DJ</d:Land1>
         <d:Landx>Djibouti</d:Landx>
         <d:Natio>Djiboutian</d:Natio>
@@ -885,8 +826,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('DK')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>DK</d:Land1>
         <d:Landx>Denmark</d:Landx>
         <d:Natio>Danish</d:Natio>
@@ -900,8 +840,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('DM')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>DM</d:Land1>
         <d:Landx>Dominica</d:Landx>
         <d:Natio>Dominican</d:Natio>
@@ -915,8 +854,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('DO')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>DO</d:Land1>
         <d:Landx>Dominican Rep.</d:Landx>
         <d:Natio>Dominican</d:Natio>
@@ -930,8 +868,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('DZ')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>DZ</d:Land1>
         <d:Landx>Algeria</d:Landx>
         <d:Natio>Algerian</d:Natio>
@@ -945,8 +882,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('EC')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>EC</d:Land1>
         <d:Landx>Ecuador</d:Landx>
         <d:Natio>Ecuadorian</d:Natio>
@@ -960,8 +896,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('EE')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>EE</d:Land1>
         <d:Landx>Estonia</d:Landx>
         <d:Natio>Estonian</d:Natio>
@@ -975,8 +910,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('EG')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>EG</d:Land1>
         <d:Landx>Egypt</d:Landx>
         <d:Natio>Egyptian</d:Natio>
@@ -990,8 +924,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('EH')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>EH</d:Land1>
         <d:Landx>West Sahara</d:Landx>
         <d:Natio>French</d:Natio>
@@ -1005,8 +938,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('ER')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>ER</d:Land1>
         <d:Landx>Eritrea</d:Landx>
         <d:Natio>Eritrean</d:Natio>
@@ -1020,8 +952,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('ES')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>ES</d:Land1>
         <d:Landx>Spain</d:Landx>
         <d:Natio>Spanish</d:Natio>
@@ -1035,8 +966,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('ET')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>ET</d:Land1>
         <d:Landx>Ethiopia</d:Landx>
         <d:Natio>Ethiopian</d:Natio>
@@ -1050,8 +980,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('FI')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>FI</d:Land1>
         <d:Landx>Finland</d:Landx>
         <d:Natio>Finnish</d:Natio>
@@ -1065,8 +994,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('FJ')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>FJ</d:Land1>
         <d:Landx>Fiji</d:Landx>
         <d:Natio>Fijian</d:Natio>
@@ -1080,8 +1008,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('FK')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>FK</d:Land1>
         <d:Landx>Falkland Islnds</d:Landx>
         <d:Natio>British</d:Natio>
@@ -1095,8 +1022,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('FM')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>FM</d:Land1>
         <d:Landx>Micronesia</d:Landx>
         <d:Natio>Micronesian</d:Natio>
@@ -1110,8 +1036,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('FO')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>FO</d:Land1>
         <d:Landx>Faroe Islands</d:Landx>
         <d:Natio>Danish</d:Natio>
@@ -1125,8 +1050,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('FR')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>FR</d:Land1>
         <d:Landx>France</d:Landx>
         <d:Natio>French</d:Natio>
@@ -1140,8 +1064,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('GA')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>GA</d:Land1>
         <d:Landx>Gabon</d:Landx>
         <d:Natio>Gabonese</d:Natio>
@@ -1155,8 +1078,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('GB')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>GB</d:Land1>
         <d:Landx>United Kingdom</d:Landx>
         <d:Natio>British</d:Natio>
@@ -1170,8 +1092,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('GD')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>GD</d:Land1>
         <d:Landx>Grenada</d:Landx>
         <d:Natio>Grenadian</d:Natio>
@@ -1185,8 +1106,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('GE')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>GE</d:Land1>
         <d:Landx>Georgia</d:Landx>
         <d:Natio>Georgian</d:Natio>
@@ -1200,8 +1120,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('GF')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>GF</d:Land1>
         <d:Landx>French Guayana</d:Landx>
         <d:Natio>French</d:Natio>
@@ -1215,8 +1134,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('GG')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>GG</d:Land1>
         <d:Landx>Guernsey</d:Landx>
         <d:Natio>British</d:Natio>
@@ -1230,8 +1148,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('GH')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>GH</d:Land1>
         <d:Landx>Ghana</d:Landx>
         <d:Natio>Ghanaian</d:Natio>
@@ -1245,8 +1162,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('GI')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>GI</d:Land1>
         <d:Landx>Gibraltar</d:Landx>
         <d:Natio>Gibraltar</d:Natio>
@@ -1260,8 +1176,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('GL')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>GL</d:Land1>
         <d:Landx>Greenland</d:Landx>
         <d:Natio>Danish</d:Natio>
@@ -1275,8 +1190,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('GM')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>GM</d:Land1>
         <d:Landx>Gambia</d:Landx>
         <d:Natio>Gambian</d:Natio>
@@ -1290,8 +1204,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('GN')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>GN</d:Land1>
         <d:Landx>Guinea</d:Landx>
         <d:Natio>Guinean</d:Natio>
@@ -1305,8 +1218,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('GP')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>GP</d:Land1>
         <d:Landx>Guadeloupe</d:Landx>
         <d:Natio>French</d:Natio>
@@ -1320,8 +1232,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('GQ')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>GQ</d:Land1>
         <d:Landx>Equatorial Guin</d:Landx>
         <d:Natio>Equatorial Guin</d:Natio>
@@ -1335,8 +1246,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('GR')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>GR</d:Land1>
         <d:Landx>Greece</d:Landx>
         <d:Natio>Greek</d:Natio>
@@ -1350,8 +1260,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('GS')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>GS</d:Land1>
         <d:Landx>S. Sandwich Ins</d:Landx>
         <d:Natio>South Georgia</d:Natio>
@@ -1365,8 +1274,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('GT')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>GT</d:Land1>
         <d:Landx>Guatemala</d:Landx>
         <d:Natio>Guatemalan</d:Natio>
@@ -1380,8 +1288,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('GU')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>GU</d:Land1>
         <d:Landx>Guam</d:Landx>
         <d:Natio>American</d:Natio>
@@ -1395,8 +1302,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('GW')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>GW</d:Land1>
         <d:Landx>Guinea-Bissau</d:Landx>
         <d:Natio>Guinean</d:Natio>
@@ -1410,8 +1316,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('GY')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>GY</d:Land1>
         <d:Landx>Guyana</d:Landx>
         <d:Natio>Guyanese</d:Natio>
@@ -1425,8 +1330,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('HK')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>HK</d:Land1>
         <d:Landx>Hong Kong</d:Landx>
         <d:Natio>Hong Kong</d:Natio>
@@ -1440,8 +1344,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('HM')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>HM</d:Land1>
         <d:Landx>Heard/McDon.Isl</d:Landx>
         <d:Natio>Heard/McDon.Isl</d:Natio>
@@ -1455,8 +1358,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('HN')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>HN</d:Land1>
         <d:Landx>Honduras</d:Landx>
         <d:Natio>Honduran</d:Natio>
@@ -1470,8 +1372,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('HR')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>HR</d:Land1>
         <d:Landx>Croatia</d:Landx>
         <d:Natio>Croatian</d:Natio>
@@ -1485,8 +1386,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('HT')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>HT</d:Land1>
         <d:Landx>Haiti</d:Landx>
         <d:Natio>Haitian</d:Natio>
@@ -1500,8 +1400,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('HU')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>HU</d:Land1>
         <d:Landx>Hungary</d:Landx>
         <d:Natio>Hungarian</d:Natio>
@@ -1515,8 +1414,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('ID')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>ID</d:Land1>
         <d:Landx>Indonesia</d:Landx>
         <d:Natio>Indonesian</d:Natio>
@@ -1530,8 +1428,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('IE')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>IE</d:Land1>
         <d:Landx>Ireland</d:Landx>
         <d:Natio>Irish</d:Natio>
@@ -1545,8 +1442,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('IL')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>IL</d:Land1>
         <d:Landx>Israel</d:Landx>
         <d:Natio>Israeli</d:Natio>
@@ -1560,8 +1456,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('IM')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>IM</d:Land1>
         <d:Landx>Isle of Man</d:Landx>
         <d:Natio>British</d:Natio>
@@ -1575,8 +1470,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('IN')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>IN</d:Land1>
         <d:Landx>India</d:Landx>
         <d:Natio>Indian</d:Natio>
@@ -1590,8 +1484,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('IO')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>IO</d:Land1>
         <d:Landx>Brit.Ind.Oc.Ter</d:Landx>
         <d:Natio>Brit.Ind.Oc.Ter</d:Natio>
@@ -1605,8 +1498,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('IQ')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>IQ</d:Land1>
         <d:Landx>Iraq</d:Landx>
         <d:Natio>Iraqi</d:Natio>
@@ -1620,8 +1512,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('IR')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>IR</d:Land1>
         <d:Landx>Iran</d:Landx>
         <d:Natio>Iranian</d:Natio>
@@ -1635,8 +1526,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('IS')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>IS</d:Land1>
         <d:Landx>Iceland</d:Landx>
         <d:Natio>Icelandic</d:Natio>
@@ -1650,8 +1540,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('IT')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>IT</d:Land1>
         <d:Landx>Italy</d:Landx>
         <d:Natio>Italian</d:Natio>
@@ -1665,8 +1554,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('JE')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>JE</d:Land1>
         <d:Landx>Jersey</d:Landx>
         <d:Natio>British</d:Natio>
@@ -1680,8 +1568,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('JM')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>JM</d:Land1>
         <d:Landx>Jamaica</d:Landx>
         <d:Natio>Jamaican</d:Natio>
@@ -1695,8 +1582,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('JO')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>JO</d:Land1>
         <d:Landx>Jordan</d:Landx>
         <d:Natio>Jordanian</d:Natio>
@@ -1710,8 +1596,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('JP')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>JP</d:Land1>
         <d:Landx>Japan</d:Landx>
         <d:Natio>Japanese</d:Natio>
@@ -1725,8 +1610,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('KE')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>KE</d:Land1>
         <d:Landx>Kenya</d:Landx>
         <d:Natio>Kenyan</d:Natio>
@@ -1740,8 +1624,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('KG')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>KG</d:Land1>
         <d:Landx>Kyrgyzstan</d:Landx>
         <d:Natio>Kyrgyzstani</d:Natio>
@@ -1755,8 +1638,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('KH')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>KH</d:Land1>
         <d:Landx>Cambodia</d:Landx>
         <d:Natio>Cambodian</d:Natio>
@@ -1770,8 +1652,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('KI')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>KI</d:Land1>
         <d:Landx>Kiribati</d:Landx>
         <d:Natio>Kiribati</d:Natio>
@@ -1785,8 +1666,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('KM')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>KM</d:Land1>
         <d:Landx>Comoros</d:Landx>
         <d:Natio>Comoran</d:Natio>
@@ -1800,8 +1680,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('KN')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>KN</d:Land1>
         <d:Landx>St Kitts&Nevis</d:Landx>
         <d:Natio>f. St Kitts/Nev</d:Natio>
@@ -1815,8 +1694,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('KP')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>KP</d:Land1>
         <d:Landx>North Korea</d:Landx>
         <d:Natio>Korean</d:Natio>
@@ -1830,8 +1708,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('KR')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>KR</d:Land1>
         <d:Landx>South Korea</d:Landx>
         <d:Natio>Korean</d:Natio>
@@ -1845,8 +1722,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('KW')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>KW</d:Land1>
         <d:Landx>Kuwait</d:Landx>
         <d:Natio>Kuwaiti</d:Natio>
@@ -1860,8 +1736,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('KY')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>KY</d:Land1>
         <d:Landx>Cayman Islands</d:Landx>
         <d:Natio>British</d:Natio>
@@ -1875,8 +1750,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('KZ')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>KZ</d:Land1>
         <d:Landx>Kazakhstan</d:Landx>
         <d:Natio>Kazakh</d:Natio>
@@ -1890,8 +1764,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('LA')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>LA</d:Land1>
         <d:Landx>Laos</d:Landx>
         <d:Natio>Laotian</d:Natio>
@@ -1905,8 +1778,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('LB')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>LB</d:Land1>
         <d:Landx>Lebanon</d:Landx>
         <d:Natio>Lebanese</d:Natio>
@@ -1920,8 +1792,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('LC')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>LC</d:Land1>
         <d:Landx>St. Lucia</d:Landx>
         <d:Natio>Saint Lucian</d:Natio>
@@ -1935,8 +1806,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('LI')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>LI</d:Land1>
         <d:Landx>Liechtenstein</d:Landx>
         <d:Natio>Liechtenstein</d:Natio>
@@ -1950,8 +1820,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('LK')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>LK</d:Land1>
         <d:Landx>Sri Lanka</d:Landx>
         <d:Natio>Sri Lankan</d:Natio>
@@ -1965,8 +1834,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('LR')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>LR</d:Land1>
         <d:Landx>Liberia</d:Landx>
         <d:Natio>Liberian</d:Natio>
@@ -1980,8 +1848,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('LS')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>LS</d:Land1>
         <d:Landx>Lesotho</d:Landx>
         <d:Natio>Lesothan</d:Natio>
@@ -1995,8 +1862,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('LT')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>LT</d:Land1>
         <d:Landx>Lithuania</d:Landx>
         <d:Natio>Lithuanian</d:Natio>
@@ -2010,8 +1876,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('LU')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>LU</d:Land1>
         <d:Landx>Luxembourg</d:Landx>
         <d:Natio>Luxembourgian</d:Natio>
@@ -2025,8 +1890,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('LV')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>LV</d:Land1>
         <d:Landx>Latvia</d:Landx>
         <d:Natio>Latvian</d:Natio>
@@ -2040,8 +1904,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('LY')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>LY</d:Land1>
         <d:Landx>Libya</d:Landx>
         <d:Natio>Libyan</d:Natio>
@@ -2055,8 +1918,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('MA')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>MA</d:Land1>
         <d:Landx>Morocco</d:Landx>
         <d:Natio>Moroccan</d:Natio>
@@ -2070,8 +1932,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('MC')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>MC</d:Land1>
         <d:Landx>Monaco</d:Landx>
         <d:Natio>Monegasque</d:Natio>
@@ -2085,8 +1946,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('MD')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>MD</d:Land1>
         <d:Landx>Moldova</d:Landx>
         <d:Natio>Moldovan</d:Natio>
@@ -2100,8 +1960,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('ME')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>ME</d:Land1>
         <d:Landx/>
         <d:Natio/>
@@ -2115,8 +1974,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('MF')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>MF</d:Land1>
         <d:Landx/>
         <d:Natio/>
@@ -2130,8 +1988,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('MG')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>MG</d:Land1>
         <d:Landx>Madagascar</d:Landx>
         <d:Natio>Madagascan</d:Natio>
@@ -2145,8 +2002,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('MH')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>MH</d:Land1>
         <d:Landx>Marshall Islnds</d:Landx>
         <d:Natio>Marshallese</d:Natio>
@@ -2160,8 +2016,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('MK')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>MK</d:Land1>
         <d:Landx>Macedonia</d:Landx>
         <d:Natio>Macedonian</d:Natio>
@@ -2175,8 +2030,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('ML')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>ML</d:Land1>
         <d:Landx>Mali</d:Landx>
         <d:Natio>Malian</d:Natio>
@@ -2190,8 +2044,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('MM')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>MM</d:Land1>
         <d:Landx>Burma</d:Landx>
         <d:Natio>Burmese</d:Natio>
@@ -2205,8 +2058,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('MN')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>MN</d:Land1>
         <d:Landx>Mongolia</d:Landx>
         <d:Natio>Mongolian</d:Natio>
@@ -2220,8 +2072,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('MO')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>MO</d:Land1>
         <d:Landx>Macau</d:Landx>
         <d:Natio>Portuguese</d:Natio>
@@ -2235,8 +2086,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('MP')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>MP</d:Land1>
         <d:Landx>N.Mariana Islnd</d:Landx>
         <d:Natio>Marianian</d:Natio>
@@ -2250,8 +2100,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('MQ')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>MQ</d:Land1>
         <d:Landx>Martinique</d:Landx>
         <d:Natio>French</d:Natio>
@@ -2265,8 +2114,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('MR')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>MR</d:Land1>
         <d:Landx>Mauritania</d:Landx>
         <d:Natio>Mauritanian</d:Natio>
@@ -2280,8 +2128,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('MS')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>MS</d:Land1>
         <d:Landx>Montserrat</d:Landx>
         <d:Natio>Montserrat</d:Natio>
@@ -2295,8 +2142,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('MT')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>MT</d:Land1>
         <d:Landx>Malta</d:Landx>
         <d:Natio>Maltese</d:Natio>
@@ -2310,8 +2156,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('MU')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>MU</d:Land1>
         <d:Landx>Mauritius</d:Landx>
         <d:Natio>Mauritian</d:Natio>
@@ -2325,8 +2170,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('MV')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>MV</d:Land1>
         <d:Landx>Maldives</d:Landx>
         <d:Natio>Maldivian</d:Natio>
@@ -2340,8 +2184,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('MW')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>MW</d:Land1>
         <d:Landx>Malawi</d:Landx>
         <d:Natio>Malawian</d:Natio>
@@ -2355,8 +2198,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('MX')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>MX</d:Land1>
         <d:Landx>Mexico</d:Landx>
         <d:Natio>Mexican</d:Natio>
@@ -2370,8 +2212,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('MY')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>MY</d:Land1>
         <d:Landx>Malaysia</d:Landx>
         <d:Natio>Malaysian</d:Natio>
@@ -2385,8 +2226,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('MZ')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>MZ</d:Land1>
         <d:Landx>Mozambique</d:Landx>
         <d:Natio>Mozambican</d:Natio>
@@ -2400,8 +2240,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('NA')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>NA</d:Land1>
         <d:Landx>Namibia</d:Landx>
         <d:Natio>Namibian</d:Natio>
@@ -2415,8 +2254,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('NC')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>NC</d:Land1>
         <d:Landx>New Caledonia</d:Landx>
         <d:Natio>French</d:Natio>
@@ -2430,8 +2268,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('NE')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>NE</d:Land1>
         <d:Landx>Niger</d:Landx>
         <d:Natio>Nigerien</d:Natio>
@@ -2445,8 +2282,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('NF')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>NF</d:Land1>
         <d:Landx>Norfolk Islands</d:Landx>
         <d:Natio>Norfolk Islands</d:Natio>
@@ -2460,8 +2296,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('NG')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>NG</d:Land1>
         <d:Landx>Nigeria</d:Landx>
         <d:Natio>Nigerian</d:Natio>
@@ -2475,8 +2310,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('NI')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>NI</d:Land1>
         <d:Landx>Nicaragua</d:Landx>
         <d:Natio>Nicaraguan</d:Natio>
@@ -2490,8 +2324,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('NL')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>NL</d:Land1>
         <d:Landx>Netherlands</d:Landx>
         <d:Natio>Dutch</d:Natio>
@@ -2505,8 +2338,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('NO')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>NO</d:Land1>
         <d:Landx>Norway</d:Landx>
         <d:Natio>Norwegian</d:Natio>
@@ -2520,8 +2352,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('NP')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>NP</d:Land1>
         <d:Landx>Nepal</d:Landx>
         <d:Natio>Nepalese</d:Natio>
@@ -2535,8 +2366,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('NR')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>NR</d:Land1>
         <d:Landx>Nauru</d:Landx>
         <d:Natio>Nauruian</d:Natio>
@@ -2550,8 +2380,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('NU')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>NU</d:Land1>
         <d:Landx>Niue</d:Landx>
         <d:Natio>Niuean</d:Natio>
@@ -2565,8 +2394,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('NZ')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>NZ</d:Land1>
         <d:Landx>New Zealand</d:Landx>
         <d:Natio>New Zealand</d:Natio>
@@ -2580,8 +2408,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('OM')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>OM</d:Land1>
         <d:Landx>Oman</d:Landx>
         <d:Natio>Omani</d:Natio>
@@ -2595,8 +2422,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('PA')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>PA</d:Land1>
         <d:Landx>Panama</d:Landx>
         <d:Natio>Panamanian</d:Natio>
@@ -2610,8 +2436,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('PE')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>PE</d:Land1>
         <d:Landx>Peru</d:Landx>
         <d:Natio>Peruvian</d:Natio>
@@ -2625,8 +2450,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('PF')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>PF</d:Land1>
         <d:Landx>Frenc.Polynesia</d:Landx>
         <d:Natio>French</d:Natio>
@@ -2640,8 +2464,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('PG')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>PG</d:Land1>
         <d:Landx>Pap. New Guinea</d:Landx>
         <d:Natio>Pap.New Guinean</d:Natio>
@@ -2655,8 +2478,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('PH')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>PH</d:Land1>
         <d:Landx>Philippines</d:Landx>
         <d:Natio>Filipino</d:Natio>
@@ -2670,8 +2492,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('PK')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>PK</d:Land1>
         <d:Landx>Pakistan</d:Landx>
         <d:Natio>Pakistani</d:Natio>
@@ -2685,8 +2506,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('PL')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>PL</d:Land1>
         <d:Landx>Poland</d:Landx>
         <d:Natio>Polish</d:Natio>
@@ -2700,8 +2520,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('PM')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>PM</d:Land1>
         <d:Landx>St.Pier,Miquel.</d:Landx>
         <d:Natio>French</d:Natio>
@@ -2715,8 +2534,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('PN')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>PN</d:Land1>
         <d:Landx>Pitcairn Islnds</d:Landx>
         <d:Natio>British</d:Natio>
@@ -2730,8 +2548,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('PR')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>PR</d:Land1>
         <d:Landx>Puerto Rico</d:Landx>
         <d:Natio>American</d:Natio>
@@ -2745,8 +2562,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('PS')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>PS</d:Land1>
         <d:Landx>Palestine</d:Landx>
         <d:Natio>Palestinian</d:Natio>
@@ -2760,8 +2576,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('PT')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>PT</d:Land1>
         <d:Landx>Portugal</d:Landx>
         <d:Natio>Portuguese</d:Natio>
@@ -2775,8 +2590,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('PW')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>PW</d:Land1>
         <d:Landx>Palau</d:Landx>
         <d:Natio>Palauan</d:Natio>
@@ -2790,8 +2604,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('PY')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>PY</d:Land1>
         <d:Landx>Paraguay</d:Landx>
         <d:Natio>Paraguayan</d:Natio>
@@ -2805,8 +2618,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('QA')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>QA</d:Land1>
         <d:Landx>Qatar</d:Landx>
         <d:Natio>Qatari</d:Natio>
@@ -2820,8 +2632,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('RE')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>RE</d:Land1>
         <d:Landx>Reunion</d:Landx>
         <d:Natio>French</d:Natio>
@@ -2835,8 +2646,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('RO')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>RO</d:Land1>
         <d:Landx>Romania</d:Landx>
         <d:Natio>Romanian</d:Natio>
@@ -2850,8 +2660,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('RS')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>RS</d:Land1>
         <d:Landx/>
         <d:Natio/>
@@ -2865,8 +2674,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('RU')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>RU</d:Land1>
         <d:Landx>Russian Fed.</d:Landx>
         <d:Natio>Russian</d:Natio>
@@ -2880,8 +2688,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('RW')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>RW</d:Land1>
         <d:Landx>Rwanda</d:Landx>
         <d:Natio>Rwandan</d:Natio>
@@ -2895,8 +2702,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('SA')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>SA</d:Land1>
         <d:Landx>Saudi Arabia</d:Landx>
         <d:Natio>Saudi Arabian</d:Natio>
@@ -2910,8 +2716,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('SB')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>SB</d:Land1>
         <d:Landx>Solomon Islands</d:Landx>
         <d:Natio>Solomon Islandr</d:Natio>
@@ -2925,8 +2730,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('SC')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>SC</d:Land1>
         <d:Landx>Seychelles</d:Landx>
         <d:Natio>Seychellois</d:Natio>
@@ -2940,8 +2744,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('SD')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>SD</d:Land1>
         <d:Landx>Sudan</d:Landx>
         <d:Natio>Sudanese</d:Natio>
@@ -2955,8 +2758,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('SE')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>SE</d:Land1>
         <d:Landx>Sweden</d:Landx>
         <d:Natio>Swedish</d:Natio>
@@ -2970,8 +2772,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('SG')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>SG</d:Land1>
         <d:Landx>Singapore</d:Landx>
         <d:Natio>Singaporean</d:Natio>
@@ -2985,8 +2786,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('SH')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>SH</d:Land1>
         <d:Landx>Saint Helena</d:Landx>
         <d:Natio>Saint Helena</d:Natio>
@@ -3000,8 +2800,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('SI')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>SI</d:Land1>
         <d:Landx>Slovenia</d:Landx>
         <d:Natio>Slovenian</d:Natio>
@@ -3015,8 +2814,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('SJ')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>SJ</d:Land1>
         <d:Landx>Svalbard</d:Landx>
         <d:Natio>Norwegian</d:Natio>
@@ -3030,8 +2828,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('SK')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>SK</d:Land1>
         <d:Landx>Slovakia</d:Landx>
         <d:Natio>Slovak</d:Natio>
@@ -3045,8 +2842,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('SL')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>SL</d:Land1>
         <d:Landx>Sierra Leone</d:Landx>
         <d:Natio>Sierra Leonean</d:Natio>
@@ -3060,8 +2856,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('SM')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>SM</d:Land1>
         <d:Landx>San Marino</d:Landx>
         <d:Natio>Sammarinese</d:Natio>
@@ -3075,8 +2870,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('SN')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>SN</d:Land1>
         <d:Landx>Senegal</d:Landx>
         <d:Natio>Senegalese</d:Natio>
@@ -3090,8 +2884,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('SO')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>SO</d:Land1>
         <d:Landx>Somalia</d:Landx>
         <d:Natio>Somali</d:Natio>
@@ -3105,8 +2898,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('SR')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>SR</d:Land1>
         <d:Landx>Suriname</d:Landx>
         <d:Natio>Surinamese</d:Natio>
@@ -3120,8 +2912,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('SS')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>SS</d:Land1>
         <d:Landx>South Sudan</d:Landx>
         <d:Natio>South Sudanese</d:Natio>
@@ -3135,8 +2926,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('ST')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>ST</d:Land1>
         <d:Landx>S.Tome,Principe</d:Landx>
         <d:Natio>Sao Tomean</d:Natio>
@@ -3150,8 +2940,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('SV')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>SV</d:Land1>
         <d:Landx>El Salvador</d:Landx>
         <d:Natio>Salvadoran</d:Natio>
@@ -3165,8 +2954,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('SX')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>SX</d:Land1>
         <d:Landx>Sint Maarten</d:Landx>
         <d:Natio>Sint Maarten</d:Natio>
@@ -3180,8 +2968,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('SY')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>SY</d:Land1>
         <d:Landx>Syria</d:Landx>
         <d:Natio>Syrian</d:Natio>
@@ -3195,8 +2982,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('SZ')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>SZ</d:Land1>
         <d:Landx>Swaziland</d:Landx>
         <d:Natio>Swazi</d:Natio>
@@ -3210,8 +2996,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('TC')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>TC</d:Land1>
         <d:Landx>Turksh Caicosin</d:Landx>
         <d:Natio>Turksh Caicosin</d:Natio>
@@ -3225,8 +3010,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('TD')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>TD</d:Land1>
         <d:Landx>Chad</d:Landx>
         <d:Natio>Chadian</d:Natio>
@@ -3240,8 +3024,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('TF')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>TF</d:Land1>
         <d:Landx>French S.Territ</d:Landx>
         <d:Natio>French</d:Natio>
@@ -3255,8 +3038,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('TG')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>TG</d:Land1>
         <d:Landx>Togo</d:Landx>
         <d:Natio>Togolese</d:Natio>
@@ -3270,8 +3052,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('TH')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>TH</d:Land1>
         <d:Landx>Thailand</d:Landx>
         <d:Natio>Thai</d:Natio>
@@ -3285,8 +3066,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('TJ')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>TJ</d:Land1>
         <d:Landx>Tajikistan</d:Landx>
         <d:Natio>Tajikistani</d:Natio>
@@ -3300,8 +3080,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('TK')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>TK</d:Land1>
         <d:Landx>Tokelau Islands</d:Landx>
         <d:Natio>Tokelau Islands</d:Natio>
@@ -3315,8 +3094,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('TL')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>TL</d:Land1>
         <d:Landx>East Timor</d:Landx>
         <d:Natio/>
@@ -3330,8 +3108,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('TM')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>TM</d:Land1>
         <d:Landx>Turkmenistan</d:Landx>
         <d:Natio>Turkmen</d:Natio>
@@ -3345,8 +3122,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('TN')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>TN</d:Land1>
         <d:Landx>Tunisia</d:Landx>
         <d:Natio>Tunisian</d:Natio>
@@ -3360,8 +3136,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('TO')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>TO</d:Land1>
         <d:Landx>Tonga</d:Landx>
         <d:Natio>Tongan</d:Natio>
@@ -3375,8 +3150,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('TP')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>TP</d:Land1>
         <d:Landx>East Timor</d:Landx>
         <d:Natio>East Timor</d:Natio>
@@ -3390,8 +3164,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('TR')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>TR</d:Land1>
         <d:Landx>Turkey</d:Landx>
         <d:Natio>Turkish</d:Natio>
@@ -3405,8 +3178,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('TT')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>TT</d:Land1>
         <d:Landx>Trinidad,Tobago</d:Landx>
         <d:Natio>F. Trinidad & T</d:Natio>
@@ -3420,8 +3192,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('TV')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>TV</d:Land1>
         <d:Landx>Tuvalu</d:Landx>
         <d:Natio>Tuvaluan</d:Natio>
@@ -3435,8 +3206,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('TW')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>TW</d:Land1>
         <d:Landx>Taiwan</d:Landx>
         <d:Natio>Chinese</d:Natio>
@@ -3450,8 +3220,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('TZ')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>TZ</d:Land1>
         <d:Landx>Tanzania</d:Landx>
         <d:Natio>Tanzanian</d:Natio>
@@ -3465,8 +3234,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('UA')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>UA</d:Land1>
         <d:Landx>Ukraine</d:Landx>
         <d:Natio>Ukrainian</d:Natio>
@@ -3480,8 +3248,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('UG')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>UG</d:Land1>
         <d:Landx>Uganda</d:Landx>
         <d:Natio>Ugandan</d:Natio>
@@ -3495,8 +3262,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('UM')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>UM</d:Land1>
         <d:Landx>Minor Outl.Isl.</d:Landx>
         <d:Natio>Minor Outl.Isl.</d:Natio>
@@ -3510,8 +3276,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('US')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>US</d:Land1>
         <d:Landx>USA</d:Landx>
         <d:Natio>American</d:Natio>
@@ -3525,8 +3290,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('UY')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>UY</d:Land1>
         <d:Landx>Uruguay</d:Landx>
         <d:Natio>Uruguayan</d:Natio>
@@ -3540,8 +3304,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('UZ')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>UZ</d:Land1>
         <d:Landx>Uzbekistan</d:Landx>
         <d:Natio>Uzbekistani</d:Natio>
@@ -3555,8 +3318,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('VA')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>VA</d:Land1>
         <d:Landx>Vatican City</d:Landx>
         <d:Natio>Vatican City</d:Natio>
@@ -3570,8 +3332,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('VC')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>VC</d:Land1>
         <d:Landx>St. Vincent</d:Landx>
         <d:Natio>Vincentian</d:Natio>
@@ -3585,8 +3346,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('VE')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>VE</d:Land1>
         <d:Landx>Venezuela</d:Landx>
         <d:Natio>Venezuelan</d:Natio>
@@ -3600,8 +3360,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('VG')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>VG</d:Land1>
         <d:Landx>Brit.Virgin Is.</d:Landx>
         <d:Natio>British</d:Natio>
@@ -3615,8 +3374,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('VI')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>VI</d:Land1>
         <d:Landx>US Virgin Isl.</d:Landx>
         <d:Natio>American</d:Natio>
@@ -3630,8 +3388,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('VN')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>VN</d:Land1>
         <d:Landx>Vietnam</d:Landx>
         <d:Natio>Vietnamese</d:Natio>
@@ -3645,8 +3402,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('VU')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>VU</d:Land1>
         <d:Landx>Vanuatu</d:Landx>
         <d:Natio>Ni-Vanuatu</d:Natio>
@@ -3660,8 +3416,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('WF')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>WF</d:Land1>
         <d:Landx>Wallis,Futuna</d:Landx>
         <d:Natio>Wallis,Futuna</d:Natio>
@@ -3675,8 +3430,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('WS')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>WS</d:Land1>
         <d:Landx>Samoa</d:Landx>
         <d:Natio>Samoan</d:Natio>
@@ -3690,8 +3444,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('YE')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>YE</d:Land1>
         <d:Landx>Yemen</d:Landx>
         <d:Natio>Yemeni</d:Natio>
@@ -3705,8 +3458,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('YT')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>YT</d:Land1>
         <d:Landx>Mayotte</d:Landx>
         <d:Natio>French</d:Natio>
@@ -3720,8 +3472,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('ZA')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>ZA</d:Land1>
         <d:Landx>South Africa</d:Landx>
         <d:Natio>South African</d:Natio>
@@ -3735,8 +3486,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('ZM')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>ZM</d:Land1>
         <d:Landx>Zambia</d:Landx>
         <d:Natio>Zambian</d:Natio>
@@ -3750,8 +3500,7 @@
     <category term="GWSAMPLE_BASIC.VH_Country" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
     <link href="VH_CountrySet('ZW')" rel="self" title="VH_Country"/>
     <content type="application/xml">
-      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-        xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
         <d:Land1>ZW</d:Land1>
         <d:Landx>Zimbabwe</d:Landx>
         <d:Natio>Zimbabwean</d:Natio>

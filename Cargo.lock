@@ -1413,7 +1413,9 @@ dependencies = [
 
 [[package]]
 name = "parse-sap-atom-feed"
-version = "0.2.5"
+version = "0.2.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "81fbfd053e5552514f0c7999ea0e3c239b3b2adde3acb0ec84f909279df50309"
 dependencies = [
  "chrono",
  "quick-xml 0.32.0",
@@ -1424,6 +1426,8 @@ dependencies = [
 [[package]]
 name = "parse-sap-odata"
 version = "1.2.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "248395e18b997f588d93b71d1765e031a11676aa0b786025aebd9e1a771284d6"
 dependencies = [
  "anyhow",
  "check_keyword",
