@@ -76,13 +76,11 @@ pub fn should_parse_business_partner_set() {
 
                 let etag = String::from(entries[0].etag.as_ref().unwrap());
                 assert!(etag.starts_with("datetime"));
+                let props = entries[0].content.properties.clone().unwrap();
 
-                assert_eq!(
-                    entries[0].content.properties.address.city,
-                    Some(String::from("Walldorf"))
-                );
-                assert_eq!(entries[0].content.properties.company_name, "SAP");
-                assert_eq!(entries[0].content.properties.currency_code, "EUR");
+                assert_eq!(props.address.city, Some(String::from("Walldorf")));
+                assert_eq!(props.company_name, "SAP");
+                assert_eq!(props.currency_code, "EUR");
             } else {
                 assert!(
                     1 == 2,
@@ -118,17 +116,16 @@ pub fn should_parse_contact_set() {
 
                     // Check contents of entity set
                     if let Some(entries) = feed.entries {
+                        let props = entries[0].content.properties.clone().unwrap();
+
                         assert_eq!(entries.len(), 5);
                         assert_eq!(
-                            entries[0].content.properties.address.street,
+                            props.address.street,
                             Some(String::from("Robert-Koch-Straße"))
                         );
-                        assert_eq!(entries[0].content.properties.first_name, "Karl");
-                        assert_eq!(
-                            entries[0].content.properties.last_name,
-                            Some(String::from("Müller"))
-                        );
-                        assert_eq!(entries[0].content.properties.date_of_birth, None);
+                        assert_eq!(props.first_name, "Karl");
+                        assert_eq!(props.last_name, Some(String::from("Müller")));
+                        assert_eq!(props.date_of_birth, None);
                     } else {
                         assert!(
                             1 == 2,
@@ -174,18 +171,17 @@ pub fn should_parse_product_set() {
                 let etag = String::from(entries[0].etag.as_ref().unwrap());
                 assert!(etag.starts_with("datetime"));
 
-                assert_eq!(entries[0].content.properties.product_id, "2GOYBEBFLB");
-                assert_eq!(entries[0].content.properties.category, "Notebooks");
+                let props = entries[0].content.properties.clone().unwrap();
+
+                assert_eq!(props.product_id, "2GOYBEBFLB");
+                assert_eq!(props.category, "Notebooks");
+                assert_eq!(props.weight_measure, Some(Decimal::new(4200000, 3)));
                 assert_eq!(
-                    entries[0].content.properties.weight_measure,
-                    Some(Decimal::new(4200000, 3))
-                );
-                assert_eq!(
-                    entries[0].content.properties.weight_measure,
+                    props.weight_measure,
                     Some(Decimal::from_str("4200.0").unwrap())
                 );
                 assert_eq!(
-                    entries[0].content.properties.created_at,
+                    props.created_at,
                     Some(chrono::NaiveDateTime::from_str(expected_date).unwrap())
                 );
             } else {
@@ -225,16 +221,15 @@ pub fn should_parse_sales_order_line_item_set() {
 
             // Check contents of entity set
             if let Some(entries) = feed.entries {
+                let props = entries[0].content.properties.clone().unwrap();
+
                 assert_eq!(entries.len(), 9);
 
                 assert_eq!(entries[0].etag.as_ref(), None);
-                assert_eq!(entries[0].content.properties.product_id, "HT-1000");
+                assert_eq!(props.product_id, "HT-1000");
+                assert_eq!(props.currency_code, Some(String::from("USD")));
                 assert_eq!(
-                    entries[0].content.properties.currency_code,
-                    Some(String::from("USD"))
-                );
-                assert_eq!(
-                    entries[0].content.properties.delivery_date,
+                    props.delivery_date,
                     chrono::NaiveDateTime::from_str(expected_date).unwrap()
                 );
             } else {
@@ -273,20 +268,18 @@ pub fn should_parse_sales_order_set() {
 
             // Check contents of entity set
             if let Some(entries) = feed.entries {
+                let props = entries[0].content.properties.clone().unwrap();
                 assert_eq!(entries.len(), 5);
 
                 assert_eq!(entries[0].etag.as_ref(), None);
-                assert_eq!(entries[0].content.properties.sales_order_id, "0500000000");
+                assert_eq!(props.sales_order_id, "0500000000");
+                assert_eq!(props.currency_code, Some(String::from("USD")));
                 assert_eq!(
-                    entries[0].content.properties.currency_code,
-                    Some(String::from("USD"))
-                );
-                assert_eq!(
-                    entries[0].content.properties.gross_amount,
+                    props.gross_amount,
                     Some(Decimal::from_str("14385.85").unwrap())
                 );
                 assert_eq!(
-                    entries[0].content.properties.delivery_status_description,
+                    props.delivery_status_description,
                     Some(String::from("Delivered"))
                 );
             } else {
@@ -325,11 +318,12 @@ pub fn should_parse_vh_address_type_set() {
 
             // Check contents of entity set
             if let Some(entries) = feed.entries {
+                let props = entries[0].content.properties.clone().unwrap();
                 assert_eq!(entries.len(), 2);
 
                 assert_eq!(entries[0].etag.as_ref(), None);
-                assert_eq!(entries[0].content.properties.address_type, "01");
-                assert_eq!(entries[0].content.properties.shorttext, "Private");
+                assert_eq!(props.address_type, "01");
+                assert_eq!(props.shorttext, "Private");
             } else {
                 assert!(
                     1 == 2,
@@ -366,11 +360,12 @@ pub fn should_parse_vh_bp_role_set() {
 
             // Check contents of entity set
             if let Some(entries) = feed.entries {
+                let props = entries[0].content.properties.clone().unwrap();
                 assert_eq!(entries.len(), 2);
 
                 assert_eq!(entries[0].etag.as_ref(), None);
-                assert_eq!(entries[0].content.properties.bp_role, "01");
-                assert_eq!(entries[0].content.properties.shorttext, "Customer");
+                assert_eq!(props.bp_role, "01");
+                assert_eq!(props.shorttext, "Customer");
             } else {
                 assert!(
                     1 == 2,
@@ -407,10 +402,11 @@ pub fn should_parse_vh_category_set() {
 
             // Check contents of entity set
             if let Some(entries) = feed.entries {
+                let props = entries[16].content.properties.clone().unwrap();
                 assert_eq!(entries.len(), 26);
 
                 assert_eq!(entries[16].etag.as_ref(), None);
-                assert_eq!(entries[16].content.properties.category, "PDAs & Organizers");
+                assert_eq!(props.category, "PDAs & Organizers");
             } else {
                 assert!(
                     1 == 2,
@@ -447,11 +443,12 @@ pub fn should_parse_vh_country_set() {
 
             // Check contents of entity set
             if let Some(entries) = feed.entries {
+                let props = entries[119].content.properties.clone().unwrap();
                 assert_eq!(entries.len(), 250);
 
                 assert_eq!(entries[119].etag.as_ref(), None);
-                assert_eq!(entries[119].content.properties.land_1, "KN");
-                assert_eq!(entries[119].content.properties.landx, "St Kitts&Nevis");
+                assert_eq!(props.land_1, "KN");
+                assert_eq!(props.landx, "St Kitts&Nevis");
             } else {
                 assert!(
                     1 == 2,
@@ -488,14 +485,12 @@ pub fn should_parse_vh_currency_set() {
 
             // Check contents of entity set
             if let Some(entries) = feed.entries {
+                let props = entries[0].content.properties.clone().unwrap();
                 assert_eq!(entries.len(), 209);
 
                 assert_eq!(entries[0].etag.as_ref(), None);
-                assert_eq!(entries[0].content.properties.waers, "ADP");
-                assert_eq!(
-                    entries[0].content.properties.ltext,
-                    "Andorran Peseta --&gt; (Old --&gt; EUR)"
-                );
+                assert_eq!(props.waers, "ADP");
+                assert_eq!(props.ltext, "Andorran Peseta --&gt; (Old --&gt; EUR)");
             } else {
                 assert!(
                     1 == 2,
@@ -532,11 +527,12 @@ pub fn should_parse_vh_language_set() {
 
             // Check contents of entity set
             if let Some(entries) = feed.entries {
+                let props = entries[0].content.properties.clone().unwrap();
                 assert_eq!(entries.len(), 44);
 
                 assert_eq!(entries[0].etag.as_ref(), None);
-                assert_eq!(entries[0].content.properties.spras, "SR");
-                assert_eq!(entries[0].content.properties.sptxt, "Serbian");
+                assert_eq!(props.spras, "SR");
+                assert_eq!(props.sptxt, "Serbian");
             } else {
                 assert!(
                     1 == 2,
@@ -573,11 +569,12 @@ pub fn should_parse_vh_product_type_code_set() {
 
             // Check contents of entity set
             if let Some(entries) = feed.entries {
+                let props = entries[0].content.properties.clone().unwrap();
                 assert_eq!(entries.len(), 2);
 
                 assert_eq!(entries[0].etag.as_ref(), None);
-                assert_eq!(entries[0].content.properties.type_code, "AD");
-                assert_eq!(entries[0].content.properties.shorttext, "Advertisement");
+                assert_eq!(props.type_code, "AD");
+                assert_eq!(props.shorttext, "Advertisement");
             } else {
                 assert!(
                     1 == 2,
@@ -614,11 +611,12 @@ pub fn should_parse_vh_sex_set() {
 
             // Check contents of entity set
             if let Some(entries) = feed.entries {
+                let props = entries[0].content.properties.clone().unwrap();
                 assert_eq!(entries.len(), 2);
 
                 assert_eq!(entries[0].etag.as_ref(), None);
-                assert_eq!(entries[0].content.properties.sex, "F");
-                assert_eq!(entries[0].content.properties.shorttext, "Female");
+                assert_eq!(props.sex, "F");
+                assert_eq!(props.shorttext, "Female");
             } else {
                 assert!(
                     1 == 2,
@@ -655,11 +653,12 @@ pub fn should_parse_vh_unit_length_set() {
 
             // Check contents of entity set
             if let Some(entries) = feed.entries {
+                let props = entries[0].content.properties.clone().unwrap();
                 assert_eq!(entries.len(), 11);
 
                 assert_eq!(entries[0].etag.as_ref(), None);
-                assert_eq!(entries[0].content.properties.msehi, "\"");
-                assert_eq!(entries[0].content.properties.msehl, "Inch");
+                assert_eq!(props.msehi, "\"");
+                assert_eq!(props.msehl, "Inch");
             } else {
                 assert!(
                     1 == 2,
@@ -696,11 +695,12 @@ pub fn should_parse_vh_unit_quantity_set() {
 
             // Check contents of entity set
             if let Some(entries) = feed.entries {
+                let props = entries[0].content.properties.clone().unwrap();
                 assert_eq!(entries.len(), 28);
 
                 assert_eq!(entries[0].etag.as_ref(), None);
-                assert_eq!(entries[0].content.properties.msehi, "AU");
-                assert_eq!(entries[0].content.properties.msehl, "Activity unit");
+                assert_eq!(props.msehi, "AU");
+                assert_eq!(props.msehl, "Activity unit");
             } else {
                 assert!(
                     1 == 2,
@@ -737,11 +737,12 @@ pub fn should_parse_vh_unit_weight_set() {
 
             // Check contents of entity set
             if let Some(entries) = feed.entries {
+                let props = entries[0].content.properties.clone().unwrap();
                 assert_eq!(entries.len(), 8);
 
                 assert_eq!(entries[0].etag.as_ref(), None);
-                assert_eq!(entries[0].content.properties.msehi, "G");
-                assert_eq!(entries[0].content.properties.msehl, "Gram");
+                assert_eq!(props.msehi, "G");
+                assert_eq!(props.msehl, "Gram");
             } else {
                 assert!(
                     1 == 2,

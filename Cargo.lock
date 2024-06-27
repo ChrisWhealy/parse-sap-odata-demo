@@ -1413,9 +1413,9 @@ dependencies = [
 
 [[package]]
 name = "parse-sap-atom-feed"
-version = "0.2.4"
+version = "0.2.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "81fbfd053e5552514f0c7999ea0e3c239b3b2adde3acb0ec84f909279df50309"
+checksum = "124a23ac88fff66381cfe81ae6dadca505c57607505561f0273a7e9d317be415"
 dependencies = [
  "chrono",
  "quick-xml 0.32.0",
@@ -1451,7 +1451,7 @@ dependencies = [
  "parse-sap-atom-feed",
  "parse-sap-odata",
  "paste",
- "quick-xml 0.31.0",
+ "quick-xml 0.34.0",
  "regex",
  "reqwest",
  "rust_decimal",
@@ -1558,9 +1558,9 @@ dependencies = [
 
 [[package]]
 name = "quick-xml"
-version = "0.31.0"
+version = "0.32.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1004a344b30a54e2ee58d66a71b32d2db2feb0a31f9a2d302bf0536f15de2a33"
+checksum = "1d3a6e5838b60e0e8fa7a43f22ade549a37d61f8bdbe636d0d7816191de969c2"
 dependencies = [
  "memchr",
  "serde",
@@ -1568,9 +1568,9 @@ dependencies = [
 
 [[package]]
 name = "quick-xml"
-version = "0.32.0"
+version = "0.34.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1d3a6e5838b60e0e8fa7a43f22ade549a37d61f8bdbe636d0d7816191de969c2"
+checksum = "6f24d770aeca0eacb81ac29dfbc55ebcc09312fdd1f8bbecdc7e4a84e000e3b4"
 dependencies = [
  "memchr",
  "serde",
