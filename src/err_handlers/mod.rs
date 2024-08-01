@@ -34,7 +34,9 @@ fn get_error_response<B>(res: &ServiceResponse<B>, error: &str) -> HttpResponse 
             .body(err.to_string())
     };
 
-    let tt = request.app_data::<web::Data<TinyTemplate<'_>>>().map(|t| t.get_ref());
+    let tt = request
+        .app_data::<web::Data<TinyTemplate<'_>>>()
+        .map(|t| t.get_ref());
     match tt {
         Some(tt) => {
             let mut context = std::collections::HashMap::new();
@@ -43,10 +45,12 @@ fn get_error_response<B>(res: &ServiceResponse<B>, error: &str) -> HttpResponse 
             let body = tt.render("error.html", &context);
 
             match body {
-                Ok(body) => HttpResponse::build(res.status()).content_type(ContentType::html()).body(body),
+                Ok(body) => HttpResponse::build(res.status())
+                    .content_type(ContentType::html())
+                    .body(body),
                 Err(_) => fallback(error),
             }
-        },
+        }
         None => fallback(error),
     }
 }

@@ -1,4 +1,3 @@
-use parse_sap_atom_feed::{atom::feed::Feed, xml::sanitise_xml};
 use rust_decimal::Decimal;
 use std::{
     fs::File,
@@ -8,14 +7,18 @@ use std::{
     string::FromUtf8Error,
 };
 
+use parse_sap_atom_feed::{atom::feed::Feed, xml::sanitise_xml};
+
 static FEED_XML_BASE: &str =
     "https://SAPES5.SAPDEVCENTER.COM:443/sap/opu/odata/iwbep/GWSAMPLE_BASIC/";
 
 static ATOM_XML_NAMESPACE: &str = "http://www.w3.org/2005/Atom";
 
 include!(concat!(env!("OUT_DIR"), "/gwsample_basic.rs"));
+include!(concat!(env!("OUT_DIR"), "/gwsample_basic_metadata.rs"));
 
 use gwsample_basic::*;
+use gwsample_basic_metadata::*;
 
 fn fetch_xml_as_string(filename: &str) -> Result<String, FromUtf8Error> {
     let mut xml_buffer: Vec<u8> = Vec::new();
@@ -28,23 +31,23 @@ fn fetch_xml_as_string(filename: &str) -> Result<String, FromUtf8Error> {
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #[test]
 pub fn should_get_entity_type_key_names() {
-    assert_eq!("business_partner_id", BusinessPartner::get_key()[0]);
-    assert_eq!("product_id", Product::get_key()[0]);
-    assert_eq!("sales_order_id", SalesOrder::get_key()[0]);
-    assert_eq!("sales_order_id", SalesOrderLineItem::get_key()[0]);
-    assert_eq!("item_position", SalesOrderLineItem::get_key()[1]);
-    assert_eq!("contact_guid", Contact::get_key()[0]);
-    assert_eq!("sex", VhSex::get_key()[0]);
-    assert_eq!("land_1", VhCountry::get_key()[0]);
-    assert_eq!("address_type", VhAddressType::get_key()[0]);
-    assert_eq!("category", VhCategory::get_key()[0]);
-    assert_eq!("waers", VhCurrency::get_key()[0]);
-    assert_eq!("msehi", VhUnitQuantity::get_key()[0]);
-    assert_eq!("msehi", VhUnitWeight::get_key()[0]);
-    assert_eq!("msehi", VhUnitLength::get_key()[0]);
-    assert_eq!("type_code", VhProductTypeCode::get_key()[0]);
-    assert_eq!("bp_role", VhBpRole::get_key()[0]);
-    assert_eq!("spras", VhLanguage::get_key()[0]);
+    assert_eq!("business_partner_id", BusinessPartnerMetadata::get_key()[0].name);
+    assert_eq!("product_id", ProductMetadata::get_key()[0].name);
+    assert_eq!("sales_order_id", SalesOrderMetadata::get_key()[0].name);
+    assert_eq!("sales_order_id", SalesOrderLineItemMetadata::get_key()[0].name);
+    assert_eq!("item_position", SalesOrderLineItemMetadata::get_key()[1].name);
+    assert_eq!("contact_guid", ContactMetadata::get_key()[0].name);
+    assert_eq!("sex", VhSexMetadata::get_key()[0].name);
+    assert_eq!("land_1", VhCountryMetadata::get_key()[0].name);
+    assert_eq!("address_type", VhAddressTypeMetadata::get_key()[0].name);
+    assert_eq!("category", VhCategoryMetadata::get_key()[0].name);
+    assert_eq!("waers", VhCurrencyMetadata::get_key()[0].name);
+    assert_eq!("msehi", VhUnitQuantityMetadata::get_key()[0].name);
+    assert_eq!("msehi", VhUnitWeightMetadata::get_key()[0].name);
+    assert_eq!("msehi", VhUnitLengthMetadata::get_key()[0].name);
+    assert_eq!("type_code", VhProductTypeCodeMetadata::get_key()[0].name);
+    assert_eq!("bp_role", VhBpRoleMetadata::get_key()[0].name);
+    assert_eq!("spras", VhLanguageMetadata::get_key()[0].name);
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

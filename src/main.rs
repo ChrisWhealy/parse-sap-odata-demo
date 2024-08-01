@@ -17,6 +17,7 @@ use std::{
 use tinytemplate::TinyTemplate;
 
 include!(concat!(env!("OUT_DIR"), "/gwsample_basic.rs"));
+include!(concat!(env!("OUT_DIR"), "/gwsample_basic_metadata.rs"));
 
 use gwsample_basic::*;
 
@@ -33,7 +34,7 @@ async fn doc_root(
 ) -> Result<HttpResponse, Error> {
     let ctx = json!({
       "service_name": str::from_utf8(SERVICE_NAME).unwrap(),
-      "option_list": GwsampleBasicEntities::as_list()
+      "option_list": GwsampleBasicEntities::variant_names()
     });
 
     let body = tmpl
@@ -133,7 +134,7 @@ async fn entity_set(path: web::Path<String>) -> Result<HttpResponse, Error> {
 
     println!("GET: /{}", entity_set_name);
 
-    if !gwsample_basic::GwsampleBasicEntities::as_list().contains(&&entity_set_name[..]) {
+    if !GwsampleBasicEntities::variant_names().contains(&&entity_set_name[..]) {
         return Ok(HttpResponse::NotFound().finish());
     }
 
