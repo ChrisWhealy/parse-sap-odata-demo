@@ -20,6 +20,7 @@ include!(concat!(env!("OUT_DIR"), "/gwsample_basic.rs"));
 include!(concat!(env!("OUT_DIR"), "/gwsample_basic_metadata.rs"));
 
 use gwsample_basic::*;
+// use gwsample_basic_metadata::*;
 
 static INDEX: &str = include_str!("../html/index.html");
 static HOST_PATH: &[u8] = "https://sapes5.sapdevcenter.com/sap/opu/odata/iwbep".as_bytes();
@@ -33,7 +34,7 @@ async fn doc_root(
     _query: web::Query<HashMap<String, String>>,
 ) -> Result<HttpResponse, Error> {
     let ctx = json!({
-      "service_name": str::from_utf8(SERVICE_NAME).unwrap(),
+      "service_name": str::from_utf8(SERVICE_NAME)?,
       "option_list": GwsampleBasicEntities::variant_names()
     });
 
@@ -142,8 +143,8 @@ async fn entity_set(path: web::Path<String>) -> Result<HttpResponse, Error> {
         Ok(auth_chars) => {
             let url = format!(
                 "{}/{}/{}?$top=100",
-                str::from_utf8(HOST_PATH).unwrap(),
-                str::from_utf8(SERVICE_NAME).unwrap(),
+                str::from_utf8(HOST_PATH)?,
+                str::from_utf8(SERVICE_NAME)?,
                 entity_set_name
             );
             log::info!("Fetching URL {}", url);
@@ -159,7 +160,7 @@ async fn entity_set(path: web::Path<String>) -> Result<HttpResponse, Error> {
                     log::info!("HTTP Status code = {}", http_status_code);
 
                     let raw_xml = response.text().await.unwrap();
-                    log::info!("Raw XML response\n{}", raw_xml);
+                    // log::info!("Raw XML response\n{}", raw_xml);
 
                     let response_body = match http_status_code {
                         reqwest::StatusCode::OK => {
