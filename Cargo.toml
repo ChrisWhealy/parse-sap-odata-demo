@@ -23,10 +23,10 @@ quick-xml = { version = "0.36", features = ["serialize"] }
 regex = "1.10"
 reqwest = { version = "0.12", features = ["json"]}
 
+#parse-sap-odata = { path = "../parse-sap-odata"}
+parse-sap-odata = "1.4"
 #parse-sap-atom-feed = { path = "../parse-sap-atom-feed" }
 parse-sap-atom-feed = "1.1"
-#parse-sap-odata = { path = "../parse-sap-odata"}
-parse-sap-odata = { version = "1.4"}
 
 paste = "1.0"
 rust_decimal = { version = "1", features = ["serde-with-str"]}
