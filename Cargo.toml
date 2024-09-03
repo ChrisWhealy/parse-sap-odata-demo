@@ -13,25 +13,29 @@ parse-sap-odata = { version = "1.4", features = ["parser"]}
 #parse-sap-odata = { path = "../parse-sap-odata", features = ["parser"]}
 
 [dependencies]
+# parse-sap-odata's fixed dependencies
+serde = { version = "1.0", features = ["derive"] }
+quick-xml = "0.36"
+
+# parse-sap-odata's possible dependencies (varies depending on which EDM properties are encountered)
+chrono = { version = "0.4", features = ["serde"]}
+rust_decimal = "1.36"
+uuid = { version = "1.10", features = ["serde"]}
+
 actix-web = "4.9"
 actix-rt = "2.10"
 base64 = "0.22"
-chrono = { version = "0.4", features = ["serde"]}
 env_logger = "0.11"
 log = "0.4"
-quick-xml = { version = "0.36", features = ["serialize"] }
 regex = "1.10"
 reqwest = { version = "0.12", features = ["json"]}
 
 #parse-sap-odata = { path = "../parse-sap-odata"}
 parse-sap-odata = "1.4"
 #parse-sap-atom-feed = { path = "../parse-sap-atom-feed" }
-parse-sap-atom-feed = "1.1"
+parse-sap-atom-feed = "1.2"
 
 paste = "1.0"
-rust_decimal = { version = "1", features = ["serde-with-str"]}
-serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 tinytemplate = "1.2"
-uuid = { version = "1.8", features = ["serde"]}
 url = "2.5"

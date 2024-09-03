@@ -1312,12 +1312,12 @@ dependencies = [
 
 [[package]]
 name = "parse-sap-atom-feed"
-version = "1.1.2"
+version = "1.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a4c983f2dc39054695528d131529f83e8501236795745ec2dd2e90613875f949"
+checksum = "f701db94069aea4384eaf706258702649664db4d1db71c8922e67caecb662071"
 dependencies = [
  "chrono",
- "quick-xml 0.32.0",
+ "quick-xml",
  "regex",
  "rust_decimal",
  "serde",
@@ -1325,14 +1325,15 @@ dependencies = [
 
 [[package]]
 name = "parse-sap-odata"
-version = "1.4.1"
+version = "1.4.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0e1aab4a88cfbae2b9505edc8384739d5ad8054e4a78e184e1209476de063b4a"
+checksum = "9aa343e75e1db7cea02a7b2cae45640ac99d15c677b2af4d675eda1ca48bdc22"
 dependencies = [
  "anyhow",
  "check_keyword",
  "convert_case 0.6.0",
- "quick-xml 0.36.1",
+ "parse-sap-atom-feed",
+ "quick-xml",
  "regex",
  "serde",
  "which",
@@ -1351,7 +1352,7 @@ dependencies = [
  "parse-sap-atom-feed",
  "parse-sap-odata",
  "paste",
- "quick-xml 0.36.1",
+ "quick-xml",
  "regex",
  "reqwest",
  "rust_decimal",
@@ -1528,16 +1529,6 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn 1.0.109",
-]
-
-[[package]]
-name = "quick-xml"
-version = "0.32.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1d3a6e5838b60e0e8fa7a43f22ade549a37d61f8bdbe636d0d7816191de969c2"
-dependencies = [
- "memchr",
- "serde",
 ]
 
 [[package]]
@@ -1737,9 +1728,9 @@ dependencies = [
 
 [[package]]
 name = "rust_decimal"
-version = "1.35.0"
+version = "1.36.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1790d1c4c0ca81211399e0e0af16333276f375209e71a37b67698a373db5b47a"
+checksum = "b082d80e3e3cc52b2ed634388d436fe1f4de6af5786cc2de9ba9737527bdf555"
 dependencies = [
  "arrayvec",
  "borsh",

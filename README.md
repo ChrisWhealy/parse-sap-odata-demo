@@ -71,15 +71,3 @@ In order to stop the XML parser from barfing, this character must be replaced wi
 <d:Category>PDAs &amp; Organizers</d:Category>
 <d:Landx>St Kitts&amp;Nevis</d:Landx>
 ```
-
-### Partial Support for `Edm.Decimal` Fields
-
-Fields of type `Edm.Decimal` are currently parsed using the `Decimal` deserializer in crate `rust_decimal`.
-
-```xml
-<Property Name="Price" Type="Edm.Decimal" Precision="16" Scale="3" sap:unicode="false" sap:unit="CurrencyCode" sap:label="Unit Price"/>
-```
-
-However, since this deserialzer does not consider the `Scale` and `Precision` attributes shown above, these details are currently lost when handling decimal fields.
-
-TODO: Implement a custom deserializer for `Edm.Decimal`
