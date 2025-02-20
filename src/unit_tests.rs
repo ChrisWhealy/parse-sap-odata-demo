@@ -14,8 +14,10 @@ static FEED_XML_BASE: &str =
 
 static ATOM_XML_NAMESPACE: &str = "http://www.w3.org/2005/Atom";
 
-include!(concat!(env!("OUT_DIR"), "/gwsample_basic.rs"));
-include!(concat!(env!("OUT_DIR"), "/gwsample_basic_metadata.rs"));
+parse_sap_odata::include_mod!("gwsample_basic");
+parse_sap_odata::include_mod!("gwsample_basic_metadata");
+// include!(concat!(env!("OUT_DIR"), "/gwsample_basic.rs"));
+// include!(concat!(env!("OUT_DIR"), "/gwsample_basic_metadata.rs"));
 
 use gwsample_basic::*;
 use gwsample_basic_metadata::*;
@@ -31,23 +33,23 @@ fn fetch_xml_as_string(filename: &str) -> Result<String, FromUtf8Error> {
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #[test]
 pub fn should_get_entity_type_key_names() {
-    assert_eq!("business_partner_id", BusinessPartnerMetadata::get_key()[0].name);
-    assert_eq!("product_id", ProductMetadata::get_key()[0].name);
-    assert_eq!("sales_order_id", SalesOrderMetadata::get_key()[0].name);
-    assert_eq!("sales_order_id", SalesOrderLineItemMetadata::get_key()[0].name);
-    assert_eq!("item_position", SalesOrderLineItemMetadata::get_key()[1].name);
-    assert_eq!("contact_guid", ContactMetadata::get_key()[0].name);
-    assert_eq!("sex", VhSexMetadata::get_key()[0].name);
-    assert_eq!("land_1", VhCountryMetadata::get_key()[0].name);
-    assert_eq!("address_type", VhAddressTypeMetadata::get_key()[0].name);
-    assert_eq!("category", VhCategoryMetadata::get_key()[0].name);
-    assert_eq!("waers", VhCurrencyMetadata::get_key()[0].name);
-    assert_eq!("msehi", VhUnitQuantityMetadata::get_key()[0].name);
-    assert_eq!("msehi", VhUnitWeightMetadata::get_key()[0].name);
-    assert_eq!("msehi", VhUnitLengthMetadata::get_key()[0].name);
-    assert_eq!("type_code", VhProductTypeCodeMetadata::get_key()[0].name);
-    assert_eq!("bp_role", VhBpRoleMetadata::get_key()[0].name);
-    assert_eq!("spras", VhLanguageMetadata::get_key()[0].name);
+    assert_eq!("business_partner_id", BusinessPartnerMetadata::key()[0].name);
+    assert_eq!("product_id", ProductMetadata::key()[0].name);
+    assert_eq!("sales_order_id", SalesOrderMetadata::key()[0].name);
+    assert_eq!("sales_order_id", SalesOrderLineItemMetadata::key()[0].name);
+    assert_eq!("item_position", SalesOrderLineItemMetadata::key()[1].name);
+    assert_eq!("contact_guid", ContactMetadata::key()[0].name);
+    assert_eq!("sex", VhSexMetadata::key()[0].name);
+    assert_eq!("land_1", VhCountryMetadata::key()[0].name);
+    assert_eq!("address_type", VhAddressTypeMetadata::key()[0].name);
+    assert_eq!("category", VhCategoryMetadata::key()[0].name);
+    assert_eq!("waers", VhCurrencyMetadata::key()[0].name);
+    assert_eq!("msehi", VhUnitQuantityMetadata::key()[0].name);
+    assert_eq!("msehi", VhUnitWeightMetadata::key()[0].name);
+    assert_eq!("msehi", VhUnitLengthMetadata::key()[0].name);
+    assert_eq!("type_code", VhProductTypeCodeMetadata::key()[0].name);
+    assert_eq!("bp_role", VhBpRoleMetadata::key()[0].name);
+    assert_eq!("spras", VhLanguageMetadata::key()[0].name);
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

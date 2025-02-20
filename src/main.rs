@@ -16,8 +16,8 @@ use std::{
 };
 use tinytemplate::TinyTemplate;
 
-include!(concat!(env!("OUT_DIR"), "/gwsample_basic.rs"));
-include!(concat!(env!("OUT_DIR"), "/gwsample_basic_metadata.rs"));
+parse_sap_odata::include_mod!("gwsample_basic");
+parse_sap_odata::include_mod!("gwsample_basic_metadata");
 
 use gwsample_basic::*;
 // use gwsample_basic_metadata::*;
@@ -25,6 +25,8 @@ use gwsample_basic::*;
 static INDEX: &str = include_str!("../html/index.html");
 static HOST_PATH: &[u8] = "https://sapes5.sapdevcenter.com/sap/opu/odata/iwbep".as_bytes();
 static SERVICE_NAME: &[u8] = "GWSAMPLE_BASIC".as_bytes();
+
+static TOP_LIMIT: usize = 250;
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Serve document root
@@ -142,7 +144,7 @@ async fn entity_set(path: web::Path<String>) -> Result<HttpResponse, Error> {
     let http_response = match fetch_auth() {
         Ok(auth_chars) => {
             let url = format!(
-                "{}/{}/{}?$top=100",
+                "{}/{}/{}?$top={TOP_LIMIT}",
                 str::from_utf8(HOST_PATH)?,
                 str::from_utf8(SERVICE_NAME)?,
                 entity_set_name
@@ -188,7 +190,7 @@ async fn entity_set(path: web::Path<String>) -> Result<HttpResponse, Error> {
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
     env_logger::init_from_env(env_logger::Env::new().default_filter_or("info"));
-    log::info!("Starting HTTP server at http://localhost:8080");
+    log::info!("Starting HTTP server at http://0.0.0.0:8080");
 
     HttpServer::new(|| {
         let mut tt = TinyTemplate::new();
