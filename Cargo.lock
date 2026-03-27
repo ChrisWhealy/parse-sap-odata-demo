@@ -1468,7 +1468,7 @@ dependencies = [
 
 [[package]]
 name = "parse-sap-odata-demo"
-version = "0.1.9"
+version = "0.1.10"
 dependencies = [
  "actix-web",
  "base64",

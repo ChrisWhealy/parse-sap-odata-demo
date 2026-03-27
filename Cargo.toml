@@ -1,7 +1,7 @@
 [package]
 name = "parse-sap-odata-demo"
 edition = "2021"
-version = "0.1.9"
+version = "0.1.10"
 authors = ["Chris Whealy <chris@whealy.com>"]
 description = "Minimal demo app that consumes the SAP OData service GWSAMPLE_BASIC"
 keywords = ["odata", "sap", "parser", "opendata", "gwsample_basic"]
