@@ -16,12 +16,53 @@ static ATOM_XML_NAMESPACE: &str = "http://www.w3.org/2005/Atom";
 
 parse_sap_odata::include_mod!("gwsample_basic");
 parse_sap_odata::include_mod!("gwsample_basic_metadata");
-// include!(concat!(env!("OUT_DIR"), "/gwsample_basic.rs"));
-// include!(concat!(env!("OUT_DIR"), "/gwsample_basic_metadata.rs"));
 
 use gwsample_basic::*;
 use gwsample_basic_metadata::*;
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+/// Asserts equality, returning a descriptive Err if the values differ.
+/// Expands to a `return Err(...)` so it must be used in functions returning `Result<(), String>`.
+/// Optional first integer argument labels the failure with a test number.
+macro_rules! check_eq {
+    ($test_num:literal, $left:expr, $right:expr $(,)?) => {
+        if $left != $right {
+            return Err(format!(
+                "Test {}: assertion failed: expected {:?} but got {:?}",
+                $test_num, $right, $left
+            ));
+        }
+    };
+    ($left:expr, $right:expr $(,)?) => {
+        if $left != $right {
+            return Err(format!(
+                "assertion failed: expected {:?} but got {:?}",
+                $right, $left
+            ));
+        }
+    };
+}
+
+/// Asserts that a value is None, returning a descriptive Err if it is Some.
+/// Expands to a `return Err(...)` so it must be used in functions returning `Result<(), String>`.
+/// Optional first integer argument labels the failure with a test number.
+macro_rules! check_none {
+    ($test_num:literal, $val:expr $(,)?) => {
+        if let Some(ref inner) = $val {
+            return Err(format!(
+                "Test {}: expected None but got Some({:?})",
+                $test_num, inner
+            ));
+        }
+    };
+    ($val:expr $(,)?) => {
+        if let Some(ref inner) = $val {
+            return Err(format!("expected None but got Some({:?})", inner));
+        }
+    };
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 fn fetch_xml_as_string(filename: &str) -> Result<String, FromUtf8Error> {
     let mut xml_buffer: Vec<u8> = Vec::new();
     let test_data = File::open(Path::new(&format!("./test_data/{}", filename))).unwrap();
@@ -30,735 +71,528 @@ fn fetch_xml_as_string(filename: &str) -> Result<String, FromUtf8Error> {
     String::from_utf8(xml_buffer)
 }
 
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#[test]
-pub fn should_get_entity_type_key_names() {
-    assert_eq!("business_partner_id", BusinessPartnerMetadata::key()[0].name);
-    assert_eq!("product_id", ProductMetadata::key()[0].name);
-    assert_eq!("sales_order_id", SalesOrderMetadata::key()[0].name);
-    assert_eq!("sales_order_id", SalesOrderLineItemMetadata::key()[0].name);
-    assert_eq!("item_position", SalesOrderLineItemMetadata::key()[1].name);
-    assert_eq!("contact_guid", ContactMetadata::key()[0].name);
-    assert_eq!("sex", VhSexMetadata::key()[0].name);
-    assert_eq!("land_1", VhCountryMetadata::key()[0].name);
-    assert_eq!("address_type", VhAddressTypeMetadata::key()[0].name);
-    assert_eq!("category", VhCategoryMetadata::key()[0].name);
-    assert_eq!("waers", VhCurrencyMetadata::key()[0].name);
-    assert_eq!("msehi", VhUnitQuantityMetadata::key()[0].name);
-    assert_eq!("msehi", VhUnitWeightMetadata::key()[0].name);
-    assert_eq!("msehi", VhUnitLengthMetadata::key()[0].name);
-    assert_eq!("type_code", VhProductTypeCodeMetadata::key()[0].name);
-    assert_eq!("bp_role", VhBpRoleMetadata::key()[0].name);
-    assert_eq!("spras", VhLanguageMetadata::key()[0].name);
+fn check_starts_with(value: &str, prefix: &str) -> Result<(), String> {
+    if !value.starts_with(prefix) {
+        Err(format!(
+            "expected value starting with {:?}, but got {:?}",
+            prefix, value
+        ))
+    } else {
+        Ok(())
+    }
+}
+
+fn check_feed_header<T>(feed: &Feed<T>, entity_set_name: &str) -> Result<(), String> {
+    let expected_id = format!("{}{}", FEED_XML_BASE, entity_set_name);
+    check_eq!(1, feed.namespace, Some(String::from(ATOM_XML_NAMESPACE)));
+    check_eq!(2, feed.xml_base, Some(String::from(FEED_XML_BASE)));
+    check_eq!(3, feed.id, expected_id);
+    check_eq!(4, feed.title, entity_set_name);
+    check_eq!(5, feed.links.len(), 1);
+    check_eq!(6, feed.links[0].href, entity_set_name);
+    Ok(())
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #[test]
-pub fn should_parse_business_partner_set() {
+pub fn should_get_entity_type_key_names() -> Result<(), String> {
+    check_eq!(
+        1,
+        BusinessPartnerMetadata::key()[0].name,
+        "business_partner_id"
+    );
+    check_eq!(2, ProductMetadata::key()[0].name, "product_id");
+    check_eq!(3, SalesOrderMetadata::key()[0].name, "sales_order_id");
+    check_eq!(
+        4,
+        SalesOrderLineItemMetadata::key()[0].name,
+        "sales_order_id"
+    );
+    check_eq!(
+        5,
+        SalesOrderLineItemMetadata::key()[1].name,
+        "item_position"
+    );
+    check_eq!(6, ContactMetadata::key()[0].name, "contact_guid");
+    check_eq!(7, VhSexMetadata::key()[0].name, "sex");
+    check_eq!(8, VhCountryMetadata::key()[0].name, "land_1");
+    check_eq!(9, VhAddressTypeMetadata::key()[0].name, "address_type");
+    check_eq!(10, VhCategoryMetadata::key()[0].name, "category");
+    check_eq!(11, VhCurrencyMetadata::key()[0].name, "waers");
+    check_eq!(12, VhUnitQuantityMetadata::key()[0].name, "msehi");
+    check_eq!(13, VhUnitWeightMetadata::key()[0].name, "msehi");
+    check_eq!(14, VhUnitLengthMetadata::key()[0].name, "msehi");
+    check_eq!(15, VhProductTypeCodeMetadata::key()[0].name, "type_code");
+    check_eq!(16, VhBpRoleMetadata::key()[0].name, "bp_role");
+    check_eq!(17, VhLanguageMetadata::key()[0].name, "spras");
+    Ok(())
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#[test]
+pub fn should_parse_business_partner_set() -> Result<(), String> {
     static ENTITY_SET_NAME: &str = "BusinessPartnerSet";
-    let base_service_name = format!("{}{}", FEED_XML_BASE, ENTITY_SET_NAME);
 
-    match fetch_xml_as_string(&format!("{}.xml", ENTITY_SET_NAME)) {
-        Ok(xml) => {
-            let clean_xml = sanitise_xml(xml);
-            let feed = Feed::<BusinessPartner>::from_str(&clean_xml).unwrap();
+    let xml = fetch_xml_as_string(&format!("{}.xml", ENTITY_SET_NAME))
+        .map_err(|e| format!("XML test data was not in UTF8 format: {}", e))?;
+    let clean_xml = sanitise_xml(xml);
+    let feed = Feed::<BusinessPartner>::from_str(&clean_xml)
+        .map_err(|e| format!("Failed to parse {}: {:?}", ENTITY_SET_NAME, e))?;
 
-            assert_eq!(feed.namespace, Some(String::from(ATOM_XML_NAMESPACE)));
-            assert_eq!(feed.xml_base, Some(String::from(FEED_XML_BASE)));
-            assert_eq!(feed.id, base_service_name);
-            assert_eq!(feed.title, ENTITY_SET_NAME);
+    check_feed_header(&feed, ENTITY_SET_NAME)?;
 
-            assert_eq!(feed.links.len(), 1);
-            assert_eq!(feed.links[0].href, ENTITY_SET_NAME);
+    let entries = feed
+        .entries
+        .ok_or_else(|| format!("Entity set {} should not be empty!", ENTITY_SET_NAME))?;
 
-            // Check contents of entity set
-            if let Some(entries) = feed.entries {
-                assert_eq!(entries.len(), 5);
-                assert_eq!(
-                    entries[0].id,
-                    format!("{}('0100000000')", base_service_name)
-                );
+    check_eq!(1, entries.len(), 5);
+    check_eq!(
+        2,
+        entries[0].id,
+        format!("{}{}('0100000000')", FEED_XML_BASE, ENTITY_SET_NAME)
+    );
 
-                let etag = String::from(entries[0].etag.as_ref().unwrap());
-                assert!(etag.starts_with("datetime"));
-                let props = entries[0].content.properties.clone().unwrap();
+    let etag = String::from(
+        entries[0]
+            .etag
+            .as_ref()
+            .ok_or_else(|| "Expected etag to be present on entries[0]".to_string())?,
+    );
+    check_starts_with(&etag, "datetime")?;
 
-                assert_eq!(props.address.city, Some(String::from("Walldorf")));
-                assert_eq!(props.company_name, "SAP");
-                assert_eq!(props.currency_code, "EUR");
-            } else {
-                assert!(
-                    1 == 2,
-                    "{}",
-                    format!(
-                        "Entity set {} should not be empty!",
-                        String::from(ENTITY_SET_NAME)
-                    )
-                )
-            }
-        }
-        Err(err) => println!("XML test data was not in UTF8 format: {}", err),
-    };
+    let props = entries[0].content.properties.clone().unwrap();
+    check_eq!(3, props.address.city, Some(String::from("Walldorf")));
+    check_eq!(4, props.company_name, "SAP");
+    check_eq!(5, props.currency_code, "EUR");
+
+    Ok(())
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #[test]
-pub fn should_parse_contact_set() {
+pub fn should_parse_contact_set() -> Result<(), String> {
     static ENTITY_SET_NAME: &str = "ContactSet";
-    let base_service_name = format!("{}{}", FEED_XML_BASE, ENTITY_SET_NAME);
 
-    match fetch_xml_as_string(&format!("{}.xml", ENTITY_SET_NAME)) {
-        Ok(xml) => {
-            match Feed::<Contact>::from_str(&xml) {
-                Ok(feed) => {
-                    assert_eq!(feed.namespace, Some(String::from(ATOM_XML_NAMESPACE)));
-                    assert_eq!(feed.xml_base, Some(String::from(FEED_XML_BASE)));
-                    assert_eq!(feed.id, base_service_name);
-                    assert_eq!(feed.title, ENTITY_SET_NAME);
+    let xml = fetch_xml_as_string(&format!("{}.xml", ENTITY_SET_NAME))
+        .map_err(|e| format!("XML test data was not in UTF8 format: {}", e))?;
+    let feed = Feed::<Contact>::from_str(&xml)
+        .map_err(|e| format!("Failed to parse {}: {:?}", ENTITY_SET_NAME, e))?;
 
-                    assert_eq!(feed.links.len(), 1);
-                    assert_eq!(feed.links[0].href, ENTITY_SET_NAME);
+    check_feed_header(&feed, ENTITY_SET_NAME)?;
 
-                    // Check contents of entity set
-                    if let Some(entries) = feed.entries {
-                        let props = entries[0].content.properties.clone().unwrap();
+    let entries = feed
+        .entries
+        .ok_or_else(|| format!("Entity set {} should not be empty!", ENTITY_SET_NAME))?;
 
-                        assert_eq!(entries.len(), 5);
-                        assert_eq!(
-                            props.address.street,
-                            Some(String::from("Robert-Koch-Straße"))
-                        );
-                        assert_eq!(props.first_name, "Karl");
-                        assert_eq!(props.last_name, Some(String::from("Müller")));
-                        assert_eq!(props.date_of_birth, None);
-                    } else {
-                        assert!(
-                            1 == 2,
-                            "{}",
-                            format!(
-                                "Entity set {} should not be empty!",
-                                String::from(ENTITY_SET_NAME)
-                            )
-                        )
-                    }
-                }
-                Err(err_msg) => assert!(1 == 2, "{:?}", err_msg),
-            };
-        }
-        Err(err) => println!("XML test data was not in UTF8 format: {}", err),
-    };
+    let props = entries[0].content.properties.clone().unwrap();
+    check_eq!(1, entries.len(), 5);
+    check_eq!(
+        2,
+        props.address.street,
+        Some(String::from("Robert-Koch-Straße"))
+    );
+    check_eq!(3, props.first_name, "Karl");
+    check_eq!(4, props.last_name, Some(String::from("Müller")));
+    check_none!(5, props.date_of_birth);
+
+    Ok(())
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #[test]
-pub fn should_parse_product_set() {
+pub fn should_parse_product_set() -> Result<(), String> {
     static ENTITY_SET_NAME: &str = "ProductSet";
-    let base_service_name = format!("{}{}", FEED_XML_BASE, ENTITY_SET_NAME);
+    let expected_date = "2023-08-31T01:48:52.9972620";
 
-    match fetch_xml_as_string(&format!("{}.xml", ENTITY_SET_NAME)) {
-        Ok(xml) => {
-            let expected_date = "2023-08-31T01:48:52.9972620";
-            let clean_xml = sanitise_xml(xml);
-            let feed = Feed::<Product>::from_str(&clean_xml).unwrap();
+    let xml = fetch_xml_as_string(&format!("{}.xml", ENTITY_SET_NAME))
+        .map_err(|e| format!("XML test data was not in UTF8 format: {}", e))?;
+    let clean_xml = sanitise_xml(xml);
+    let feed = Feed::<Product>::from_str(&clean_xml)
+        .map_err(|e| format!("Failed to parse {}: {:?}", ENTITY_SET_NAME, e))?;
 
-            assert_eq!(feed.namespace, Some(String::from(ATOM_XML_NAMESPACE)));
-            assert_eq!(feed.xml_base, Some(String::from(FEED_XML_BASE)));
-            assert_eq!(feed.id, base_service_name);
-            assert_eq!(feed.title, ENTITY_SET_NAME);
+    check_feed_header(&feed, ENTITY_SET_NAME)?;
 
-            assert_eq!(feed.links.len(), 1);
-            assert_eq!(feed.links[0].href, ENTITY_SET_NAME);
+    let entries = feed
+        .entries
+        .ok_or_else(|| format!("Entity set {} should not be empty!", ENTITY_SET_NAME))?;
 
-            // Check contents of entity set
-            if let Some(entries) = feed.entries {
-                assert_eq!(entries.len(), 5);
+    check_eq!(1, entries.len(), 5);
 
-                let etag = String::from(entries[0].etag.as_ref().unwrap());
-                assert!(etag.starts_with("datetime"));
+    let etag = String::from(
+        entries[0]
+            .etag
+            .as_ref()
+            .ok_or_else(|| "Expected etag to be present on entries[0]".to_string())?,
+    );
+    check_starts_with(&etag, "datetime")?;
 
-                let props = entries[0].content.properties.clone().unwrap();
+    let props = entries[0].content.properties.clone().unwrap();
+    check_eq!(2, props.product_id, "2GOYBEBFLB");
+    check_eq!(3, props.category, "Notebooks");
+    check_eq!(4, props.weight_measure, Some(Decimal::new(4200000, 3)));
+    check_eq!(
+        5,
+        props.weight_measure,
+        Some(Decimal::from_str("4200.0").unwrap())
+    );
+    check_eq!(
+        6,
+        props.created_at,
+        Some(chrono::NaiveDateTime::from_str(expected_date).unwrap())
+    );
 
-                assert_eq!(props.product_id, "2GOYBEBFLB");
-                assert_eq!(props.category, "Notebooks");
-                assert_eq!(props.weight_measure, Some(Decimal::new(4200000, 3)));
-                assert_eq!(
-                    props.weight_measure,
-                    Some(Decimal::from_str("4200.0").unwrap())
-                );
-                assert_eq!(
-                    props.created_at,
-                    Some(chrono::NaiveDateTime::from_str(expected_date).unwrap())
-                );
-            } else {
-                assert!(
-                    1 == 2,
-                    "{}",
-                    format!(
-                        "Entity set {} should not be empty!",
-                        String::from(ENTITY_SET_NAME)
-                    )
-                )
-            }
-        }
-        Err(err) => println!("XML test data was not in UTF8 format: {}", err),
-    };
+    Ok(())
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #[test]
-pub fn should_parse_sales_order_line_item_set() {
+pub fn should_parse_sales_order_line_item_set() -> Result<(), String> {
     static ENTITY_SET_NAME: &str = "SalesOrderLineItemSet";
-    let base_service_name = format!("{}{}", FEED_XML_BASE, ENTITY_SET_NAME);
+    let expected_date = "2018-01-07T23:00:00.0000000";
 
-    match fetch_xml_as_string(&format!("{}.xml", ENTITY_SET_NAME)) {
-        Ok(xml) => {
-            let expected_date = "2018-01-07T23:00:00.0000000";
-            let clean_xml = sanitise_xml(xml);
-            let feed = Feed::<SalesOrderLineItem>::from_str(&clean_xml).unwrap();
+    let xml = fetch_xml_as_string(&format!("{}.xml", ENTITY_SET_NAME))
+        .map_err(|e| format!("XML test data was not in UTF8 format: {}", e))?;
+    let clean_xml = sanitise_xml(xml);
+    let feed = Feed::<SalesOrderLineItem>::from_str(&clean_xml)
+        .map_err(|e| format!("Failed to parse {}: {:?}", ENTITY_SET_NAME, e))?;
 
-            assert_eq!(feed.namespace, Some(String::from(ATOM_XML_NAMESPACE)));
-            assert_eq!(feed.xml_base, Some(String::from(FEED_XML_BASE)));
-            assert_eq!(feed.id, base_service_name);
-            assert_eq!(feed.title, ENTITY_SET_NAME);
+    check_feed_header(&feed, ENTITY_SET_NAME)?;
 
-            assert_eq!(feed.links.len(), 1);
-            assert_eq!(feed.links[0].href, ENTITY_SET_NAME);
+    let entries = feed
+        .entries
+        .ok_or_else(|| format!("Entity set {} should not be empty!", ENTITY_SET_NAME))?;
 
-            // Check contents of entity set
-            if let Some(entries) = feed.entries {
-                let props = entries[0].content.properties.clone().unwrap();
+    let props = entries[0].content.properties.clone().unwrap();
+    check_eq!(1, entries.len(), 9);
+    check_none!(2, entries[0].etag.as_ref());
+    check_eq!(3, props.product_id, "HT-1000");
+    check_eq!(4, props.currency_code, Some(String::from("USD")));
+    check_eq!(
+        5,
+        props.delivery_date,
+        chrono::NaiveDateTime::from_str(expected_date).unwrap()
+    );
 
-                assert_eq!(entries.len(), 9);
-
-                assert_eq!(entries[0].etag.as_ref(), None);
-                assert_eq!(props.product_id, "HT-1000");
-                assert_eq!(props.currency_code, Some(String::from("USD")));
-                assert_eq!(
-                    props.delivery_date,
-                    chrono::NaiveDateTime::from_str(expected_date).unwrap()
-                );
-            } else {
-                assert!(
-                    1 == 2,
-                    "{}",
-                    format!(
-                        "Entity set {} should not be empty!",
-                        String::from(ENTITY_SET_NAME)
-                    )
-                )
-            }
-        }
-        Err(err) => println!("XML test data was not in UTF8 format: {}", err),
-    };
+    Ok(())
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #[test]
-pub fn should_parse_sales_order_set() {
+pub fn should_parse_sales_order_set() -> Result<(), String> {
     static ENTITY_SET_NAME: &str = "SalesOrderSet";
-    let base_service_name = format!("{}{}", FEED_XML_BASE, ENTITY_SET_NAME);
 
-    match fetch_xml_as_string(&format!("{}.xml", ENTITY_SET_NAME)) {
-        Ok(xml) => {
-            let clean_xml = sanitise_xml(xml);
-            let feed = Feed::<SalesOrder>::from_str(&clean_xml).unwrap();
+    let xml = fetch_xml_as_string(&format!("{}.xml", ENTITY_SET_NAME))
+        .map_err(|e| format!("XML test data was not in UTF8 format: {}", e))?;
+    let clean_xml = sanitise_xml(xml);
+    let feed = Feed::<SalesOrder>::from_str(&clean_xml)
+        .map_err(|e| format!("Failed to parse {}: {:?}", ENTITY_SET_NAME, e))?;
 
-            assert_eq!(feed.namespace, Some(String::from(ATOM_XML_NAMESPACE)));
-            assert_eq!(feed.xml_base, Some(String::from(FEED_XML_BASE)));
-            assert_eq!(feed.id, base_service_name);
-            assert_eq!(feed.title, ENTITY_SET_NAME);
+    check_feed_header(&feed, ENTITY_SET_NAME)?;
 
-            assert_eq!(feed.links.len(), 1);
-            assert_eq!(feed.links[0].href, ENTITY_SET_NAME);
+    let entries = feed
+        .entries
+        .ok_or_else(|| format!("Entity set {} should not be empty!", ENTITY_SET_NAME))?;
 
-            // Check contents of entity set
-            if let Some(entries) = feed.entries {
-                let props = entries[0].content.properties.clone().unwrap();
-                assert_eq!(entries.len(), 5);
+    let props = entries[0].content.properties.clone().unwrap();
+    check_eq!(1, entries.len(), 5);
+    check_none!(2, entries[0].etag.as_ref());
+    check_eq!(3, props.sales_order_id, "0500000000");
+    check_eq!(4, props.currency_code, Some(String::from("USD")));
+    check_eq!(
+        5,
+        props.gross_amount,
+        Some(Decimal::from_str("14385.85").unwrap())
+    );
+    check_eq!(
+        6,
+        props.delivery_status_description,
+        Some(String::from("Delivered"))
+    );
 
-                assert_eq!(entries[0].etag.as_ref(), None);
-                assert_eq!(props.sales_order_id, "0500000000");
-                assert_eq!(props.currency_code, Some(String::from("USD")));
-                assert_eq!(
-                    props.gross_amount,
-                    Some(Decimal::from_str("14385.85").unwrap())
-                );
-                assert_eq!(
-                    props.delivery_status_description,
-                    Some(String::from("Delivered"))
-                );
-            } else {
-                assert!(
-                    1 == 2,
-                    "{}",
-                    format!(
-                        "Entity set {} should not be empty!",
-                        String::from(ENTITY_SET_NAME)
-                    )
-                )
-            }
-        }
-        Err(err) => println!("XML test data was not in UTF8 format: {}", err),
-    };
+    Ok(())
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #[test]
-pub fn should_parse_vh_address_type_set() {
+pub fn should_parse_vh_address_type_set() -> Result<(), String> {
     static ENTITY_SET_NAME: &str = "VH_AddressTypeSet";
-    let base_service_name = format!("{}{}", FEED_XML_BASE, ENTITY_SET_NAME);
 
-    match fetch_xml_as_string(&format!("{}.xml", ENTITY_SET_NAME)) {
-        Ok(xml) => {
-            let clean_xml = sanitise_xml(xml);
-            let feed = Feed::<VhAddressType>::from_str(&clean_xml).unwrap();
+    let xml = fetch_xml_as_string(&format!("{}.xml", ENTITY_SET_NAME))
+        .map_err(|e| format!("XML test data was not in UTF8 format: {}", e))?;
+    let clean_xml = sanitise_xml(xml);
+    let feed = Feed::<VhAddressType>::from_str(&clean_xml)
+        .map_err(|e| format!("Failed to parse {}: {:?}", ENTITY_SET_NAME, e))?;
 
-            assert_eq!(feed.namespace, Some(String::from(ATOM_XML_NAMESPACE)));
-            assert_eq!(feed.xml_base, Some(String::from(FEED_XML_BASE)));
-            assert_eq!(feed.id, base_service_name);
-            assert_eq!(feed.title, ENTITY_SET_NAME);
+    check_feed_header(&feed, ENTITY_SET_NAME)?;
 
-            assert_eq!(feed.links.len(), 1);
-            assert_eq!(feed.links[0].href, ENTITY_SET_NAME);
+    let entries = feed
+        .entries
+        .ok_or_else(|| format!("Entity set {} should not be empty!", ENTITY_SET_NAME))?;
 
-            // Check contents of entity set
-            if let Some(entries) = feed.entries {
-                let props = entries[0].content.properties.clone().unwrap();
-                assert_eq!(entries.len(), 2);
+    let props = entries[0].content.properties.clone().unwrap();
+    check_eq!(1, entries.len(), 2);
+    check_none!(2, entries[0].etag.as_ref());
+    check_eq!(3, props.address_type, "01");
+    check_eq!(4, props.shorttext, "Private");
 
-                assert_eq!(entries[0].etag.as_ref(), None);
-                assert_eq!(props.address_type, "01");
-                assert_eq!(props.shorttext, "Private");
-            } else {
-                assert!(
-                    1 == 2,
-                    "{}",
-                    format!(
-                        "Entity set {} should not be empty!",
-                        String::from(ENTITY_SET_NAME)
-                    )
-                )
-            }
-        }
-        Err(err) => println!("XML test data was not in UTF8 format: {}", err),
-    };
+    Ok(())
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #[test]
-pub fn should_parse_vh_bp_role_set() {
+pub fn should_parse_vh_bp_role_set() -> Result<(), String> {
     static ENTITY_SET_NAME: &str = "VH_BPRoleSet";
-    let base_service_name = format!("{}{}", FEED_XML_BASE, ENTITY_SET_NAME);
 
-    match fetch_xml_as_string(&format!("{}.xml", ENTITY_SET_NAME)) {
-        Ok(xml) => {
-            let clean_xml = sanitise_xml(xml);
-            let feed = Feed::<VhBpRole>::from_str(&clean_xml).unwrap();
+    let xml = fetch_xml_as_string(&format!("{}.xml", ENTITY_SET_NAME))
+        .map_err(|e| format!("XML test data was not in UTF8 format: {}", e))?;
+    let clean_xml = sanitise_xml(xml);
+    let feed = Feed::<VhBpRole>::from_str(&clean_xml)
+        .map_err(|e| format!("Failed to parse {}: {:?}", ENTITY_SET_NAME, e))?;
 
-            assert_eq!(feed.namespace, Some(String::from(ATOM_XML_NAMESPACE)));
-            assert_eq!(feed.xml_base, Some(String::from(FEED_XML_BASE)));
-            assert_eq!(feed.id, base_service_name);
-            assert_eq!(feed.title, ENTITY_SET_NAME);
+    check_feed_header(&feed, ENTITY_SET_NAME)?;
 
-            assert_eq!(feed.links.len(), 1);
-            assert_eq!(feed.links[0].href, ENTITY_SET_NAME);
+    let entries = feed
+        .entries
+        .ok_or_else(|| format!("Entity set {} should not be empty!", ENTITY_SET_NAME))?;
 
-            // Check contents of entity set
-            if let Some(entries) = feed.entries {
-                let props = entries[0].content.properties.clone().unwrap();
-                assert_eq!(entries.len(), 2);
+    let props = entries[0].content.properties.clone().unwrap();
+    check_eq!(1, entries.len(), 2);
+    check_none!(2, entries[0].etag.as_ref());
+    check_eq!(3, props.bp_role, "01");
+    check_eq!(4, props.shorttext, "Customer");
 
-                assert_eq!(entries[0].etag.as_ref(), None);
-                assert_eq!(props.bp_role, "01");
-                assert_eq!(props.shorttext, "Customer");
-            } else {
-                assert!(
-                    1 == 2,
-                    "{}",
-                    format!(
-                        "Entity set {} should not be empty!",
-                        String::from(ENTITY_SET_NAME)
-                    )
-                )
-            }
-        }
-        Err(err) => println!("XML test data was not in UTF8 format: {}", err),
-    };
+    Ok(())
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #[test]
-pub fn should_parse_vh_category_set() {
+pub fn should_parse_vh_category_set() -> Result<(), String> {
     static ENTITY_SET_NAME: &str = "VH_CategorySet";
-    let base_service_name = format!("{}{}", FEED_XML_BASE, ENTITY_SET_NAME);
 
-    match fetch_xml_as_string(&format!("{}.xml", ENTITY_SET_NAME)) {
-        Ok(xml) => {
-            let clean_xml = sanitise_xml(xml);
-            let feed = Feed::<VhCategory>::from_str(&clean_xml).unwrap();
+    let xml = fetch_xml_as_string(&format!("{}.xml", ENTITY_SET_NAME))
+        .map_err(|e| format!("XML test data was not in UTF8 format: {}", e))?;
+    let clean_xml = sanitise_xml(xml);
+    let feed = Feed::<VhCategory>::from_str(&clean_xml)
+        .map_err(|e| format!("Failed to parse {}: {:?}", ENTITY_SET_NAME, e))?;
 
-            assert_eq!(feed.namespace, Some(String::from(ATOM_XML_NAMESPACE)));
-            assert_eq!(feed.xml_base, Some(String::from(FEED_XML_BASE)));
-            assert_eq!(feed.id, base_service_name);
-            assert_eq!(feed.title, ENTITY_SET_NAME);
+    check_feed_header(&feed, ENTITY_SET_NAME)?;
 
-            assert_eq!(feed.links.len(), 1);
-            assert_eq!(feed.links[0].href, ENTITY_SET_NAME);
+    let entries = feed
+        .entries
+        .ok_or_else(|| format!("Entity set {} should not be empty!", ENTITY_SET_NAME))?;
 
-            // Check contents of entity set
-            if let Some(entries) = feed.entries {
-                let props = entries[16].content.properties.clone().unwrap();
-                assert_eq!(entries.len(), 26);
+    let props = entries[16].content.properties.clone().unwrap();
+    check_eq!(1, entries.len(), 26);
+    check_none!(2, entries[16].etag.as_ref());
+    check_eq!(3, props.category, "PDAs & Organizers");
 
-                assert_eq!(entries[16].etag.as_ref(), None);
-                assert_eq!(props.category, "PDAs & Organizers");
-            } else {
-                assert!(
-                    1 == 2,
-                    "{}",
-                    format!(
-                        "Entity set {} should not be empty!",
-                        String::from(ENTITY_SET_NAME)
-                    )
-                )
-            }
-        }
-        Err(err) => println!("XML test data was not in UTF8 format: {}", err),
-    };
+    Ok(())
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #[test]
-pub fn should_parse_vh_country_set() {
+pub fn should_parse_vh_country_set() -> Result<(), String> {
     static ENTITY_SET_NAME: &str = "VH_CountrySet";
-    let base_service_name = format!("{}{}", FEED_XML_BASE, ENTITY_SET_NAME);
 
-    match fetch_xml_as_string(&format!("{}.xml", ENTITY_SET_NAME)) {
-        Ok(xml) => {
-            let clean_xml = sanitise_xml(xml);
-            let feed = Feed::<VhCountry>::from_str(&clean_xml).unwrap();
+    let xml = fetch_xml_as_string(&format!("{}.xml", ENTITY_SET_NAME))
+        .map_err(|e| format!("XML test data was not in UTF8 format: {}", e))?;
+    let clean_xml = sanitise_xml(xml);
+    let feed = Feed::<VhCountry>::from_str(&clean_xml)
+        .map_err(|e| format!("Failed to parse {}: {:?}", ENTITY_SET_NAME, e))?;
 
-            assert_eq!(feed.namespace, Some(String::from(ATOM_XML_NAMESPACE)));
-            assert_eq!(feed.xml_base, Some(String::from(FEED_XML_BASE)));
-            assert_eq!(feed.id, base_service_name);
-            assert_eq!(feed.title, ENTITY_SET_NAME);
+    check_feed_header(&feed, ENTITY_SET_NAME)?;
 
-            assert_eq!(feed.links.len(), 1);
-            assert_eq!(feed.links[0].href, ENTITY_SET_NAME);
+    let entries = feed
+        .entries
+        .ok_or_else(|| format!("Entity set {} should not be empty!", ENTITY_SET_NAME))?;
 
-            // Check contents of entity set
-            if let Some(entries) = feed.entries {
-                let props = entries[119].content.properties.clone().unwrap();
-                assert_eq!(entries.len(), 250);
+    let props = entries[119].content.properties.clone().unwrap();
+    check_eq!(1, entries.len(), 250);
+    check_none!(2, entries[119].etag.as_ref());
+    check_eq!(3, props.land_1, "KN");
+    check_eq!(4, props.landx, "St Kitts&Nevis");
 
-                assert_eq!(entries[119].etag.as_ref(), None);
-                assert_eq!(props.land_1, "KN");
-                assert_eq!(props.landx, "St Kitts&Nevis");
-            } else {
-                assert!(
-                    1 == 2,
-                    "{}",
-                    format!(
-                        "Entity set {} should not be empty!",
-                        String::from(ENTITY_SET_NAME)
-                    )
-                )
-            }
-        }
-        Err(err) => println!("XML test data was not in UTF8 format: {}", err),
-    };
+    Ok(())
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #[test]
-pub fn should_parse_vh_currency_set() {
+pub fn should_parse_vh_currency_set() -> Result<(), String> {
     static ENTITY_SET_NAME: &str = "VH_CurrencySet";
-    let base_service_name = format!("{}{}", FEED_XML_BASE, ENTITY_SET_NAME);
 
-    match fetch_xml_as_string(&format!("{}.xml", ENTITY_SET_NAME)) {
-        Ok(xml) => {
-            let clean_xml = sanitise_xml(xml);
-            let feed = Feed::<VhCurrency>::from_str(&clean_xml).unwrap();
+    let xml = fetch_xml_as_string(&format!("{}.xml", ENTITY_SET_NAME))
+        .map_err(|e| format!("XML test data was not in UTF8 format: {}", e))?;
+    let clean_xml = sanitise_xml(xml);
+    let feed = Feed::<VhCurrency>::from_str(&clean_xml)
+        .map_err(|e| format!("Failed to parse {}: {:?}", ENTITY_SET_NAME, e))?;
 
-            assert_eq!(feed.namespace, Some(String::from(ATOM_XML_NAMESPACE)));
-            assert_eq!(feed.xml_base, Some(String::from(FEED_XML_BASE)));
-            assert_eq!(feed.id, base_service_name);
-            assert_eq!(feed.title, ENTITY_SET_NAME);
+    check_feed_header(&feed, ENTITY_SET_NAME)?;
 
-            assert_eq!(feed.links.len(), 1);
-            assert_eq!(feed.links[0].href, ENTITY_SET_NAME);
+    let entries = feed
+        .entries
+        .ok_or_else(|| format!("Entity set {} should not be empty!", ENTITY_SET_NAME))?;
 
-            // Check contents of entity set
-            if let Some(entries) = feed.entries {
-                let props = entries[0].content.properties.clone().unwrap();
-                assert_eq!(entries.len(), 209);
+    let props = entries[0].content.properties.clone().unwrap();
+    check_eq!(1, entries.len(), 209);
+    check_none!(2, entries[0].etag.as_ref());
+    check_eq!(3, props.waers, "ADP");
+    check_eq!(4, props.ltext, "Andorran Peseta --&gt; (Old --&gt; EUR)");
 
-                assert_eq!(entries[0].etag.as_ref(), None);
-                assert_eq!(props.waers, "ADP");
-                assert_eq!(props.ltext, "Andorran Peseta --&gt; (Old --&gt; EUR)");
-            } else {
-                assert!(
-                    1 == 2,
-                    "{}",
-                    format!(
-                        "Entity set {} should not be empty!",
-                        String::from(ENTITY_SET_NAME)
-                    )
-                )
-            }
-        }
-        Err(err) => println!("XML test data was not in UTF8 format: {}", err),
-    };
+    Ok(())
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #[test]
-pub fn should_parse_vh_language_set() {
+pub fn should_parse_vh_language_set() -> Result<(), String> {
     static ENTITY_SET_NAME: &str = "VH_LanguageSet";
-    let base_service_name = format!("{}{}", FEED_XML_BASE, ENTITY_SET_NAME);
 
-    match fetch_xml_as_string(&format!("{}.xml", ENTITY_SET_NAME)) {
-        Ok(xml) => {
-            let clean_xml = sanitise_xml(xml);
-            let feed = Feed::<VhLanguage>::from_str(&clean_xml).unwrap();
+    let xml = fetch_xml_as_string(&format!("{}.xml", ENTITY_SET_NAME))
+        .map_err(|e| format!("XML test data was not in UTF8 format: {}", e))?;
+    let clean_xml = sanitise_xml(xml);
+    let feed = Feed::<VhLanguage>::from_str(&clean_xml)
+        .map_err(|e| format!("Failed to parse {}: {:?}", ENTITY_SET_NAME, e))?;
 
-            assert_eq!(feed.namespace, Some(String::from(ATOM_XML_NAMESPACE)));
-            assert_eq!(feed.xml_base, Some(String::from(FEED_XML_BASE)));
-            assert_eq!(feed.id, base_service_name);
-            assert_eq!(feed.title, ENTITY_SET_NAME);
+    check_feed_header(&feed, ENTITY_SET_NAME)?;
 
-            assert_eq!(feed.links.len(), 1);
-            assert_eq!(feed.links[0].href, ENTITY_SET_NAME);
+    let entries = feed
+        .entries
+        .ok_or_else(|| format!("Entity set {} should not be empty!", ENTITY_SET_NAME))?;
 
-            // Check contents of entity set
-            if let Some(entries) = feed.entries {
-                let props = entries[0].content.properties.clone().unwrap();
-                assert_eq!(entries.len(), 44);
+    let props = entries[0].content.properties.clone().unwrap();
+    check_eq!(1, entries.len(), 44);
+    check_none!(2, entries[0].etag.as_ref());
+    check_eq!(3, props.spras, "SR");
+    check_eq!(4, props.sptxt, "Serbian");
 
-                assert_eq!(entries[0].etag.as_ref(), None);
-                assert_eq!(props.spras, "SR");
-                assert_eq!(props.sptxt, "Serbian");
-            } else {
-                assert!(
-                    1 == 2,
-                    "{}",
-                    format!(
-                        "Entity set {} should not be empty!",
-                        String::from(ENTITY_SET_NAME)
-                    )
-                )
-            }
-        }
-        Err(err) => println!("XML test data was not in UTF8 format: {}", err),
-    };
+    Ok(())
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #[test]
-pub fn should_parse_vh_product_type_code_set() {
+pub fn should_parse_vh_product_type_code_set() -> Result<(), String> {
     static ENTITY_SET_NAME: &str = "VH_ProductTypeCodeSet";
-    let base_service_name = format!("{}{}", FEED_XML_BASE, ENTITY_SET_NAME);
 
-    match fetch_xml_as_string(&format!("{}.xml", ENTITY_SET_NAME)) {
-        Ok(xml) => {
-            let clean_xml = sanitise_xml(xml);
-            let feed = Feed::<VhProductTypeCode>::from_str(&clean_xml).unwrap();
+    let xml = fetch_xml_as_string(&format!("{}.xml", ENTITY_SET_NAME))
+        .map_err(|e| format!("XML test data was not in UTF8 format: {}", e))?;
+    let clean_xml = sanitise_xml(xml);
+    let feed = Feed::<VhProductTypeCode>::from_str(&clean_xml)
+        .map_err(|e| format!("Failed to parse {}: {:?}", ENTITY_SET_NAME, e))?;
 
-            assert_eq!(feed.namespace, Some(String::from(ATOM_XML_NAMESPACE)));
-            assert_eq!(feed.xml_base, Some(String::from(FEED_XML_BASE)));
-            assert_eq!(feed.id, base_service_name);
-            assert_eq!(feed.title, ENTITY_SET_NAME);
+    check_feed_header(&feed, ENTITY_SET_NAME)?;
 
-            assert_eq!(feed.links.len(), 1);
-            assert_eq!(feed.links[0].href, ENTITY_SET_NAME);
+    let entries = feed
+        .entries
+        .ok_or_else(|| format!("Entity set {} should not be empty!", ENTITY_SET_NAME))?;
 
-            // Check contents of entity set
-            if let Some(entries) = feed.entries {
-                let props = entries[0].content.properties.clone().unwrap();
-                assert_eq!(entries.len(), 2);
+    let props = entries[0].content.properties.clone().unwrap();
+    check_eq!(1, entries.len(), 2);
+    check_none!(2, entries[0].etag.as_ref());
+    check_eq!(3, props.type_code, "AD");
+    check_eq!(4, props.shorttext, "Advertisement");
 
-                assert_eq!(entries[0].etag.as_ref(), None);
-                assert_eq!(props.type_code, "AD");
-                assert_eq!(props.shorttext, "Advertisement");
-            } else {
-                assert!(
-                    1 == 2,
-                    "{}",
-                    format!(
-                        "Entity set {} should not be empty!",
-                        String::from(ENTITY_SET_NAME)
-                    )
-                )
-            }
-        }
-        Err(err) => println!("XML test data was not in UTF8 format: {}", err),
-    };
+    Ok(())
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #[test]
-pub fn should_parse_vh_sex_set() {
+pub fn should_parse_vh_sex_set() -> Result<(), String> {
     static ENTITY_SET_NAME: &str = "VH_SexSet";
-    let base_service_name = format!("{}{}", FEED_XML_BASE, ENTITY_SET_NAME);
 
-    match fetch_xml_as_string(&format!("{}.xml", ENTITY_SET_NAME)) {
-        Ok(xml) => {
-            let clean_xml = sanitise_xml(xml);
-            let feed = Feed::<VhSex>::from_str(&clean_xml).unwrap();
+    let xml = fetch_xml_as_string(&format!("{}.xml", ENTITY_SET_NAME))
+        .map_err(|e| format!("XML test data was not in UTF8 format: {}", e))?;
+    let clean_xml = sanitise_xml(xml);
+    let feed = Feed::<VhSex>::from_str(&clean_xml)
+        .map_err(|e| format!("Failed to parse {}: {:?}", ENTITY_SET_NAME, e))?;
 
-            assert_eq!(feed.namespace, Some(String::from(ATOM_XML_NAMESPACE)));
-            assert_eq!(feed.xml_base, Some(String::from(FEED_XML_BASE)));
-            assert_eq!(feed.id, base_service_name);
-            assert_eq!(feed.title, ENTITY_SET_NAME);
+    check_feed_header(&feed, ENTITY_SET_NAME)?;
 
-            assert_eq!(feed.links.len(), 1);
-            assert_eq!(feed.links[0].href, ENTITY_SET_NAME);
+    let entries = feed
+        .entries
+        .ok_or_else(|| format!("Entity set {} should not be empty!", ENTITY_SET_NAME))?;
 
-            // Check contents of entity set
-            if let Some(entries) = feed.entries {
-                let props = entries[0].content.properties.clone().unwrap();
-                assert_eq!(entries.len(), 2);
+    let props = entries[0].content.properties.clone().unwrap();
+    check_eq!(1, entries.len(), 2);
+    check_none!(2, entries[0].etag.as_ref());
+    check_eq!(3, props.sex, "F");
+    check_eq!(4, props.shorttext, "Female");
 
-                assert_eq!(entries[0].etag.as_ref(), None);
-                assert_eq!(props.sex, "F");
-                assert_eq!(props.shorttext, "Female");
-            } else {
-                assert!(
-                    1 == 2,
-                    "{}",
-                    format!(
-                        "Entity set {} should not be empty!",
-                        String::from(ENTITY_SET_NAME)
-                    )
-                )
-            }
-        }
-        Err(err) => println!("XML test data was not in UTF8 format: {}", err),
-    };
+    Ok(())
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #[test]
-pub fn should_parse_vh_unit_length_set() {
+pub fn should_parse_vh_unit_length_set() -> Result<(), String> {
     static ENTITY_SET_NAME: &str = "VH_UnitLengthSet";
-    let base_service_name = format!("{}{}", FEED_XML_BASE, ENTITY_SET_NAME);
 
-    match fetch_xml_as_string(&format!("{}.xml", ENTITY_SET_NAME)) {
-        Ok(xml) => {
-            let clean_xml = sanitise_xml(xml);
-            let feed = Feed::<VhUnitLength>::from_str(&clean_xml).unwrap();
+    let xml = fetch_xml_as_string(&format!("{}.xml", ENTITY_SET_NAME))
+        .map_err(|e| format!("XML test data was not in UTF8 format: {}", e))?;
+    let clean_xml = sanitise_xml(xml);
+    let feed = Feed::<VhUnitLength>::from_str(&clean_xml)
+        .map_err(|e| format!("Failed to parse {}: {:?}", ENTITY_SET_NAME, e))?;
 
-            assert_eq!(feed.namespace, Some(String::from(ATOM_XML_NAMESPACE)));
-            assert_eq!(feed.xml_base, Some(String::from(FEED_XML_BASE)));
-            assert_eq!(feed.id, base_service_name);
-            assert_eq!(feed.title, ENTITY_SET_NAME);
+    check_feed_header(&feed, ENTITY_SET_NAME)?;
 
-            assert_eq!(feed.links.len(), 1);
-            assert_eq!(feed.links[0].href, ENTITY_SET_NAME);
+    let entries = feed
+        .entries
+        .ok_or_else(|| format!("Entity set {} should not be empty!", ENTITY_SET_NAME))?;
 
-            // Check contents of entity set
-            if let Some(entries) = feed.entries {
-                let props = entries[0].content.properties.clone().unwrap();
-                assert_eq!(entries.len(), 11);
+    let props = entries[0].content.properties.clone().unwrap();
+    check_eq!(1, entries.len(), 11);
+    check_none!(2, entries[0].etag.as_ref());
+    check_eq!(3, props.msehi, "\"");
+    check_eq!(4, props.msehl, "Inch");
 
-                assert_eq!(entries[0].etag.as_ref(), None);
-                assert_eq!(props.msehi, "\"");
-                assert_eq!(props.msehl, "Inch");
-            } else {
-                assert!(
-                    1 == 2,
-                    "{}",
-                    format!(
-                        "Entity set {} should not be empty!",
-                        String::from(ENTITY_SET_NAME)
-                    )
-                )
-            }
-        }
-        Err(err) => println!("XML test data was not in UTF8 format: {}", err),
-    };
+    Ok(())
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #[test]
-pub fn should_parse_vh_unit_quantity_set() {
+pub fn should_parse_vh_unit_quantity_set() -> Result<(), String> {
     static ENTITY_SET_NAME: &str = "VH_UnitQuantitySet";
-    let base_service_name = format!("{}{}", FEED_XML_BASE, ENTITY_SET_NAME);
 
-    match fetch_xml_as_string(&format!("{}.xml", ENTITY_SET_NAME)) {
-        Ok(xml) => {
-            let clean_xml = sanitise_xml(xml);
-            let feed = Feed::<VhUnitQuantity>::from_str(&clean_xml).unwrap();
+    let xml = fetch_xml_as_string(&format!("{}.xml", ENTITY_SET_NAME))
+        .map_err(|e| format!("XML test data was not in UTF8 format: {}", e))?;
+    let clean_xml = sanitise_xml(xml);
+    let feed = Feed::<VhUnitQuantity>::from_str(&clean_xml)
+        .map_err(|e| format!("Failed to parse {}: {:?}", ENTITY_SET_NAME, e))?;
 
-            assert_eq!(feed.namespace, Some(String::from(ATOM_XML_NAMESPACE)));
-            assert_eq!(feed.xml_base, Some(String::from(FEED_XML_BASE)));
-            assert_eq!(feed.id, base_service_name);
-            assert_eq!(feed.title, ENTITY_SET_NAME);
+    check_feed_header(&feed, ENTITY_SET_NAME)?;
 
-            assert_eq!(feed.links.len(), 1);
-            assert_eq!(feed.links[0].href, ENTITY_SET_NAME);
+    let entries = feed
+        .entries
+        .ok_or_else(|| format!("Entity set {} should not be empty!", ENTITY_SET_NAME))?;
 
-            // Check contents of entity set
-            if let Some(entries) = feed.entries {
-                let props = entries[0].content.properties.clone().unwrap();
-                assert_eq!(entries.len(), 28);
+    let props = entries[0].content.properties.clone().unwrap();
+    check_eq!(1, entries.len(), 28);
+    check_none!(2, entries[0].etag.as_ref());
+    check_eq!(3, props.msehi, "AU");
+    check_eq!(4, props.msehl, "Activity unit");
 
-                assert_eq!(entries[0].etag.as_ref(), None);
-                assert_eq!(props.msehi, "AU");
-                assert_eq!(props.msehl, "Activity unit");
-            } else {
-                assert!(
-                    1 == 2,
-                    "{}",
-                    format!(
-                        "Entity set {} should not be empty!",
-                        String::from(ENTITY_SET_NAME)
-                    )
-                )
-            }
-        }
-        Err(err) => println!("XML test data was not in UTF8 format: {}", err),
-    };
+    Ok(())
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #[test]
-pub fn should_parse_vh_unit_weight_set() {
+pub fn should_parse_vh_unit_weight_set() -> Result<(), String> {
     static ENTITY_SET_NAME: &str = "VH_UnitWeightSet";
-    let base_service_name = format!("{}{}", FEED_XML_BASE, ENTITY_SET_NAME);
 
-    match fetch_xml_as_string(&format!("{}.xml", ENTITY_SET_NAME)) {
-        Ok(xml) => {
-            let clean_xml = sanitise_xml(xml);
-            let feed = Feed::<VhUnitWeight>::from_str(&clean_xml).unwrap();
+    let xml = fetch_xml_as_string(&format!("{}.xml", ENTITY_SET_NAME))
+        .map_err(|e| format!("XML test data was not in UTF8 format: {}", e))?;
+    let clean_xml = sanitise_xml(xml);
+    let feed = Feed::<VhUnitWeight>::from_str(&clean_xml)
+        .map_err(|e| format!("Failed to parse {}: {:?}", ENTITY_SET_NAME, e))?;
 
-            assert_eq!(feed.namespace, Some(String::from(ATOM_XML_NAMESPACE)));
-            assert_eq!(feed.xml_base, Some(String::from(FEED_XML_BASE)));
-            assert_eq!(feed.id, base_service_name);
-            assert_eq!(feed.title, ENTITY_SET_NAME);
+    check_feed_header(&feed, ENTITY_SET_NAME)?;
 
-            assert_eq!(feed.links.len(), 1);
-            assert_eq!(feed.links[0].href, ENTITY_SET_NAME);
+    let entries = feed
+        .entries
+        .ok_or_else(|| format!("Entity set {} should not be empty!", ENTITY_SET_NAME))?;
 
-            // Check contents of entity set
-            if let Some(entries) = feed.entries {
-                let props = entries[0].content.properties.clone().unwrap();
-                assert_eq!(entries.len(), 8);
+    let props = entries[0].content.properties.clone().unwrap();
+    check_eq!(1, entries.len(), 8);
+    check_none!(2, entries[0].etag.as_ref());
+    check_eq!(3, props.msehi, "G");
+    check_eq!(4, props.msehl, "Gram");
 
-                assert_eq!(entries[0].etag.as_ref(), None);
-                assert_eq!(props.msehi, "G");
-                assert_eq!(props.msehl, "Gram");
-            } else {
-                assert!(
-                    1 == 2,
-                    "{}",
-                    format!(
-                        "Entity set {} should not be empty!",
-                        String::from(ENTITY_SET_NAME)
-                    )
-                )
-            }
-        }
-        Err(err) => println!("XML test data was not in UTF8 format: {}", err),
-    };
+    Ok(())
 }
