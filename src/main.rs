@@ -3,15 +3,16 @@ mod html;
 mod odata_services;
 
 use crate::{
-    html::gen_page,
+    html::{gen_page, render_collection},
     odata_services::{find_service, SERVICES},
 };
 
 use actix_web::{get, middleware, web, App, HttpResponse, HttpServer, Responder};
-use parse_sap_atom_feed::atom::{feed::Feed, service::AtomService};
+use parse_sap_atom_feed::atom::service::AtomService;
 use reqwest::Client;
 use std::{process::exit, str::FromStr};
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 parse_sap_odata::include_mod!("service_project_service_v2");
 parse_sap_odata::include_mod!("service_project_service_v2_metadata");
 parse_sap_odata::include_mod!("service_project_partner_service_v2");
@@ -25,7 +26,6 @@ parse_sap_odata::include_mod!(
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // Shared application state
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 struct AppState {
     api_key: String,
     client: Client,
@@ -131,173 +131,6 @@ async fn collection(
                 ))
         }
     }
-}
-
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-// Dispatch (service, collection) → typed Feed parse → HTML table
-//
-// All types across OData services must be fully qualified to avoid name collisions
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-fn render_collection(svc_id: &str, col_name: &str, xml: &str) -> String {
-    let back =
-        format!("<a class=\"back\" href=\"/service/{svc_id}\">&#8592; Back to collections</a>");
-
-    let table = match (svc_id, col_name) {
-        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-        // Project Service V2
-        ("project-service-v2", "GroupMemberships") => {
-            render_feed::<service_project_service_v2::GroupMemberships>(
-                xml,
-                service_project_service_v2_metadata::GroupMembershipsMetadata::field_names()
-            )
-        }
-        ("project-service-v2", "Groups") => render_feed::<service_project_service_v2::Groups>(
-            xml,
-            &["groupId", "type", "projectId", "name", "description"],
-        ),
-        ("project-service-v2", "Users") => render_feed::<service_project_service_v2::Users>(
-            xml,
-            service_project_service_v2_metadata::UsersMetadata::field_names()
-        ),
-
-        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-        // Business Partner Service
-        ("business-partner-service", "Companies") => {
-            render_feed::<business_partner_network_public_api_business_partner_service::Companies>(
-                xml,
-                business_partner_network_public_api_business_partner_service_metadata::CompaniesMetadata::field_names()
-            )
-        }
-        ("business-partner-service", "Users") => {
-            render_feed::<business_partner_network_public_api_business_partner_service::Users>(
-                xml,
-                business_partner_network_public_api_business_partner_service_metadata::UsersMetadata::field_names(),
-            )
-        }
-
-        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-        // Project Partner Service V2
-        ("project-partner-service-v2", "Users") => {
-            render_feed::<service_project_partner_service_v2::Users>(
-                xml,
-                service_project_partner_service_v2_metadata::UsersMetadata::field_names(),
-            )
-        }
-        ("project-partner-service-v2", "UserInvitations") => {
-            render_feed::<service_project_partner_service_v2::UserInvitations>(
-                xml,
-                service_project_partner_service_v2_metadata::UserInvitationsMetadata::field_names(),
-            )
-        }
-        ("project-partner-service-v2", "Companies") => {
-            render_feed::<service_project_partner_service_v2::Companies>(
-                xml,
-                service_project_partner_service_v2_metadata::CompaniesMetadata::field_names(),
-            )
-        }
-        ("project-partner-service-v2", "CompanyInvitations") => {
-            render_feed::<service_project_partner_service_v2::CompanyInvitations>(
-                xml,
-                service_project_partner_service_v2_metadata::CompanyInvitationsMetadata::field_names(),
-            )
-        }
-
-        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-        // Digital Twin Service
-        ("digital-twin-service", "DigitalTwins") => {
-            render_feed::<public_api_digital_twin_service::DigitalTwins>(
-                xml,
-                public_api_digital_twin_service_metadata::DigitalTwinsMetadata::field_names(),
-            )
-        }
-        ("digital-twin-service", "DigitalTwinSourceDocuments") => {
-            render_feed::<public_api_digital_twin_service::DigitalTwinSourceDocuments>(
-                xml,
-                public_api_digital_twin_service_metadata::DigitalTwinSourceDocumentsMetadata::field_names(),
-            )
-        }
-        ("digital-twin-service", "DigitalTwinObjects") => {
-            render_feed::<public_api_digital_twin_service::DigitalTwinObjects>(
-                xml,
-                public_api_digital_twin_service_metadata::DigitalTwinObjectsMetadata::field_names(),
-            )
-        }
-        ("digital-twin-service", "DigitalTwinModelVisualizations") => {
-            render_feed::<public_api_digital_twin_service::DigitalTwinModelVisualizations>(
-                xml,
-                public_api_digital_twin_service_metadata::DigitalTwinModelVisualizationsMetadata::field_names(),
-            )
-        }
-
-        _ => format!(
-            "<p class=\"error\">No type mapping for collection \
-             <em>{col_name}</em> in service <em>{svc_id}</em>.</p>"
-        ),
-    };
-
-    format!("{back}{table}")
-}
-
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-// Generic helper: parse Feed<T>, serialise properties to JSON for table output
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-fn render_feed<T>(xml: &str, columns: &[&str]) -> String
-where
-    T: serde::de::DeserializeOwned + serde::Serialize,
-{
-    let feed = match Feed::<T>::from_str(xml) {
-        Ok(f) => f,
-        Err(e) => return format!("<p class=\"error\">Parse error: {e}</p>"),
-    };
-
-    let entries = match feed.entries {
-        Some(e) if !e.is_empty() => e,
-        _ => return "<p>No entries found.</p>".to_string(),
-    };
-
-    let mut header = String::from("<tr>");
-    for col in columns {
-        header.push_str(&format!("<th>{col}</th>"));
-    }
-    header.push_str("</tr>");
-
-    let mut rows = String::new();
-    for entry in &entries {
-        let props_ref = entry
-            .content
-            .properties
-            .as_ref()
-            .or(entry.properties.as_ref());
-
-        let Some(props) = props_ref else {
-            rows.push_str("<tr><td colspan=\"100\"><em>(no properties)</em></td></tr>");
-            continue;
-        };
-
-        let map = match serde_json::to_value(props) {
-            Ok(serde_json::Value::Object(m)) => m,
-            _ => {
-                rows.push_str("<tr><td colspan=\"100\"><em>(serialisation error)</em></td></tr>");
-                continue;
-            }
-        };
-
-        rows.push_str("<tr>");
-        for col in columns {
-            let cell = map
-                .get(*col)
-                .map(|v| match v {
-                    serde_json::Value::String(s) => s.clone(),
-                    serde_json::Value::Null => String::new(),
-                    other => other.to_string(),
-                })
-                .unwrap_or_default();
-            rows.push_str(&format!("<td>{cell}</td>"));
-        }
-        rows.push_str("</tr>");
-    }
-
-    format!("<table>{header}{rows}</table>")
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

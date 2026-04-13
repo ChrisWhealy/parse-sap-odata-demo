@@ -1,7 +1,7 @@
 [package]
 name = "parse-sap-odata-demo"
 edition = "2024"
-version = "0.2.1"
+version = "0.2.2"
 authors = ["Chris Whealy <chris@whealy.com>"]
 description = "Demo app that consumes OData V2 services from SAP's API sandbox"
 keywords = ["odata", "sap", "parser", "opendata", "api"]
@@ -9,11 +9,11 @@ repository = "https://github.com/ChrisWhealy/parse-sap-odata-demo"
 license = "MIT"
 
 [build-dependencies]
-parse-sap-odata = { version = "1.6", features = ["parser"]}
+parse-sap-odata = { version = "1.6.2", features = ["parser"]}
 #parse-sap-odata = { path = "../parse-sap-odata", features = ["parser"]}
 
 [dependencies]
-parse-sap-odata = { version = "1.6", features = ["parser"]}
+parse-sap-odata = { version = "1.6.2", features = ["parser"]}
 #parse-sap-odata = { path = "../parse-sap-odata", features = ["parser"]}
 parse-sap-atom-feed = "1.3"
 #parse-sap-atom-feed = { path = "../parse-sap-atom-feed" }
