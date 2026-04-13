@@ -1,7 +1,7 @@
 [package]
 name = "parse-sap-odata-demo"
 edition = "2024"
-version = "0.2.0"
+version = "0.2.1"
 authors = ["Chris Whealy <chris@whealy.com>"]
 description = "Demo app that consumes OData V2 services from SAP's API sandbox"
 keywords = ["odata", "sap", "parser", "opendata", "api"]

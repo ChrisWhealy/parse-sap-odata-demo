@@ -148,7 +148,7 @@ fn render_collection(svc_id: &str, col_name: &str, xml: &str) -> String {
         ("project-service-v2", "GroupMemberships") => {
             render_feed::<service_project_service_v2::GroupMemberships>(
                 xml,
-                &["groupMembershipId", "groupId", "businessPartnerId"],
+                service_project_service_v2_metadata::GroupMembershipsMetadata::field_names()
             )
         }
         ("project-service-v2", "Groups") => render_feed::<service_project_service_v2::Groups>(
@@ -157,21 +157,7 @@ fn render_collection(svc_id: &str, col_name: &str, xml: &str) -> String {
         ),
         ("project-service-v2", "Users") => render_feed::<service_project_service_v2::Users>(
             xml,
-            &[
-                "projectPartnerMembershipId",
-                "projectMembershipId",
-                "userRoleName",
-                "firstName",
-                "middleName",
-                "lastName",
-                "emailAddress",
-                "phoneNumber",
-                "projectId",
-                "businessPartnerId",
-                "country",
-                "cityName",
-                "postalCode",
-            ],
+            service_project_service_v2_metadata::UsersMetadata::field_names()
         ),
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -179,43 +165,13 @@ fn render_collection(svc_id: &str, col_name: &str, xml: &str) -> String {
         ("business-partner-service", "Companies") => {
             render_feed::<business_partner_network_public_api_business_partner_service::Companies>(
                 xml,
-                &[
-                    "businessPartnerId",
-                    "cellPhoneNumber",
-                    "cityName",
-                    "country",
-                    "emailAddress",
-                    "faxNumber",
-                    "name1",
-                    "name2",
-                    "name3",
-                    "name4",
-                    "phoneNumber",
-                    "postalCode",
-                    "region",
-                    "streetName",
-                ],
+                business_partner_network_public_api_business_partner_service_metadata::CompaniesMetadata::field_names()
             )
         }
         ("business-partner-service", "Users") => {
             render_feed::<business_partner_network_public_api_business_partner_service::Users>(
                 xml,
-                &[
-                    "businessPartnerId",
-                    "businessPartnerParentId",
-                    "cellPhoneNumber",
-                    "cityName",
-                    "country",
-                    "emailAddress",
-                    "faxNumber",
-                    "firstName",
-                    "lastName",
-                    "middleName",
-                    "phoneNumber",
-                    "postalCode",
-                    "region",
-                    "streetName",
-                ],
+                business_partner_network_public_api_business_partner_service_metadata::UsersMetadata::field_names(),
             )
         }
 
@@ -224,57 +180,25 @@ fn render_collection(svc_id: &str, col_name: &str, xml: &str) -> String {
         ("project-partner-service-v2", "Users") => {
             render_feed::<service_project_partner_service_v2::Users>(
                 xml,
-                &[
-                    "projectPartnerMembershipId",
-                    "projectMembershipId",
-                    "userRoleName",
-                    "firstName",
-                    "lastName",
-                    "emailAddress",
-                    "projectId",
-                    "businessPartnerId",
-                ],
+                service_project_partner_service_v2_metadata::UsersMetadata::field_names(),
             )
         }
         ("project-partner-service-v2", "UserInvitations") => {
             render_feed::<service_project_partner_service_v2::UserInvitations>(
                 xml,
-                &[
-                    "id",
-                    "projectId",
-                    "projectPartnerId",
-                    "status",
-                    "emailAddress",
-                    "userName",
-                ],
+                service_project_partner_service_v2_metadata::UserInvitationsMetadata::field_names(),
             )
         }
         ("project-partner-service-v2", "Companies") => {
             render_feed::<service_project_partner_service_v2::Companies>(
                 xml,
-                &[
-                    "projectPartnerId",
-                    "projectId",
-                    "businessPartnerId",
-                    "companyRoleName",
-                    "name1",
-                    "name2",
-                    "emailAddress",
-                    "country",
-                ],
+                service_project_partner_service_v2_metadata::CompaniesMetadata::field_names(),
             )
         }
         ("project-partner-service-v2", "CompanyInvitations") => {
             render_feed::<service_project_partner_service_v2::CompanyInvitations>(
                 xml,
-                &[
-                    "id",
-                    "projectId",
-                    "status",
-                    "emailAddress",
-                    "companyName",
-                    "companyRoleName",
-                ],
+                service_project_partner_service_v2_metadata::CompanyInvitationsMetadata::field_names(),
             )
         }
 
@@ -283,46 +207,25 @@ fn render_collection(svc_id: &str, col_name: &str, xml: &str) -> String {
         ("digital-twin-service", "DigitalTwins") => {
             render_feed::<public_api_digital_twin_service::DigitalTwins>(
                 xml,
-                &[
-                    "digitalTwinId",
-                    "projectId",
-                    "name",
-                    "type",
-                    "description",
-                    "owner",
-                    "address",
-                ],
+                public_api_digital_twin_service_metadata::DigitalTwinsMetadata::field_names(),
             )
         }
         ("digital-twin-service", "DigitalTwinSourceDocuments") => {
             render_feed::<public_api_digital_twin_service::DigitalTwinSourceDocuments>(
                 xml,
-                &[
-                    "id",
-                    "digitalTwinId",
-                    "projectId",
-                    "documentId",
-                    "importedTime",
-                ],
+                public_api_digital_twin_service_metadata::DigitalTwinSourceDocumentsMetadata::field_names(),
             )
         }
         ("digital-twin-service", "DigitalTwinObjects") => {
             render_feed::<public_api_digital_twin_service::DigitalTwinObjects>(
                 xml,
-                &["id", "digitalTwinId", "projectId", "globalId"],
+                public_api_digital_twin_service_metadata::DigitalTwinObjectsMetadata::field_names(),
             )
         }
         ("digital-twin-service", "DigitalTwinModelVisualizations") => {
             render_feed::<public_api_digital_twin_service::DigitalTwinModelVisualizations>(
                 xml,
-                &[
-                    "id",
-                    "digitalTwinId",
-                    "projectId",
-                    "discipline",
-                    "epdSceneId",
-                    "lod",
-                ],
+                public_api_digital_twin_service_metadata::DigitalTwinModelVisualizationsMetadata::field_names(),
             )
         }
 
