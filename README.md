@@ -1,73 +1,28 @@
-# Demo App for Reading SAP OData Service `GWSAMPLE_BASIC`
+# Demo App for Reading OData V2 Services From SAP's API Sandbox
 
-This is a minimal demo app that starts an Actix webserver to request data from the selected entity set in SAP's demo OData service `GWSAMPLE_BASIC`.
-
-It does this in the following stages:
-
-1. Runs a build script that consumes the XML metadata description of `GWSAMPLE_BASIC` (see the functionality in crate [`parse-sap-odata`](https://crates.io/crates/parse-sap-odata))
-1. Generates a file called `gwsample_basic.rs` containing the module `gwsample_basic`
-2. Using the generated `struct`s and `enum`s, the `atom:Feed` information exposed as entitysets in this OData service can then be consumed.
-
-In this minimal demo scenario, the parsed entity set data is simply returned to the browser as formatted, plain text.
+This demo app allows you to interact with some of the OData V2 services available on [SAP's API Sandbox](https://api.sap.com/content-type/API/apis/ODATA).
 
 ## Prerequisites
 
-You must already have a userid and password for the SAP Dev Center server `sapes5.sapdevcenter.com`
-
 1. Clone this repo
 2. `cd parse_sap_odata_demo`
-3. Create a `.env` file containing your SAP DevCenter userid and password in the following format
+
+### Sign Up To SAP API Sandbox Service
+
+1. To sign up, follow the above link, select login in the top right corner, then complete the registration process.
+1. Once signed up, visit the [OData V2 page](https://api.sap.com/content-type/API/apis/ODATA), select any one of the active services, then retrieve your API key by clicking on "Show API Key" in the top right corner.
+1. In the repo's top level directory, create a `.env` file containing your API key:
 
    ```
-   SAP_USER=<your userid>
-   SAP_PASSWORD=<your password>
+   ODATA_API_KEY=<your API key value>
    ```
 
 # Local Execution
 
-Once the `.env` file has been created, you can start the app using `cargo run`.
+1. Start the app using `cargo run`.
+1. Visit <http://localhost:8080> and you will see a list of available OData services.
+1. Select the desired service and you will then see a list of that service's collections.
+1. Select the Collection to see the data it contains.
 
-Visit <http://localhost:8080> and you will see a simple drop down list containing the entity sets available on the `GWSAMPLE_BASIC` OData service.
-
-![Start screen](./img/start_screen.png)
-
-Select the desired entity set and the first 100 entries will be displayed in plain text.
-This output comes from the Rust `println!()` macro printing the Rust `struct` into which the entity set data has been parsed.
-
-## Known Issues/Workarounds
-
-### Invalid ETag Attribute Values
-
-When calling the SAP demo OData service `GWSAMPLE_BASIC`, various entity sets (such as `BusinessPartnerSet` and `ProductSet`) return `<entry>` tags whose `m:etag` attribute contains a value that is not in valid XML format.
-
-The raw XML will contain `m:etag` attributes with values like this:
-
-```xml
-<entry m:etag="W/"datetime'2023-08-31T01%3A00%3A06.0000000'"">
-```
-
-The extra `"W/` characters at the start and the extra `"` character at the end are invalid XML and may cause an XML parser to throw its toys out of the pram.
-So, before parsing the raw string containing this XML, such invalid values are checked for and removed.
-
-In this case, the above `m:etag` value is sanitised to:
-
-```xml
-<entry m:etag="datetime'2023-08-31T01%3A00%3A06.0000000'">
-```
-
-### Naked Ampersand Characters
-
-Certain text descriptions are provided that contain an unescaped (or naked) ampersand character.
-For example:
-
-```xml
-<d:Category>PDAs & Organizers</d:Category>
-<d:Landx>St Kitts&Nevis</d:Landx>
-```
-
-In order to stop the XML parser from barfing, this character must be replaced with its character encoding:
-
-```xml
-<d:Category>PDAs &amp; Organizers</d:Category>
-<d:Landx>St Kitts&amp;Nevis</d:Landx>
-```
+***WARING***<br>
+Some Collections listed in the OData service document return `HTTP 404 Not Found`, such as `Project Service V2/Users`

@@ -1,213 +1,468 @@
-pub mod auth;
-pub mod err_handlers;
+mod auth;
+mod html;
+mod odata_services;
 
-use crate::{auth::fetch_auth, err_handlers::error_handlers};
-use parse_sap_atom_feed::{atom::feed::Feed, odata_error::ODataError, xml::sanitise_xml};
-
-use actix_web::{
-    error, get,
-    http::{header::ContentType, StatusCode},
-    middleware, web, App, Error, HttpResponse, HttpServer, Result,
+use crate::{
+    html::gen_page,
+    odata_services::{find_service, SERVICES},
 };
-use serde_json::json;
-use std::{
-    collections::HashMap,
-    str::{self, FromStr},
-};
-use tinytemplate::TinyTemplate;
 
-parse_sap_odata::include_mod!("gwsample_basic");
-parse_sap_odata::include_mod!("gwsample_basic_metadata");
+use actix_web::{get, middleware, web, App, HttpResponse, HttpServer, Responder};
+use parse_sap_atom_feed::atom::{feed::Feed, service::AtomService};
+use reqwest::Client;
+use std::{process::exit, str::FromStr};
 
-use gwsample_basic::*;
-// use gwsample_basic_metadata::*;
+parse_sap_odata::include_mod!("service_project_service_v2");
+parse_sap_odata::include_mod!("service_project_service_v2_metadata");
+parse_sap_odata::include_mod!("service_project_partner_service_v2");
+parse_sap_odata::include_mod!("service_project_partner_service_v2_metadata");
+parse_sap_odata::include_mod!("public_api_digital_twin_service");
+parse_sap_odata::include_mod!("public_api_digital_twin_service_metadata");
+parse_sap_odata::include_mod!("business_partner_network_public_api_business_partner_service");
+parse_sap_odata::include_mod!(
+    "business_partner_network_public_api_business_partner_service_metadata"
+);
 
-static INDEX: &str = include_str!("../html/index.html");
-static HOST_PATH: &[u8] = "https://sapes5.sapdevcenter.com/sap/opu/odata/iwbep".as_bytes();
-static SERVICE_NAME: &[u8] = "GWSAMPLE_BASIC".as_bytes();
-
-static TOP_LIMIT: usize = 250;
-
-// ---------------------------------------------------------------------------------------------------------------------
-// Serve document root
-// ---------------------------------------------------------------------------------------------------------------------
-async fn doc_root(
-    tmpl: web::Data<TinyTemplate<'_>>,
-    _query: web::Query<HashMap<String, String>>,
-) -> Result<HttpResponse, Error> {
-    let ctx = json!({
-      "service_name": str::from_utf8(SERVICE_NAME)?,
-      "option_list": GwsampleBasicEntities::variant_names()
-    });
-
-    let body = tmpl
-        .render("index.html", &ctx)
-        .map_err(|err| error::ErrorInternalServerError(format!("Template error\n{}", err)))?;
-
-    Ok(HttpResponse::build(StatusCode::OK)
-        .content_type("text/html; charset=utf-8")
-        .body(body))
-}
-
-fn parse_odata_error(raw_xml: &str) -> String {
-    match ODataError::from_str(&raw_xml) {
-        Ok(odata_error) => format!("{:#?}", odata_error),
-        Err(e) => format!("{:#?}", e),
-    }
-}
-
-fn parse_xml(es_name: &str, xml: &str) -> String {
-    match es_name {
-        "BusinessPartnerSet" => match Feed::<BusinessPartner>::from_str(&xml) {
-            Ok(parsed_feed) => format!("{parsed_feed:#?}"),
-            Err(e) => format!("Error: {e:?}"),
-        },
-        "ProductSet" => match Feed::<Product>::from_str(&xml) {
-            Ok(parsed_feed) => format!("{parsed_feed:#?}"),
-            Err(e) => format!("Error: {e:?}"),
-        },
-        "SalesOrderSet" => match Feed::<SalesOrder>::from_str(&xml) {
-            Ok(parsed_feed) => format!("{parsed_feed:#?}"),
-            Err(e) => format!("Error: {e:?}"),
-        },
-        "SalesOrderLineItemSet" => match Feed::<SalesOrderLineItem>::from_str(&xml) {
-            Ok(parsed_feed) => format!("{parsed_feed:#?}"),
-            Err(e) => format!("Error: {e:?}"),
-        },
-        "ContactSet" => match Feed::<Contact>::from_str(&xml) {
-            Ok(parsed_feed) => format!("{parsed_feed:#?}"),
-            Err(e) => format!("Error: {e:?}"),
-        },
-        "VH_SexSet" => match Feed::<VhSex>::from_str(&xml) {
-            Ok(parsed_feed) => format!("{parsed_feed:#?}"),
-            Err(e) => format!("Error: {e:?}"),
-        },
-        "VH_CountrySet" => match Feed::<VhCountry>::from_str(&xml) {
-            Ok(parsed_feed) => format!("{parsed_feed:#?}"),
-            Err(e) => format!("Error: {e:?}"),
-        },
-        "VH_AddressTypeSet" => match Feed::<VhAddressType>::from_str(&xml) {
-            Ok(parsed_feed) => format!("{parsed_feed:#?}"),
-            Err(e) => format!("Error: {e:?}"),
-        },
-        "VH_CategorySet" => match Feed::<VhCategory>::from_str(&xml) {
-            Ok(parsed_feed) => format!("{parsed_feed:#?}"),
-            Err(e) => format!("Error: {e:?}"),
-        },
-        "VH_CurrencySet" => match Feed::<VhCurrency>::from_str(&xml) {
-            Ok(parsed_feed) => format!("{parsed_feed:#?}"),
-            Err(e) => format!("Error: {e:?}"),
-        },
-        "VH_UnitQuantitySet" => match Feed::<VhUnitQuantity>::from_str(&xml) {
-            Ok(parsed_feed) => format!("{parsed_feed:#?}"),
-            Err(e) => format!("Error: {e:?}"),
-        },
-        "VH_UnitWeightSet" => match Feed::<VhUnitWeight>::from_str(&xml) {
-            Ok(parsed_feed) => format!("{parsed_feed:#?}"),
-            Err(e) => format!("Error: {e:?}"),
-        },
-        "VH_UnitLengthSet" => match Feed::<VhUnitLength>::from_str(&xml) {
-            Ok(parsed_feed) => format!("{parsed_feed:#?}"),
-            Err(e) => format!("Error: {e:?}"),
-        },
-        "VH_ProductTypeCodeSet" => match Feed::<VhProductTypeCode>::from_str(&xml) {
-            Ok(parsed_feed) => format!("{parsed_feed:#?}"),
-            Err(e) => format!("Error: {e:?}"),
-        },
-        "VH_BPRoleSet" => match Feed::<VhBpRole>::from_str(&xml) {
-            Ok(parsed_feed) => format!("{parsed_feed:#?}"),
-            Err(e) => format!("Error: {e:?}"),
-        },
-        "VH_LanguageSet" => match Feed::<VhLanguage>::from_str(&xml) {
-            Ok(parsed_feed) => format!("{parsed_feed:#?}"),
-            Err(e) => format!("Error: {e:?}"),
-        },
-
-        _ => format!("Error: invalid entity set name '{}'", es_name),
-    }
-}
-
-// ---------------------------------------------------------------------------------------------------------------------
-// Serve entity set contents
-// ---------------------------------------------------------------------------------------------------------------------
-#[get("/{entity_set_name}")]
-async fn entity_set(path: web::Path<String>) -> Result<HttpResponse, Error> {
-    let client = reqwest::Client::new();
-    let entity_set_name = path.into_inner();
-
-    println!("GET: /{}", entity_set_name);
-
-    if !GwsampleBasicEntities::variant_names().contains(&&entity_set_name[..]) {
-        return Ok(HttpResponse::NotFound().finish());
-    }
-
-    let http_response = match fetch_auth() {
-        Ok(auth_chars) => {
-            let url = format!(
-                "{}/{}/{}?$top={TOP_LIMIT}",
-                str::from_utf8(HOST_PATH)?,
-                str::from_utf8(SERVICE_NAME)?,
-                entity_set_name
-            );
-            log::info!("Fetching URL {}", url);
-
-            match client
-                .get(url)
-                .header("Authorization", format!("Basic {}", auth_chars))
-                .send()
-                .await
-            {
-                Ok(response) => {
-                    let http_status_code = response.status();
-                    log::info!("HTTP Status code = {}", http_status_code);
-
-                    let raw_xml = response.text().await.unwrap();
-                    // log::info!("Raw XML response\n{}", raw_xml);
-
-                    let response_body = match http_status_code {
-                        reqwest::StatusCode::OK => {
-                            parse_xml(&entity_set_name, &sanitise_xml(String::from(raw_xml)))
-                        }
-                        _ => parse_odata_error(&raw_xml),
-                    };
-
-                    HttpResponse::Ok()
-                        .content_type(ContentType::plaintext())
-                        .body(response_body)
-                }
-                Err(err) => HttpResponse::BadRequest().body(format!("{:#?}", err)),
-            }
-        }
-        Err(err) => HttpResponse::BadRequest().body(format!("{:#?}", err)),
-    };
-
-    Ok(http_response)
-}
-
-// ---------------------------------------------------------------------------------------------------------------------
-// Start web server
-// ---------------------------------------------------------------------------------------------------------------------
-#[actix_web::main]
-async fn main() -> std::io::Result<()> {
-    env_logger::init_from_env(env_logger::Env::new().default_filter_or("info"));
-    log::info!("Starting HTTP server at http://0.0.0.0:8080");
-
-    HttpServer::new(|| {
-        let mut tt = TinyTemplate::new();
-        tt.add_template("index.html", INDEX).unwrap();
-
-        App::new()
-            .app_data(web::Data::new(tt))
-            .wrap(middleware::Logger::default())
-            .service(web::resource("/").route(web::get().to(doc_root)))
-            .service(entity_set)
-            .service(web::scope("").wrap(error_handlers()))
-    })
-    .bind(("0.0.0.0", 8080))?
-    .run()
-    .await
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Shared application state
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+struct AppState {
+    api_key: String,
+    client: Client,
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#[cfg(test)]
-pub mod unit_tests;
+// GET /  – Display OData service catalogue
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#[get("/")]
+async fn index() -> impl Responder {
+    let mut items = String::new();
+    for svc in SERVICES {
+        items.push_str(&format!(
+            "<li><a href=\"/service/{id}\">{name}</a></li>\n",
+            id = svc.id,
+            name = svc.display_name,
+        ));
+    }
+    let body = format!("<p>Select a service to browse its collections:</p><ul>{items}</ul>");
+    HttpResponse::Ok()
+        .content_type("text/html; charset=utf-8")
+        .body(gen_page("OData Services", &body))
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// GET /service/{svc} – Fetch service document for selected OData service
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#[get("/service/{svc}")]
+async fn service_index(state: web::Data<AppState>, path: web::Path<String>) -> impl Responder {
+    let svc_id = path.into_inner();
+    let Some(svc) = find_service(&svc_id) else {
+        return HttpResponse::NotFound()
+            .content_type("text/html; charset=utf-8")
+            .body(gen_page(
+                "Not Found",
+                "<p class=\"error\">Unknown service.</p>",
+            ));
+    };
+
+    match fetch_service_doc(&state.client, svc.base_url, &state.api_key).await {
+        Err(e) => {
+            let body = format!("<p class=\"error\">Failed to fetch service document: {e}</p>");
+            HttpResponse::InternalServerError()
+                .content_type("text/html; charset=utf-8")
+                .body(gen_page(svc.display_name, &body))
+        }
+        Ok(doc) => {
+            let base = &doc.base_url;
+            let mut items = String::new();
+            for col in &doc.workspace.collections {
+                items.push_str(&format!(
+                    "<li><a href=\"/service/{svc_id}/col/{href}\">{title}</a> \
+                     &nbsp;<small>({href})</small></li>\n",
+                    href = col.href,
+                    title = col.title,
+                ));
+            }
+            let body = format!(
+                "<a class=\"back\" href=\"/\">&#8592; Back to services</a>\
+                 <p>Base URL: <code>{base}</code></p>\
+                 <p>Collections:</p><ul>{items}</ul>"
+            );
+            HttpResponse::Ok()
+                .content_type("text/html; charset=utf-8")
+                .body(gen_page(svc.display_name, &body))
+        }
+    }
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// GET /service/{svc}/col/{name} – Fetch an OData collection from the selected service
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#[get("/service/{svc}/col/{name}")]
+async fn collection(
+    state: web::Data<AppState>,
+    path: web::Path<(String, String)>,
+) -> impl Responder {
+    let (svc_id, col_name) = path.into_inner();
+    let Some(svc) = find_service(&svc_id) else {
+        return HttpResponse::NotFound()
+            .content_type("text/html; charset=utf-8")
+            .body(gen_page(
+                "Not Found",
+                "<p class=\"error\">Unknown service.</p>",
+            ));
+    };
+
+    let url = format!("{}/{col_name}", svc.base_url);
+    match fetch_raw(&state.client, &url, &state.api_key, "application/atom+xml").await {
+        Err(e) => {
+            let body = format!("<p class=\"error\">Request failed: {e}</p>");
+            HttpResponse::InternalServerError()
+                .content_type("text/html; charset=utf-8")
+                .body(gen_page(&col_name, &body))
+        }
+        Ok(xml) => {
+            let body = render_collection(&svc_id, &col_name, &xml);
+            HttpResponse::Ok()
+                .content_type("text/html; charset=utf-8")
+                .body(gen_page(
+                    &format!("{} – {col_name}", svc.display_name),
+                    &body,
+                ))
+        }
+    }
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Dispatch (service, collection) → typed Feed parse → HTML table
+//
+// All types across OData services must be fully qualified to avoid name collisions
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+fn render_collection(svc_id: &str, col_name: &str, xml: &str) -> String {
+    let back =
+        format!("<a class=\"back\" href=\"/service/{svc_id}\">&#8592; Back to collections</a>");
+
+    let table = match (svc_id, col_name) {
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        // Project Service V2
+        ("project-service-v2", "GroupMemberships") => {
+            render_feed::<service_project_service_v2::GroupMemberships>(
+                xml,
+                &["groupMembershipId", "groupId", "businessPartnerId"],
+            )
+        }
+        ("project-service-v2", "Groups") => render_feed::<service_project_service_v2::Groups>(
+            xml,
+            &["groupId", "type", "projectId", "name", "description"],
+        ),
+        ("project-service-v2", "Users") => render_feed::<service_project_service_v2::Users>(
+            xml,
+            &[
+                "projectPartnerMembershipId",
+                "projectMembershipId",
+                "userRoleName",
+                "firstName",
+                "middleName",
+                "lastName",
+                "emailAddress",
+                "phoneNumber",
+                "projectId",
+                "businessPartnerId",
+                "country",
+                "cityName",
+                "postalCode",
+            ],
+        ),
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        // Business Partner Service
+        ("business-partner-service", "Companies") => {
+            render_feed::<business_partner_network_public_api_business_partner_service::Companies>(
+                xml,
+                &[
+                    "businessPartnerId",
+                    "cellPhoneNumber",
+                    "cityName",
+                    "country",
+                    "emailAddress",
+                    "faxNumber",
+                    "name1",
+                    "name2",
+                    "name3",
+                    "name4",
+                    "phoneNumber",
+                    "postalCode",
+                    "region",
+                    "streetName",
+                ],
+            )
+        }
+        ("business-partner-service", "Users") => {
+            render_feed::<business_partner_network_public_api_business_partner_service::Users>(
+                xml,
+                &[
+                    "businessPartnerId",
+                    "businessPartnerParentId",
+                    "cellPhoneNumber",
+                    "cityName",
+                    "country",
+                    "emailAddress",
+                    "faxNumber",
+                    "firstName",
+                    "lastName",
+                    "middleName",
+                    "phoneNumber",
+                    "postalCode",
+                    "region",
+                    "streetName",
+                ],
+            )
+        }
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        // Project Partner Service V2
+        ("project-partner-service-v2", "Users") => {
+            render_feed::<service_project_partner_service_v2::Users>(
+                xml,
+                &[
+                    "projectPartnerMembershipId",
+                    "projectMembershipId",
+                    "userRoleName",
+                    "firstName",
+                    "lastName",
+                    "emailAddress",
+                    "projectId",
+                    "businessPartnerId",
+                ],
+            )
+        }
+        ("project-partner-service-v2", "UserInvitations") => {
+            render_feed::<service_project_partner_service_v2::UserInvitations>(
+                xml,
+                &[
+                    "id",
+                    "projectId",
+                    "projectPartnerId",
+                    "status",
+                    "emailAddress",
+                    "userName",
+                ],
+            )
+        }
+        ("project-partner-service-v2", "Companies") => {
+            render_feed::<service_project_partner_service_v2::Companies>(
+                xml,
+                &[
+                    "projectPartnerId",
+                    "projectId",
+                    "businessPartnerId",
+                    "companyRoleName",
+                    "name1",
+                    "name2",
+                    "emailAddress",
+                    "country",
+                ],
+            )
+        }
+        ("project-partner-service-v2", "CompanyInvitations") => {
+            render_feed::<service_project_partner_service_v2::CompanyInvitations>(
+                xml,
+                &[
+                    "id",
+                    "projectId",
+                    "status",
+                    "emailAddress",
+                    "companyName",
+                    "companyRoleName",
+                ],
+            )
+        }
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        // Digital Twin Service
+        ("digital-twin-service", "DigitalTwins") => {
+            render_feed::<public_api_digital_twin_service::DigitalTwins>(
+                xml,
+                &[
+                    "digitalTwinId",
+                    "projectId",
+                    "name",
+                    "type",
+                    "description",
+                    "owner",
+                    "address",
+                ],
+            )
+        }
+        ("digital-twin-service", "DigitalTwinSourceDocuments") => {
+            render_feed::<public_api_digital_twin_service::DigitalTwinSourceDocuments>(
+                xml,
+                &[
+                    "id",
+                    "digitalTwinId",
+                    "projectId",
+                    "documentId",
+                    "importedTime",
+                ],
+            )
+        }
+        ("digital-twin-service", "DigitalTwinObjects") => {
+            render_feed::<public_api_digital_twin_service::DigitalTwinObjects>(
+                xml,
+                &["id", "digitalTwinId", "projectId", "globalId"],
+            )
+        }
+        ("digital-twin-service", "DigitalTwinModelVisualizations") => {
+            render_feed::<public_api_digital_twin_service::DigitalTwinModelVisualizations>(
+                xml,
+                &[
+                    "id",
+                    "digitalTwinId",
+                    "projectId",
+                    "discipline",
+                    "epdSceneId",
+                    "lod",
+                ],
+            )
+        }
+
+        _ => format!(
+            "<p class=\"error\">No type mapping for collection \
+             <em>{col_name}</em> in service <em>{svc_id}</em>.</p>"
+        ),
+    };
+
+    format!("{back}{table}")
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Generic helper: parse Feed<T>, serialise properties to JSON for table output
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+fn render_feed<T>(xml: &str, columns: &[&str]) -> String
+where
+    T: serde::de::DeserializeOwned + serde::Serialize,
+{
+    let feed = match Feed::<T>::from_str(xml) {
+        Ok(f) => f,
+        Err(e) => return format!("<p class=\"error\">Parse error: {e}</p>"),
+    };
+
+    let entries = match feed.entries {
+        Some(e) if !e.is_empty() => e,
+        _ => return "<p>No entries found.</p>".to_string(),
+    };
+
+    let mut header = String::from("<tr>");
+    for col in columns {
+        header.push_str(&format!("<th>{col}</th>"));
+    }
+    header.push_str("</tr>");
+
+    let mut rows = String::new();
+    for entry in &entries {
+        let props_ref = entry
+            .content
+            .properties
+            .as_ref()
+            .or(entry.properties.as_ref());
+
+        let Some(props) = props_ref else {
+            rows.push_str("<tr><td colspan=\"100\"><em>(no properties)</em></td></tr>");
+            continue;
+        };
+
+        let map = match serde_json::to_value(props) {
+            Ok(serde_json::Value::Object(m)) => m,
+            _ => {
+                rows.push_str("<tr><td colspan=\"100\"><em>(serialisation error)</em></td></tr>");
+                continue;
+            }
+        };
+
+        rows.push_str("<tr>");
+        for col in columns {
+            let cell = map
+                .get(*col)
+                .map(|v| match v {
+                    serde_json::Value::String(s) => s.clone(),
+                    serde_json::Value::Null => String::new(),
+                    other => other.to_string(),
+                })
+                .unwrap_or_default();
+            rows.push_str(&format!("<td>{cell}</td>"));
+        }
+        rows.push_str("</tr>");
+    }
+
+    format!("<table>{header}{rows}</table>")
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// HTTP helpers
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+async fn fetch_service_doc(
+    client: &Client,
+    base_url: &str,
+    api_key: &str,
+) -> Result<AtomService, String> {
+    let xml = fetch_raw(client, base_url, api_key, "application/atomsvc+xml").await?;
+    AtomService::from_str(&xml).map_err(|e| {
+        log::error!("Service document parse error: {e}\nRaw XML:\n{xml}");
+        e.to_string()
+    })
+}
+
+async fn fetch_raw(
+    client: &Client,
+    url: &str,
+    api_key: &str,
+    accept: &str,
+) -> Result<String, String> {
+    let resp = client
+        .get(url)
+        .header("apikey", api_key)
+        .header("Accept", accept)
+        .send()
+        .await
+        .map_err(|e| e.to_string())?;
+
+    if !resp.status().is_success() {
+        return Err(format!("HTTP {}", resp.status()));
+    }
+
+    resp.text().await.map_err(|e| e.to_string())
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Entry point
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#[actix_web::main]
+async fn main() -> std::io::Result<()> {
+    env_logger::init_from_env(env_logger::Env::default().default_filter_or("info"));
+
+    let api_key = auth::fetch_auth().unwrap_or_else(|err_txt| {
+        eprintln!("{err_txt}");
+        exit(1);
+    });
+
+    let client = Client::builder()
+        .build()
+        .expect("failed to build HTTP client");
+
+    let state = web::Data::new(AppState { api_key, client });
+
+    let addr = "127.0.0.1:8080";
+    log::info!("Starting HTTP server at http://{addr}");
+
+    HttpServer::new(move || {
+        App::new()
+            .app_data(state.clone())
+            .wrap(middleware::Logger::default())
+            .service(index)
+            .service(service_index)
+            .service(collection)
+    })
+    .bind(addr)?
+    .run()
+    .await
+}

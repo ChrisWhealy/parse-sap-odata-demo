@@ -1,22 +1,22 @@
 [package]
 name = "parse-sap-odata-demo"
-edition = "2021"
-version = "0.1.10"
+edition = "2024"
+version = "0.2.0"
 authors = ["Chris Whealy <chris@whealy.com>"]
-description = "Minimal demo app that consumes the SAP OData service GWSAMPLE_BASIC"
-keywords = ["odata", "sap", "parser", "opendata", "gwsample_basic"]
+description = "Demo app that consumes OData V2 services from SAP's API sandbox"
+keywords = ["odata", "sap", "parser", "opendata", "api"]
 repository = "https://github.com/ChrisWhealy/parse-sap-odata-demo"
 license = "MIT"
 
 [build-dependencies]
-parse-sap-odata = { version = "1.4", features = ["parser"]}
+parse-sap-odata = { version = "1.6", features = ["parser"]}
 #parse-sap-odata = { path = "../parse-sap-odata", features = ["parser"]}
 
 [dependencies]
-#parse-sap-odata = { path = "../parse-sap-odata"}
+parse-sap-odata = { version = "1.6", features = ["parser"]}
+#parse-sap-odata = { path = "../parse-sap-odata", features = ["parser"]}
+parse-sap-atom-feed = "1.3"
 #parse-sap-atom-feed = { path = "../parse-sap-atom-feed" }
-parse-sap-odata = "1.4"
-parse-sap-atom-feed = "1.2"
 
 # parse-sap-odata's fixed dependencies
 serde = { version = "1.0", features = ["derive"] }
@@ -28,9 +28,7 @@ rust_decimal = "1.40"
 uuid = { version = "1.22", features = ["serde"]}
 
 actix-web = "4.13"
-base64 = "0.22"
 env_logger = "0.11"
 log = "0.4"
 reqwest = { version = "0.13", features = ["json"]}
 serde_json = "1.0"
-tinytemplate = "1.2"

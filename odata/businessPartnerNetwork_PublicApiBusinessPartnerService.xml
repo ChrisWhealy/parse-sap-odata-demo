@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Alias="Capabilities" Namespace="Org.OData.Capabilities.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="businessPartnerNetwork.PublicApiBusinessPartnerService" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.Links" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Collection>
+                    <Record>
+                        <PropertyValue Property="rel" String="author"/>
+                        <PropertyValue Property="href" String="https://cap.cloud.sap"/>
+                    </Record>
+                </Collection>
+            </Annotation>
+            <EntityContainer Name="EntityContainer" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="Companies" EntityType="businessPartnerNetwork.PublicApiBusinessPartnerService.Companies"/>
+                <EntitySet Name="Users" EntityType="businessPartnerNetwork.PublicApiBusinessPartnerService.Users"/>
+                <AssociationSet Name="Companies_toUsers" Association="businessPartnerNetwork.PublicApiBusinessPartnerService.Companies_toUsers">
+                    <End Role="Companies" EntitySet="Companies"/>
+                    <End Role="Users" EntitySet="Users"/>
+                </AssociationSet>
+                <AssociationSet Name="Users_toCompany" Association="businessPartnerNetwork.PublicApiBusinessPartnerService.Users_toCompany">
+                    <End Role="Users" EntitySet="Users"/>
+                    <End Role="Companies" EntitySet="Companies"/>
+                </AssociationSet>
+            </EntityContainer>
+            <EntityType Name="Companies">
+                <Key>
+                    <PropertyRef Name="businessPartnerId"/>
+                </Key>
+                <Property Name="businessPartnerId" Type="Edm.String" MaxLength="40" Nullable="false"/>
+                <Property Name="name1" Type="Edm.String" MaxLength="225"/>
+                <Property Name="name2" Type="Edm.String" MaxLength="225"/>
+                <Property Name="name3" Type="Edm.String" MaxLength="225"/>
+                <Property Name="name4" Type="Edm.String" MaxLength="225"/>
+                <Property Name="emailAddress" Type="Edm.String" MaxLength="256"/>
+                <Property Name="phoneNumber" Type="Edm.String" MaxLength="132"/>
+                <Property Name="cellPhoneNumber" Type="Edm.String" MaxLength="132"/>
+                <Property Name="faxNumber" Type="Edm.String" MaxLength="132"/>
+                <Property Name="country" Type="Edm.String" MaxLength="128"/>
+                <Property Name="region" Type="Edm.String" MaxLength="128"/>
+                <Property Name="cityName" Type="Edm.String" MaxLength="256"/>
+                <Property Name="postalCode" Type="Edm.String" MaxLength="40"/>
+                <Property Name="streetName" Type="Edm.String" MaxLength="256"/>
+                <NavigationProperty Name="toUsers" Relationship="businessPartnerNetwork.PublicApiBusinessPartnerService.Companies_toUsers" FromRole="Companies" ToRole="Users"/>
+            </EntityType>
+            <EntityType Name="Users">
+                <Key>
+                    <PropertyRef Name="businessPartnerId"/>
+                </Key>
+                <Property Name="businessPartnerId" Type="Edm.String" MaxLength="40" Nullable="false"/>
+                <Property Name="businessPartnerParentId" Type="Edm.String"/>
+                <Property Name="firstName" Type="Edm.String" MaxLength="225"/>
+                <Property Name="middleName" Type="Edm.String" MaxLength="225"/>
+                <Property Name="lastName" Type="Edm.String" MaxLength="225"/>
+                <Property Name="emailAddress" Type="Edm.String" MaxLength="256"/>
+                <Property Name="phoneNumber" Type="Edm.String" MaxLength="132"/>
+                <Property Name="cellPhoneNumber" Type="Edm.String" MaxLength="132"/>
+                <Property Name="faxNumber" Type="Edm.String" MaxLength="132"/>
+                <Property Name="country" Type="Edm.String" MaxLength="40"/>
+                <Property Name="region" Type="Edm.String" MaxLength="40"/>
+                <Property Name="cityName" Type="Edm.String" MaxLength="40"/>
+                <Property Name="postalCode" Type="Edm.String" MaxLength="40"/>
+                <Property Name="streetName" Type="Edm.String" MaxLength="128"/>
+                <NavigationProperty Name="toCompany" Relationship="businessPartnerNetwork.PublicApiBusinessPartnerService.Users_toCompany" FromRole="Users" ToRole="Companies"/>
+            </EntityType>
+            <Association Name="Companies_toUsers">
+                <End Role="Companies" Type="businessPartnerNetwork.PublicApiBusinessPartnerService.Companies" Multiplicity="*"/>
+                <End Role="Users" Type="businessPartnerNetwork.PublicApiBusinessPartnerService.Users" Multiplicity="*"/>
+            </Association>
+            <Association Name="Users_toCompany">
+                <End Role="Users" Type="businessPartnerNetwork.PublicApiBusinessPartnerService.Users" Multiplicity="*"/>
+                <End Role="Companies" Type="businessPartnerNetwork.PublicApiBusinessPartnerService.Companies" Multiplicity="0..1"/>
+                <ReferentialConstraint>
+                    <Principal Role="Companies">
+                        <PropertyRef Name="businessPartnerId"/>
+                    </Principal>
+                    <Dependent Role="Users">
+                        <PropertyRef Name="businessPartnerParentId"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Annotations Target="businessPartnerNetwork.PublicApiBusinessPartnerService.EntityContainer" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.Description" String="This service is used to provide a public API for BusinessPartnerService"/>
+            </Annotations>
+            <Annotations Target="businessPartnerNetwork.PublicApiBusinessPartnerService.EntityContainer/Companies" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="businessPartnerNetwork.PublicApiBusinessPartnerService.EntityContainer/Users" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="businessPartnerNetwork.PublicApiBusinessPartnerService.Users/country" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="businessPartnerNetwork.PublicApiBusinessPartnerService.Users/region" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="businessPartnerNetwork.PublicApiBusinessPartnerService.Users/cityName" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="businessPartnerNetwork.PublicApiBusinessPartnerService.Users/postalCode" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="businessPartnerNetwork.PublicApiBusinessPartnerService.Users/streetName" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

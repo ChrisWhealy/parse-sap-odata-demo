@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Alias="Capabilities" Namespace="Org.OData.Capabilities.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="publicApi.DigitalTwinService" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.Links" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Collection>
+                    <Record>
+                        <PropertyValue Property="rel" String="author"/>
+                        <PropertyValue Property="href" String="https://cap.cloud.sap"/>
+                    </Record>
+                </Collection>
+            </Annotation>
+            <EntityContainer Name="EntityContainer" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="DigitalTwins" EntityType="publicApi.DigitalTwinService.DigitalTwins"/>
+                <EntitySet Name="DigitalTwinSourceDocuments" EntityType="publicApi.DigitalTwinService.DigitalTwinSourceDocuments"/>
+                <EntitySet Name="DigitalTwinObjects" EntityType="publicApi.DigitalTwinService.DigitalTwinObjects"/>
+                <EntitySet Name="DigitalTwinModelVisualizations" EntityType="publicApi.DigitalTwinService.DigitalTwinModelVisualizations"/>
+                <AssociationSet Name="DigitalTwins_toDigitalTwinSourceDocuments" Association="publicApi.DigitalTwinService.DigitalTwins_toDigitalTwinSourceDocuments">
+                    <End Role="DigitalTwins" EntitySet="DigitalTwins"/>
+                    <End Role="DigitalTwinSourceDocuments" EntitySet="DigitalTwinSourceDocuments"/>
+                </AssociationSet>
+                <AssociationSet Name="DigitalTwins_toDigitalTwinObjects" Association="publicApi.DigitalTwinService.DigitalTwins_toDigitalTwinObjects">
+                    <End Role="DigitalTwins" EntitySet="DigitalTwins"/>
+                    <End Role="DigitalTwinObjects" EntitySet="DigitalTwinObjects"/>
+                </AssociationSet>
+                <AssociationSet Name="DigitalTwins_toDigitalTwinModelVisualizations" Association="publicApi.DigitalTwinService.DigitalTwins_toDigitalTwinModelVisualizations">
+                    <End Role="DigitalTwins" EntitySet="DigitalTwins"/>
+                    <End Role="DigitalTwinModelVisualizations" EntitySet="DigitalTwinModelVisualizations"/>
+                </AssociationSet>
+                <AssociationSet Name="DigitalTwinModelVisualizations_toDigitalTwinSourceDocuments" Association="publicApi.DigitalTwinService.DigitalTwinModelVisualizations_toDigitalTwinSourceDocuments">
+                    <End Role="DigitalTwinModelVisualizations" EntitySet="DigitalTwinModelVisualizations"/>
+                    <End Role="DigitalTwinSourceDocuments" EntitySet="DigitalTwinSourceDocuments"/>
+                </AssociationSet>
+            </EntityContainer>
+            <EntityType Name="DigitalTwins">
+                <Key>
+                    <PropertyRef Name="digitalTwinId"/>
+                    <PropertyRef Name="projectId"/>
+                </Key>
+                <Property Name="digitalTwinId" Type="Edm.String" MaxLength="42" Nullable="false"/>
+                <Property Name="projectId" Type="Edm.String" MaxLength="42" Nullable="false"/>
+                <Property Name="name" Type="Edm.String" MaxLength="255"/>
+                <Property Name="externalId" Type="Edm.String" MaxLength="40"/>
+                <Property Name="description" Type="Edm.String" MaxLength="1000"/>
+                <Property Name="type" Type="Edm.String" MaxLength="30"/>
+                <Property Name="address" Type="Edm.String" MaxLength="2000"/>
+                <Property Name="geolocation" Type="Edm.String" MaxLength="2000"/>
+                <Property Name="owner" Type="Edm.String" MaxLength="255"/>
+                <Property Name="createdOn" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="modifiedOn" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+                <NavigationProperty Name="toDigitalTwinSourceDocuments" Relationship="publicApi.DigitalTwinService.DigitalTwins_toDigitalTwinSourceDocuments" FromRole="DigitalTwins" ToRole="DigitalTwinSourceDocuments"/>
+                <NavigationProperty Name="toDigitalTwinObjects" Relationship="publicApi.DigitalTwinService.DigitalTwins_toDigitalTwinObjects" FromRole="DigitalTwins" ToRole="DigitalTwinObjects"/>
+                <NavigationProperty Name="toDigitalTwinModelVisualizations" Relationship="publicApi.DigitalTwinService.DigitalTwins_toDigitalTwinModelVisualizations" FromRole="DigitalTwins" ToRole="DigitalTwinModelVisualizations"/>
+            </EntityType>
+            <EntityType Name="DigitalTwinSourceDocuments">
+                <Key>
+                    <PropertyRef Name="id"/>
+                </Key>
+                <Property Name="id" Type="Edm.String" MaxLength="42" Nullable="false"/>
+                <Property Name="digitalTwinId" Type="Edm.String" MaxLength="42"/>
+                <Property Name="projectId" Type="Edm.String" MaxLength="42"/>
+                <Property Name="documentVersionSeriesId" Type="Edm.String" MaxLength="100"/>
+                <Property Name="documentId" Type="Edm.String" MaxLength="100"/>
+                <Property Name="importedTime" Type="Edm.DateTimeOffset" Precision="7"/>
+            </EntityType>
+            <EntityType Name="DigitalTwinObjects">
+                <Key>
+                    <PropertyRef Name="id"/>
+                </Key>
+                <Property Name="id" Type="Edm.String" MaxLength="42" Nullable="false"/>
+                <Property Name="digitalTwinId" Type="Edm.String" MaxLength="42"/>
+                <Property Name="projectId" Type="Edm.String" MaxLength="42"/>
+                <Property Name="globalId" Type="Edm.String" MaxLength="100"/>
+            </EntityType>
+            <EntityType Name="DigitalTwinModelVisualizations">
+                <Key>
+                    <PropertyRef Name="id"/>
+                </Key>
+                <Property Name="id" Type="Edm.String" MaxLength="42" Nullable="false"/>
+                <Property Name="digitalTwinId" Type="Edm.String" MaxLength="42"/>
+                <Property Name="projectId" Type="Edm.String" MaxLength="42"/>
+                <Property Name="lod" Type="Edm.Int32"/>
+                <Property Name="discipline" Type="Edm.String" MaxLength="64"/>
+                <Property Name="epdVisualizationId" Type="Edm.String" MaxLength="10"/>
+                <Property Name="epdSceneId" Type="Edm.String" MaxLength="10"/>
+                <NavigationProperty Name="toDigitalTwinSourceDocuments" Relationship="publicApi.DigitalTwinService.DigitalTwinModelVisualizations_toDigitalTwinSourceDocuments" FromRole="DigitalTwinModelVisualizations" ToRole="DigitalTwinSourceDocuments"/>
+            </EntityType>
+            <Association Name="DigitalTwins_toDigitalTwinSourceDocuments">
+                <End Role="DigitalTwins" Type="publicApi.DigitalTwinService.DigitalTwins" Multiplicity="*"/>
+                <End Role="DigitalTwinSourceDocuments" Type="publicApi.DigitalTwinService.DigitalTwinSourceDocuments" Multiplicity="*"/>
+            </Association>
+            <Association Name="DigitalTwins_toDigitalTwinObjects">
+                <End Role="DigitalTwins" Type="publicApi.DigitalTwinService.DigitalTwins" Multiplicity="*"/>
+                <End Role="DigitalTwinObjects" Type="publicApi.DigitalTwinService.DigitalTwinObjects" Multiplicity="*"/>
+            </Association>
+            <Association Name="DigitalTwins_toDigitalTwinModelVisualizations">
+                <End Role="DigitalTwins" Type="publicApi.DigitalTwinService.DigitalTwins" Multiplicity="*"/>
+                <End Role="DigitalTwinModelVisualizations" Type="publicApi.DigitalTwinService.DigitalTwinModelVisualizations" Multiplicity="*"/>
+            </Association>
+            <Association Name="DigitalTwinModelVisualizations_toDigitalTwinSourceDocuments">
+                <End Role="DigitalTwinModelVisualizations" Type="publicApi.DigitalTwinService.DigitalTwinModelVisualizations" Multiplicity="*"/>
+                <End Role="DigitalTwinSourceDocuments" Type="publicApi.DigitalTwinService.DigitalTwinSourceDocuments" Multiplicity="0..1"/>
+                <ReferentialConstraint>
+                    <Principal Role="DigitalTwinSourceDocuments">
+                        <PropertyRef Name="id"/>
+                    </Principal>
+                    <Dependent Role="DigitalTwinModelVisualizations">
+                        <PropertyRef Name="id"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Annotations Target="publicApi.DigitalTwinService.DigitalTwins/digitalTwinId" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="publicApi.DigitalTwinService.DigitalTwins/projectId" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.Immutable" Bool="true"/>
+            </Annotations>
+            <Annotations Target="publicApi.DigitalTwinService.DigitalTwins/externalId" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.Immutable" Bool="true"/>
+            </Annotations>
+            <Annotations Target="publicApi.DigitalTwinService.DigitalTwins/createdOn" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="Creation Time"/>
+                <Annotation Term="Common.Label" String="Creation Time"/>
+            </Annotations>
+            <Annotations Target="publicApi.DigitalTwinService.DigitalTwins/createdBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="Created By"/>
+                <Annotation Term="Common.Label" String="Created By"/>
+            </Annotations>
+            <Annotations Target="publicApi.DigitalTwinService.DigitalTwins/modifiedOn" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="Changed Time"/>
+                <Annotation Term="Common.Label" String="Changed Time"/>
+            </Annotations>
+            <Annotations Target="publicApi.DigitalTwinService.DigitalTwins/modifiedBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="Changed By"/>
+                <Annotation Term="Common.Label" String="Changed By"/>
+            </Annotations>
+            <Annotations Target="publicApi.DigitalTwinService.EntityContainer/DigitalTwinSourceDocuments" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="publicApi.DigitalTwinService.DigitalTwinSourceDocuments/id" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="publicApi.DigitalTwinService.DigitalTwinSourceDocuments/importedTime" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="Changed Time"/>
+                <Annotation Term="Common.Label" String="Changed Time"/>
+            </Annotations>
+            <Annotations Target="publicApi.DigitalTwinService.EntityContainer/DigitalTwinObjects" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="publicApi.DigitalTwinService.DigitalTwinObjects/id" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="publicApi.DigitalTwinService.EntityContainer/DigitalTwinModelVisualizations" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="publicApi.DigitalTwinService.DigitalTwinModelVisualizations/id" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

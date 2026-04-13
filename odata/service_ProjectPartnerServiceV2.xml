@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Alias="Capabilities" Namespace="Org.OData.Capabilities.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="service.ProjectPartnerServiceV2" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.Links" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Collection>
+                    <Record>
+                        <PropertyValue Property="rel" String="author"/>
+                        <PropertyValue Property="href" String="https://cap.cloud.sap"/>
+                    </Record>
+                </Collection>
+            </Annotation>
+            <EntityContainer Name="EntityContainer" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="Users" EntityType="service.ProjectPartnerServiceV2.Users"/>
+                <EntitySet Name="UserInvitations" EntityType="service.ProjectPartnerServiceV2.UserInvitations"/>
+                <EntitySet Name="Companies" EntityType="service.ProjectPartnerServiceV2.Companies"/>
+                <EntitySet Name="CompanyInvitations" EntityType="service.ProjectPartnerServiceV2.CompanyInvitations"/>
+                <AssociationSet Name="Users_toCompany" Association="service.ProjectPartnerServiceV2.Users_toCompany">
+                    <End Role="Users" EntitySet="Users"/>
+                    <End Role="Companies" EntitySet="Companies"/>
+                </AssociationSet>
+            </EntityContainer>
+            <EntityType Name="Users">
+                <Key>
+                    <PropertyRef Name="projectPartnerMembershipId"/>
+                </Key>
+                <Property Name="projectPartnerMembershipId" Type="Edm.String" MaxLength="36" Nullable="false"/>
+                <Property Name="projectMembershipId" Type="Edm.String" MaxLength="36"/>
+                <Property Name="userRoleName" Type="Edm.String" MaxLength="255"/>
+                <Property Name="parentProjectPartnerId" Type="Edm.String" MaxLength="36"/>
+                <Property Name="parentCompanyRoleName" Type="Edm.String" MaxLength="255"/>
+                <Property Name="projectId" Type="Edm.String" MaxLength="36"/>
+                <Property Name="businessPartnerId" Type="Edm.String" MaxLength="36"/>
+                <Property Name="businessPartnerParentId" Type="Edm.String" MaxLength="36"/>
+                <Property Name="firstName" Type="Edm.String" MaxLength="225"/>
+                <Property Name="middleName" Type="Edm.String" MaxLength="225"/>
+                <Property Name="lastName" Type="Edm.String" MaxLength="225"/>
+                <Property Name="emailAddress" Type="Edm.String" MaxLength="256"/>
+                <Property Name="phoneNumber" Type="Edm.String" MaxLength="132"/>
+                <Property Name="cellPhoneNumber" Type="Edm.String" MaxLength="132"/>
+                <Property Name="faxNumber" Type="Edm.String" MaxLength="132"/>
+                <Property Name="country" Type="Edm.String" MaxLength="40"/>
+                <Property Name="region" Type="Edm.String" MaxLength="40"/>
+                <Property Name="cityName" Type="Edm.String" MaxLength="40"/>
+                <Property Name="postalCode" Type="Edm.String" MaxLength="40"/>
+                <Property Name="streetName" Type="Edm.String" MaxLength="128"/>
+                <NavigationProperty Name="toCompany" Relationship="service.ProjectPartnerServiceV2.Users_toCompany" FromRole="Users" ToRole="Companies"/>
+            </EntityType>
+            <EntityType Name="UserInvitations">
+                <Key>
+                    <PropertyRef Name="id"/>
+                </Key>
+                <Property Name="id" Type="Edm.String" MaxLength="36" Nullable="false"/>
+                <Property Name="projectId" Type="Edm.String" MaxLength="36"/>
+                <Property Name="emailAddress" Type="Edm.String" MaxLength="256"/>
+                <Property Name="userName" Type="Edm.String"/>
+                <Property Name="userBusinessPartnerId" Type="Edm.String" MaxLength="36"/>
+                <Property Name="companyBusinessPartnerId" Type="Edm.String" MaxLength="36"/>
+                <Property Name="companyRoleName" Type="Edm.String" MaxLength="255"/>
+                <Property Name="projectPartnerId" Type="Edm.String" MaxLength="36"/>
+                <Property Name="status" Type="Edm.String" MaxLength="20"/>
+            </EntityType>
+            <EntityType Name="Companies">
+                <Key>
+                    <PropertyRef Name="projectPartnerId"/>
+                </Key>
+                <Property Name="projectPartnerId" Type="Edm.String" MaxLength="36" Nullable="false"/>
+                <Property Name="projectMembershipId" Type="Edm.String" MaxLength="36"/>
+                <Property Name="companyRoleName" Type="Edm.String" MaxLength="255"/>
+                <Property Name="projectId" Type="Edm.String" MaxLength="36"/>
+                <Property Name="businessPartnerId" Type="Edm.String" MaxLength="36"/>
+                <Property Name="name1" Type="Edm.String" MaxLength="225"/>
+                <Property Name="name2" Type="Edm.String" MaxLength="225"/>
+                <Property Name="name3" Type="Edm.String" MaxLength="225"/>
+                <Property Name="name4" Type="Edm.String" MaxLength="225"/>
+                <Property Name="emailAddress" Type="Edm.String" MaxLength="256"/>
+                <Property Name="phoneNumber" Type="Edm.String" MaxLength="132"/>
+                <Property Name="cellPhoneNumber" Type="Edm.String" MaxLength="132"/>
+                <Property Name="faxNumber" Type="Edm.String" MaxLength="132"/>
+                <Property Name="country" Type="Edm.String" MaxLength="128"/>
+                <Property Name="region" Type="Edm.String" MaxLength="128"/>
+                <Property Name="cityName" Type="Edm.String" MaxLength="256"/>
+                <Property Name="postalCode" Type="Edm.String" MaxLength="40"/>
+                <Property Name="streetName" Type="Edm.String" MaxLength="256"/>
+                <NavigationProperty Name="toUsers" Relationship="service.ProjectPartnerServiceV2.Users_toCompany" FromRole="Companies" ToRole="Users"/>
+            </EntityType>
+            <EntityType Name="CompanyInvitations">
+                <Key>
+                    <PropertyRef Name="id"/>
+                </Key>
+                <Property Name="id" Type="Edm.String" MaxLength="36" Nullable="false"/>
+                <Property Name="companyBusinessPartnerId" Type="Edm.String" MaxLength="36"/>
+                <Property Name="companyName" Type="Edm.String"/>
+                <Property Name="companyRoleName" Type="Edm.String" MaxLength="255"/>
+                <Property Name="keyContactBusinessPartnerId" Type="Edm.String" MaxLength="36"/>
+                <Property Name="keyContactName" Type="Edm.String"/>
+                <Property Name="emailAddress" Type="Edm.String" MaxLength="256"/>
+                <Property Name="projectId" Type="Edm.String" MaxLength="36"/>
+                <Property Name="status" Type="Edm.String" MaxLength="20"/>
+            </EntityType>
+            <Association Name="Users_toCompany">
+                <End Role="Users" Type="service.ProjectPartnerServiceV2.Users" Multiplicity="*"/>
+                <End Role="Companies" Type="service.ProjectPartnerServiceV2.Companies" Multiplicity="0..1"/>
+                <ReferentialConstraint>
+                    <Principal Role="Companies">
+                        <PropertyRef Name="projectPartnerId"/>
+                    </Principal>
+                    <Dependent Role="Users">
+                        <PropertyRef Name="parentProjectPartnerId"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Annotations Target="service.ProjectPartnerServiceV2.EntityContainer" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.Description" String="This service is used to provide a public API for ProjectPartnerService"/>
+            </Annotations>
+            <Annotations Target="service.ProjectPartnerServiceV2.Users" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.Identification">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="name"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="service.ProjectPartnerServiceV2.EntityContainer/Users" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="service.ProjectPartnerServiceV2.Users/userRoleName" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Label" String="Name"/>
+            </Annotations>
+            <Annotations Target="service.ProjectPartnerServiceV2.Users/country" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="service.ProjectPartnerServiceV2.Users/region" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="service.ProjectPartnerServiceV2.Users/cityName" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="service.ProjectPartnerServiceV2.Users/postalCode" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="service.ProjectPartnerServiceV2.Users/streetName" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="service.ProjectPartnerServiceV2.UserInvitations" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.Identification">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="name"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="service.ProjectPartnerServiceV2.EntityContainer/UserInvitations" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.ReadRestrictions">
+                    <Record Type="Capabilities.ReadRestrictionsType">
+                        <PropertyValue Property="Readable" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="service.ProjectPartnerServiceV2.UserInvitations/userName" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.Computed" Bool="false"/>
+            </Annotations>
+            <Annotations Target="service.ProjectPartnerServiceV2.UserInvitations/userBusinessPartnerId" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.Computed" Bool="false"/>
+            </Annotations>
+            <Annotations Target="service.ProjectPartnerServiceV2.EntityContainer/Companies" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="service.ProjectPartnerServiceV2.EntityContainer/CompanyInvitations" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.ReadRestrictions">
+                    <Record Type="Capabilities.ReadRestrictionsType">
+                        <PropertyValue Property="Readable" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="service.ProjectPartnerServiceV2.CompanyInvitations/companyBusinessPartnerId" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.Computed" Bool="false"/>
+            </Annotations>
+            <Annotations Target="service.ProjectPartnerServiceV2.CompanyInvitations/companyName" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.Computed" Bool="false"/>
+            </Annotations>
+            <Annotations Target="service.ProjectPartnerServiceV2.CompanyInvitations/keyContactBusinessPartnerId" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.Computed" Bool="false"/>
+            </Annotations>
+            <Annotations Target="service.ProjectPartnerServiceV2.CompanyInvitations/keyContactName" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.Computed" Bool="false"/>
+            </Annotations>
+            <Annotations Target="service.ProjectPartnerServiceV2.CompanyInvitations/projectId" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
